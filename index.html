@@ -696,83 +696,28 @@
       .hero{padding-top:56px;}
       .search-area{flex-direction:column;}
       .services-featured{transform:none;}
-      .nav-inner{
-        min-height:86px;
-      }
-      .brand{
-        gap:14px;
-        padding:4px 10px 4px 8px;
-        margin-left:-6px;
-      }
-      .brand img{
-        width:52px;
-        height:52px;
-        border-radius:12px;
-      }
-      .lang-switcher{
-        display:flex;
-      }
-      .menu{
-        display:none;
-      }
-      .lang-btn{
-        padding:7px 10px;
-        min-width:42px;
-        font-size:.82rem;
-      }
+      .nav-inner{min-height:86px;}
+      .brand{gap:14px;padding:4px 10px 4px 8px;margin-left:-6px;}
+      .brand img{width:52px;height:52px;border-radius:12px;}
+      .menu{display:none;}
+      .lang-btn{padding:7px 10px;min-width:42px;font-size:.82rem;}
     }
 
     @media (max-width:900px) and (orientation:landscape){
-      .wrap{
-        max-width:1400px;
-        padding:0 32px;
-      }
-      .hero{
-        padding:42px 0 28px;
-        text-align:left;
-      }
+      .wrap{max-width:1400px;padding:0 32px;}
+      .hero{padding:42px 0 28px;text-align:left;}
       .hero .wrap{
         display:grid;
         grid-template-columns:1.1fr .9fr;
         align-items:center;
         gap:28px;
       }
-      .hero p,
-      .actions{
-        justify-content:flex-start;
-        margin-left:0;
-      }
-      .grid-3{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-      .services-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-      .card h3{
-        min-height:2.6em;
-      }
-      .card p{
-        min-height:4.2em;
-      }
-      .ebook-img{
-        aspect-ratio:3/4;
-      }
-      .title{
-        font-size:clamp(2.2rem,4vw,4rem);
-      }
-      .menu{
-        display:flex;
-      }
-      .nav-search{
-        display:flex;
-        max-width:300px;
-      }
-      .hamburger{
-        display:none;
-      }
-      .lang-switcher{
-        display:flex;
-      }
+      .hero p,.actions{justify-content:flex-start;margin-left:0;}
+      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .menu{display:flex;}
+      .nav-search{display:flex;max-width:300px;}
+      .hamburger{display:none;}
     }
   </style>
 </head>
@@ -861,7 +806,7 @@
             <li data-i18n="services.card1.li2">Formulaire de capture</li>
             <li data-i18n="services.card1.li3">Interface claire</li>
           </ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217" data-i18n="services.order">Commander</a>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-i18n="services.order">Commander</a>
         </div>
 
         <div class="services-card services-featured">
@@ -881,7 +826,7 @@
             <li data-i18n="services.card2.li2">Design premium</li>
             <li data-i18n="services.card2.li3">Bouton d’action visible</li>
           </ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217" data-i18n="services.order">Commander</a>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-i18n="services.order">Commander</a>
         </div>
 
         <div class="services-card">
@@ -901,7 +846,7 @@
             <li data-i18n="services.card3.li2">Image professionnelle</li>
             <li data-i18n="services.card3.li3">Structure propre</li>
           </ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217" data-i18n="services.order">Commander</a>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-i18n="services.order">Commander</a>
         </div>
 
         <div class="services-card services-featured">
@@ -922,7 +867,7 @@
             <li data-i18n="services.card4.li3">Site vitrine</li>
             <li data-i18n="services.card4.li4">Optimisation de base</li>
           </ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217" data-i18n="services.order">Commander</a>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20le%20pack%20BOOST%20ULTIME." data-i18n="services.order">Commander</a>
         </div>
       </div>
     </div>
@@ -988,7 +933,7 @@
         </article>
 
         <article class="card">
-          <img src="file_000000008bdc7246ae1a58f05786e6dc.png" alt="Reprendre le Contrôle de sa Vie" class="ebook-img" data-i18n-alt="ebooks.5.alt">
+          <img src="file_000000008bdc7246ae1a58f05786e6dc.jpeg" alt="Reprendre le Contrôle de sa Vie" class="ebook-img" data-i18n-alt="ebooks.5.alt">
           <div class="card-body">
             <h3 data-i18n="ebooks.5.title">Reprendre le Contrôle de sa Vie</h3>
             <p data-i18n="ebooks.5.desc">Un guide puissant pour retrouver l'équilibre, la discipline et la clarté dans ta vie quotidienne.</p>
@@ -1039,7 +984,7 @@
         <div class="pay-row" data-i18n="payment.number">Numéro Orange Money : <strong>+226 07190217</strong></div>
         <div class="pay-row" data-i18n="payment.note">Après paiement, clique sur <strong>J'ai payé</strong> pour m'envoyer une confirmation WhatsApp.</div>
         <div class="pay-actions">
-          <a href="https://wa.me/22607190217?text=J'ai%20payé%20un%20ebook%20de%20la%20Bibliothèque%20du%20Succès.%20Voici%20ma%20preuve." class="btn whats" data-i18n="payment.paid">J'ai payé</a>
+          <a href="https://wa.me/22607190217?text=J%27ai%20pay%C3%A9%20un%20ebook%20de%20la%20Biblioth%C3%A8que%20du%20Succ%C3%A8s.%20Voici%20ma%20preuve." class="btn whats" data-i18n="payment.paid">J'ai payé</a>
           <a href="https://wa.me/22607190217" class="btn btn-secondary" data-i18n="payment.question">Poser une question</a>
         </div>
       </div>
@@ -1320,7 +1265,6 @@
     });
 
     menuOverlay.addEventListener('click', closeMenu);
-
     mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
     document.addEventListener('keydown', (e) => {
