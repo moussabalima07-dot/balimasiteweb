@@ -180,24 +180,11 @@
       color:var(--gold2);
     }
 
-    .menu-open .mobile-menu{
-      opacity:1;
-      pointer-events:auto;
-      transform:translateY(0) scale(1);
-    }
-    .menu-open .menu-overlay{
-      opacity:1;
-      pointer-events:auto;
-    }
-    .menu-open .hamburger span:nth-child(1){
-      transform:translateY(7px) rotate(45deg);
-    }
-    .menu-open .hamburger span:nth-child(2){
-      opacity:0;
-    }
-    .menu-open .hamburger span:nth-child(3){
-      transform:translateY(-7px) rotate(-45deg);
-    }
+    .menu-open .mobile-menu{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
+    .menu-open .menu-overlay{opacity:1;pointer-events:auto;}
+    .menu-open .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .menu-open .hamburger span:nth-child(2){opacity:0;}
+    .menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
     .hero{padding:78px 0 42px;text-align:center;}
     .badge{
@@ -230,7 +217,8 @@
     }
     .btn-secondary{background:rgba(255,255,255,.03);border-color:var(--line);color:var(--text);}
 
-    .section{padding:48px 0;}
+    .section{padding:28px 0;}
+    .section.tight{padding-top:16px;}
     .label{font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:14px;font-weight:700;}
     .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;margin-bottom:26px;letter-spacing:1px;}
 
@@ -247,7 +235,6 @@
     }
 
     .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
-    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
     .card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25);}
     .ebook-img{width:100%;height:320px;object-fit:contain;object-position:center;display:block;background:#111e33;padding:12px;}
     .card-body{padding:20px;text-align:center;}
@@ -266,152 +253,68 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
-    .services-price-switch{
-      margin-bottom:26px;
-    }
+    .services-price-switch{margin-bottom:20px;}
     .currency-label{
-      color:var(--muted);
-      font-size:.9rem;
-      font-weight:700;
-      margin-bottom:10px;
-      display:block;
-      letter-spacing:.3px
+      color:var(--muted);font-size:.9rem;font-weight:700;margin-bottom:10px;display:block;letter-spacing:.3px
     }
-    .currency-switch{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+    .currency-switch{display:flex;gap:10px;flex-wrap:wrap;}
     .currency-btn{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      padding:10px 16px;
-      border-radius:999px;
-      cursor:pointer;
-      font-weight:700;
-      transition:.2s ease
+      border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);
+      padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;transition:.2s ease
     }
-    .currency-btn.active,
-    .currency-btn:hover{
-      background:rgba(216,178,106,.14);
-      color:var(--gold2);
-      border-color:rgba(216,178,106,.35)
+    .currency-btn.active,.currency-btn:hover{
+      background:rgba(216,178,106,.14);color:var(--gold2);border-color:rgba(216,178,106,.35)
     }
+
     .services-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:22px
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px
     }
     .services-card{
       background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:28px;
-      box-shadow:0 24px 70px rgba(0,0,0,.28);
-      transition:.25s ease
+      border:1px solid var(--line);border-radius:24px;padding:28px;
+      box-shadow:0 24px 70px rgba(0,0,0,.28);transition:.25s ease
     }
-    .services-card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(77,143,255,.28)
-    }
+    .services-card:hover{transform:translateY(-6px);border-color:rgba(77,143,255,.28)}
     .services-featured{
       border-color:rgba(216,178,106,.42);
       background:linear-gradient(180deg, rgba(216,178,106,.08), rgba(255,255,255,.03));
       transform:translateY(-8px)
     }
     .services-featured:hover{transform:translateY(-12px)}
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:18px
-    }
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
     .icon{
-      width:44px;
-      height:44px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.07);
-      font-size:1.1rem
+      width:44px;height:44px;border-radius:16px;display:grid;place-items:center;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);font-size:1.1rem
     }
     .services-card h3{font-size:1.2rem;margin-bottom:10px}
-    .compat{
-      color:var(--muted);
-      font-size:.88rem;
-      margin-bottom:16px
-    }
-    .price{
-      display:flex;
-      flex-direction:column;
-      gap:7px;
-      margin-bottom:18px
-    }
+    .compat{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+    .price{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
     .price span{
-      display:none;
-      width:fit-content;
-      padding:8px 12px;
-      border-radius:12px;
-      font-weight:800;
-      letter-spacing:.3px
+      display:none;width:fit-content;padding:8px 12px;border-radius:12px;font-weight:800;letter-spacing:.3px
     }
-    .price .xof{
-      background:rgba(0,87,255,.12);
-      color:var(--blue2);
-      display:inline-flex
-    }
-    .price .eur{
-      background:rgba(255,255,255,.05);
-      color:var(--text)
-    }
-    .price .usd{
-      background:rgba(216,178,106,.14);
-      color:var(--gold2)
-    }
-    .services-card ul{
-      list-style:none;
-      display:grid;
-      gap:10px;
-      margin-bottom:22px
-    }
+    .price .xof{background:rgba(0,87,255,.12);color:var(--blue2);display:inline-flex}
+    .price .eur{background:rgba(255,255,255,.05);color:var(--text)}
+    .price .usd{background:rgba(216,178,106,.14);color:var(--gold2)}
+    .services-card ul{list-style:none;display:grid;gap:10px;margin-bottom:22px}
     .services-card li{
-      position:relative;
-      padding-left:20px;
-      color:#D9E1F2;
-      font-size:.88rem
+      position:relative;padding-left:20px;color:#D9E1F2;font-size:.88rem
     }
     .services-card li::before{
-      content:"✓";
-      position:absolute;
-      left:0;
-      color:var(--blue2);
-      font-weight:800
+      content:"✓";position:absolute;left:0;color:var(--blue2);font-weight:800
     }
     .premium-btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:13px 18px;
-      border-radius:14px;
-      background:linear-gradient(135deg, var(--gold), var(--gold2));
-      border:none;
-      color:#111827;
-      text-decoration:none;
-      font-weight:900;
-      transition:.2s ease
+      display:flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      border:none;color:#111827;text-decoration:none;font-weight:900;transition:.2s ease
     }
-    .premium-btn:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.03)
-    }
+    .premium-btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
 
     .payment{
       background:linear-gradient(180deg,rgba(255,121,0,.05),rgba(0,87,255,.05));
       border-top:1px solid rgba(255,121,0,.10);
       border-bottom:1px solid rgba(0,87,255,.10);
+      padding-top:16px;
+      padding-bottom:28px;
     }
     .payment-box{
       max-width:820px;margin:0 auto;background:#111e33;border:1px solid rgba(255,255,255,.06);
@@ -430,17 +333,28 @@
       max-width:540px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;
       box-shadow:0 18px 50px rgba(0,0,0,.4);
     }
-    .cta-box h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;letter-spacing:1px;color:var(--text);text-transform:uppercase;}
+    .cta-box h2{
+      font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);
+      line-height:1.1;letter-spacing:1px;color:var(--text);text-transform:uppercase;
+    }
     .cta-box p{font-size:.97rem;color:var(--muted);line-height:1.75;max-width:400px;}
-    .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:#2563eb;color:#fff;font-size:1rem;font-weight:700;padding:16px 32px;border-radius:12px;width:100%;max-width:340px;transition:background .2s ease,transform .15s ease;}
+    .btn-wa{
+      display:flex;align-items:center;justify-content:center;gap:10px;background:#2563eb;color:#fff;
+      font-size:1rem;font-weight:700;padding:16px 32px;border-radius:12px;width:100%;max-width:340px;
+      transition:background .2s ease,transform .15s ease;
+    }
     .btn-wa:hover{background:#1d4ed8;transform:translateY(-2px);}
-    .btn-mail{display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--text);font-size:1rem;font-weight:600;padding:14px 32px;border-radius:12px;width:100%;max-width:340px;border:1px solid var(--line);transition:border-color .2s ease,transform .15s ease;}
+    .btn-mail{
+      display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--text);
+      font-size:1rem;font-weight:600;padding:14px 32px;border-radius:12px;width:100%;max-width:340px;
+      border:1px solid var(--line);transition:border-color .2s ease,transform .15s ease;
+    }
     .btn-mail:hover{border-color:#2563eb;transform:translateY(-2px);}
 
     .footer{padding:28px 0 42px;color:var(--muted);text-align:center;border-top:1px solid var(--line);}
 
     @media(max-width:900px){
-      .grid-3,.grid-4,.services-grid{grid-template-columns:1fr;}
+      .grid-3,.services-grid{grid-template-columns:1fr;}
       .menu{display:none;}
       .nav-search{display:none;}
       .hamburger{display:flex;}
@@ -472,7 +386,6 @@
       <div class="menu">
         <a href="#services">Mes Services</a>
         <a href="#bibliotheque">Bibliothèque</a>
-        <a href="#paiement">Paiement</a>
         <a href="#contact" class="cta">Me contacter</a>
       </div>
     </div>
@@ -483,7 +396,6 @@
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal">
     <a href="#services">Mes Services</a>
     <a href="#bibliotheque">Bibliothèque</a>
-    <a href="#paiement">Paiement</a>
     <a href="#contact">Me contacter</a>
   </nav>
 
@@ -494,7 +406,6 @@
       <p>J'aide les entrepreneurs à vendre plus vite avec des sites propres, rapides et pensés pour convertir.</p>
       <div class="actions">
         <a href="#services" class="btn btn-primary">Voir mes services</a>
-        <a href="#paiement" class="btn btn-secondary">Payer Orange Money</a>
       </div>
     </div>
   </header>
@@ -598,7 +509,7 @@
     </div>
   </section>
 
-  <section class="section" id="bibliotheque">
+  <section class="section tight" id="bibliotheque">
     <div class="wrap">
       <div class="label">Ressources & Savoirs</div>
       <div class="title">La Bibliothèque du Succès</div>
@@ -638,6 +549,30 @@
           <div class="card-body">
             <h3>Vendre en Ligne de A à Z</h3>
             <p>Le guide complet pour lancer, développer et automatiser ton business en ligne.</p>
+            <div class="old">15 000 XOF</div>
+            <div class="new">10 000 XOF</div>
+            <a href="#paiement" class="ebook-btn buy-btn" data-code="*144*2*1*07190217*10000#">Acheter</a>
+            <div class="buy-note">Appuie puis valide le code dans l’application téléphone.</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="file_000000008c7071f4b0f58c0142959d08.png" alt="Sortir de la Procrastination" class="ebook-img">
+          <div class="card-body">
+            <h3>Sortir de la Procrastination</h3>
+            <p>Apprends à passer à l'action, à rester concentré et à reprendre le contrôle de ton temps.</p>
+            <div class="old">15 000 XOF</div>
+            <div class="new">10 000 XOF</div>
+            <a href="#paiement" class="ebook-btn buy-btn" data-code="*144*2*1*07190217*10000#">Acheter</a>
+            <div class="buy-note">Appuie puis valide le code dans l’application téléphone.</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="file_000000008bdc7246ae1a58f05786e6dc.png" alt="Reprendre le Contrôle de sa Vie" class="ebook-img">
+          <div class="card-body">
+            <h3>Reprendre le Contrôle de sa Vie</h3>
+            <p>Un guide puissant pour retrouver l'équilibre, la discipline et la clarté dans ta vie quotidienne.</p>
             <div class="old">15 000 XOF</div>
             <div class="new">10 000 XOF</div>
             <a href="#paiement" class="ebook-btn buy-btn" data-code="*144*2*1*07190217*10000#">Acheter</a>
