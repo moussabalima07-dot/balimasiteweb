@@ -13,6 +13,7 @@
       --blue:#0057FF;
       --blue2:#4D8FFF;
       --gold:#D8B26A;
+      --gold2:#F7DEAB;
       --line:rgba(255,255,255,.08);
     }
 
@@ -45,6 +46,7 @@
       justify-content:space-between;
       gap:16px;
       min-height:72px;
+      position:relative;
     }
     .brand{
       display:flex;
@@ -112,6 +114,91 @@
       box-shadow:0 10px 30px rgba(0,87,255,.25);
     }
 
+    .hamburger{
+      display:none;
+      width:46px;
+      height:46px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      z-index:1101;
+      flex-shrink:0;
+    }
+    .hamburger span{
+      width:20px;
+      height:2px;
+      background:var(--text);
+      border-radius:2px;
+      transition:.25s ease;
+    }
+
+    .menu-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.45);
+      opacity:0;
+      pointer-events:none;
+      transition:.25s ease;
+      z-index:1098;
+    }
+
+    .mobile-menu{
+      position:fixed;
+      top:84px;
+      right:24px;
+      width:min(320px, calc(100% - 48px));
+      padding:18px;
+      border-radius:20px;
+      background:rgba(13,20,34,.96);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 24px 70px rgba(0,0,0,.42);
+      backdrop-filter:blur(18px);
+      transform:translateY(-12px) scale(.98);
+      opacity:0;
+      pointer-events:none;
+      transition:.25s ease;
+      z-index:1100;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .mobile-menu a{
+      padding:14px 16px;
+      border-radius:14px;
+      color:var(--text);
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.05);
+      font-weight:700;
+    }
+    .mobile-menu a:hover{
+      background:rgba(216,178,106,.12);
+      color:var(--gold2);
+    }
+
+    .menu-open .mobile-menu{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0) scale(1);
+    }
+    .menu-open .menu-overlay{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .menu-open .hamburger span:nth-child(1){
+      transform:translateY(7px) rotate(45deg);
+    }
+    .menu-open .hamburger span:nth-child(2){
+      opacity:0;
+    }
+    .menu-open .hamburger span:nth-child(3){
+      transform:translateY(-7px) rotate(-45deg);
+    }
+
     .hero{padding:78px 0 42px;text-align:center;}
     .badge{
       display:inline-flex;align-items:center;gap:8px;
@@ -143,7 +230,7 @@
     }
     .btn-secondary{background:rgba(255,255,255,.03);border-color:var(--line);color:var(--text);}
 
-    .section{padding:82px 0;}
+    .section{padding:48px 0;}
     .label{font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:14px;font-weight:700;}
     .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;margin-bottom:26px;letter-spacing:1px;}
 
@@ -160,6 +247,7 @@
     }
 
     .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
     .card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25);}
     .ebook-img{width:100%;height:320px;object-fit:contain;object-position:center;display:block;background:#111e33;padding:12px;}
     .card-body{padding:20px;text-align:center;}
@@ -177,6 +265,148 @@
     }
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
+
+    .services-price-switch{
+      margin-bottom:26px;
+    }
+    .currency-label{
+      color:var(--muted);
+      font-size:.9rem;
+      font-weight:700;
+      margin-bottom:10px;
+      display:block;
+      letter-spacing:.3px
+    }
+    .currency-switch{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .currency-btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      padding:10px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:700;
+      transition:.2s ease
+    }
+    .currency-btn.active,
+    .currency-btn:hover{
+      background:rgba(216,178,106,.14);
+      color:var(--gold2);
+      border-color:rgba(216,178,106,.35)
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:22px
+    }
+    .services-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 24px 70px rgba(0,0,0,.28);
+      transition:.25s ease
+    }
+    .services-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(77,143,255,.28)
+    }
+    .services-featured{
+      border-color:rgba(216,178,106,.42);
+      background:linear-gradient(180deg, rgba(216,178,106,.08), rgba(255,255,255,.03));
+      transform:translateY(-8px)
+    }
+    .services-featured:hover{transform:translateY(-12px)}
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px
+    }
+    .icon{
+      width:44px;
+      height:44px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      font-size:1.1rem
+    }
+    .services-card h3{font-size:1.2rem;margin-bottom:10px}
+    .compat{
+      color:var(--muted);
+      font-size:.88rem;
+      margin-bottom:16px
+    }
+    .price{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      margin-bottom:18px
+    }
+    .price span{
+      display:none;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:12px;
+      font-weight:800;
+      letter-spacing:.3px
+    }
+    .price .xof{
+      background:rgba(0,87,255,.12);
+      color:var(--blue2);
+      display:inline-flex
+    }
+    .price .eur{
+      background:rgba(255,255,255,.05);
+      color:var(--text)
+    }
+    .price .usd{
+      background:rgba(216,178,106,.14);
+      color:var(--gold2)
+    }
+    .services-card ul{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      margin-bottom:22px
+    }
+    .services-card li{
+      position:relative;
+      padding-left:20px;
+      color:#D9E1F2;
+      font-size:.88rem
+    }
+    .services-card li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      color:var(--blue2);
+      font-weight:800
+    }
+    .premium-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 18px;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--gold), var(--gold2));
+      border:none;
+      color:#111827;
+      text-decoration:none;
+      font-weight:900;
+      transition:.2s ease
+    }
+    .premium-btn:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.03)
+    }
 
     .payment{
       background:linear-gradient(180deg,rgba(255,121,0,.05),rgba(0,87,255,.05));
@@ -210,11 +440,13 @@
     .footer{padding:28px 0 42px;color:var(--muted);text-align:center;border-top:1px solid var(--line);}
 
     @media(max-width:900px){
-      .grid-3{grid-template-columns:1fr;}
+      .grid-3,.grid-4,.services-grid{grid-template-columns:1fr;}
       .menu{display:none;}
       .nav-search{display:none;}
+      .hamburger{display:flex;}
       .hero{padding-top:56px;}
       .search-area{flex-direction:column;}
+      .services-featured{transform:none;}
     }
   </style>
 </head>
@@ -231,7 +463,14 @@
         <button type="button" onclick="filterSite()">Rechercher</button>
       </div>
 
+      <button class="hamburger" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <div class="menu">
+        <a href="#services">Mes Services</a>
         <a href="#bibliotheque">Bibliothèque</a>
         <a href="#paiement">Paiement</a>
         <a href="#contact" class="cta">Me contacter</a>
@@ -239,17 +478,125 @@
     </div>
   </div>
 
-  <header class="hero">
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal">
+    <a href="#services">Mes Services</a>
+    <a href="#bibliotheque">Bibliothèque</a>
+    <a href="#paiement">Paiement</a>
+    <a href="#contact">Me contacter</a>
+  </nav>
+
+  <header class="hero" id="home">
     <div class="wrap">
       <div class="badge"><span class="dot"></span>Disponible pour de nouveaux projets</div>
       <h1>TON SITE WEB.<br>TES CLIENTS.<br><span class="accent">TES VENTES.</span></h1>
       <p>J'aide les entrepreneurs à vendre plus vite avec des sites propres, rapides et pensés pour convertir.</p>
       <div class="actions">
-        <a href="#bibliotheque" class="btn btn-primary">Voir la bibliothèque</a>
+        <a href="#services" class="btn btn-primary">Voir mes services</a>
         <a href="#paiement" class="btn btn-secondary">Payer Orange Money</a>
       </div>
     </div>
   </header>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="label">Ce que je fais</div>
+      <div class="title">Mes Services</div>
+
+      <div class="services-price-switch">
+        <span class="currency-label">Prix / devise</span>
+        <div class="currency-switch">
+          <button class="currency-btn active" data-currency="xof">XOF</button>
+          <button class="currency-btn" data-currency="eur">EUR</button>
+          <button class="currency-btn" data-currency="usd">USD</button>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <div class="services-card">
+          <div class="top">
+            <div class="badge">Démarrage</div>
+            <div class="icon">◦</div>
+          </div>
+          <h3>Page de capture</h3>
+          <div class="compat">Compatible mobile / PC</div>
+          <div class="price">
+            <span class="xof">24 000 XOF</span>
+            <span class="eur">37 EUR</span>
+            <span class="usd">40 USD</span>
+          </div>
+          <ul>
+            <li>Design moderne</li>
+            <li>Formulaire de capture</li>
+            <li>Interface claire</li>
+          </ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20acheter%20la%20Page%20de%20capture%20%C3%A0%2024%20000%20XOF.">Commander</a>
+        </div>
+
+        <div class="services-card services-featured">
+          <div class="top">
+            <div class="badge gold">Offre principale</div>
+            <div class="icon">◈</div>
+          </div>
+          <h3>Page de vente</h3>
+          <div class="compat">Compatible mobile / PC</div>
+          <div class="price">
+            <span class="xof">42 000 XOF</span>
+            <span class="eur">65 EUR</span>
+            <span class="usd">70 USD</span>
+          </div>
+          <ul>
+            <li>Structure de conversion</li>
+            <li>Design premium</li>
+            <li>Bouton d’action visible</li>
+          </ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20acheter%20la%20Page%20de%20vente%20%C3%A0%2042%20000%20XOF.">Commander</a>
+        </div>
+
+        <div class="services-card">
+          <div class="top">
+            <div class="badge">Pro</div>
+            <div class="icon">◦</div>
+          </div>
+          <h3>Site vitrine</h3>
+          <div class="compat">Compatible mobile / PC</div>
+          <div class="price">
+            <span class="xof">72 000 XOF</span>
+            <span class="eur">110 EUR</span>
+            <span class="usd">120 USD</span>
+          </div>
+          <ul>
+            <li>3 à 5 pages</li>
+            <li>Image professionnelle</li>
+            <li>Structure propre</li>
+          </ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20acheter%20le%20Site%20vitrine%20%C3%A0%2072%20000%20XOF.">Commander</a>
+        </div>
+
+        <div class="services-card services-featured">
+          <div class="top">
+            <div class="badge gold">Pack complet</div>
+            <div class="icon">◆</div>
+          </div>
+          <h3>BOOST ULTIME</h3>
+          <div class="compat">Compatible mobile / PC</div>
+          <div class="price">
+            <span class="xof">120 000 XOF</span>
+            <span class="eur">185 EUR</span>
+            <span class="usd">200 USD</span>
+          </div>
+          <ul>
+            <li>Page de capture</li>
+            <li>Page de vente</li>
+            <li>Site vitrine</li>
+            <li>Optimisation de base</li>
+          </ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20acheter%20le%20pack%20BOOST%20ULTIME%20%C3%A0%20200%E2%82%AC.">Commander</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="bibliotheque">
     <div class="wrap">
@@ -291,30 +638,6 @@
           <div class="card-body">
             <h3>Vendre en Ligne de A à Z</h3>
             <p>Le guide complet pour lancer, développer et automatiser ton business en ligne.</p>
-            <div class="old">15 000 XOF</div>
-            <div class="new">10 000 XOF</div>
-            <a href="#paiement" class="ebook-btn buy-btn" data-code="*144*2*1*07190217*10000#">Acheter</a>
-            <div class="buy-note">Appuie puis valide le code dans l’application téléphone.</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="file_000000008c7071f4b0f58c0142959d08.png" alt="Sortir de la Procrastination" class="ebook-img">
-          <div class="card-body">
-            <h3>Sortir de la Procrastination</h3>
-            <p>Apprends à passer à l'action, à rester concentré et à reprendre le contrôle de ton temps.</p>
-            <div class="old">15 000 XOF</div>
-            <div class="new">10 000 XOF</div>
-            <a href="#paiement" class="ebook-btn buy-btn" data-code="*144*2*1*07190217*10000#">Acheter</a>
-            <div class="buy-note">Appuie puis valide le code dans l’application téléphone.</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="file_000000008bdc7246ae1a58f05786e6dc.png" alt="Reprendre le Contrôle de sa Vie" class="ebook-img">
-          <div class="card-body">
-            <h3>Reprendre le Contrôle de sa Vie</h3>
-            <p>Un guide puissant pour retrouver l'équilibre, la discipline et la clarté dans ta vie quotidienne.</p>
             <div class="old">15 000 XOF</div>
             <div class="new">10 000 XOF</div>
             <a href="#paiement" class="ebook-btn buy-btn" data-code="*144*2*1*07190217*10000#">Acheter</a>
@@ -389,8 +712,53 @@
       });
     });
 
+    const buttons = document.querySelectorAll('.currency-btn');
+    const prices = document.querySelectorAll('.services-card .price span');
+
+    function showCurrency(currency){
+      buttons.forEach(btn => btn.classList.remove('active'));
+      const activeBtn = [...buttons].find(btn => btn.dataset.currency === currency);
+      if (activeBtn) activeBtn.classList.add('active');
+      prices.forEach(p => p.style.display = 'none');
+      document.querySelectorAll('.services-card .price .' + currency).forEach(p => p.style.display = 'inline-flex');
+    }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => showCurrency(btn.dataset.currency)));
+    showCurrency('xof');
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function closeMenu(){
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Ouvrir le menu');
+    }
+
+    function openMenu(){
+      document.body.classList.add('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Fermer le menu');
+    }
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+    });
+
+    menuOverlay.addEventListener('click', closeMenu);
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
     document.getElementById('siteSearch')?.addEventListener('input', filterSite);
     document.getElementById('siteSearchTop')?.addEventListener('input', filterSite);
   </script>
 </body>
-</html>
+  </html>
