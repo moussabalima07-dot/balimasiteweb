@@ -1273,12 +1273,27 @@
     });
 
     document.querySelectorAll('.buy-btn').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        const code = btn.dataset.code || '';
-        const text = encodeURIComponent(`Bonjour, je veux acheter un ebook. Code: ${code}`);
-        btn.href = `https://wa.me/22607190217?text=${text}`;
-      });
-    });
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+    const code = btn.dataset.code || '';
+
+    // Détection mobile ou PC
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if(isMobile){
+      // 👉 MOBILE : ouvre téléphone (USSD)
+      const telCode = code.replace(/#/g, '%23');
+      window.location.href = `tel:${telCode}`;
+    } else {
+      // 👉 PC : ouvre WhatsApp
+      const text = encodeURIComponent(
+        `Bonjour, je veux acheter un ebook. Code: ${code}`
+      );
+      window.open(`https://wa.me/22607190217?text=${text}`, '_blank');
+    }
+  });
+});
 
     const menuBtn = document.getElementById('menuBtn');
     const menuOverlay = document.getElementById('menuOverlay');
