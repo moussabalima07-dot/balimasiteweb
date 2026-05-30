@@ -1213,20 +1213,21 @@
     let currentCurrency = 'xof';
 
     function setLang(lang){
-      currentLang = lang;
-      document.documentElement.lang = lang;
-      document.title = translations[lang]["meta.title"];
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.title = translations[lang]["meta.title"];
 
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        if(translations[lang][key] !== undefined){
-          if(translations[lang][key].includes('<span class=') || translations[lang][key].includes('<br>')){
-            el.innerHTML = translations[lang][key];
-          }else{
-            el.textContent = translations[lang][key];
-          }
-        }
-      });
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang][key] !== undefined){
+      // MODIFICATION ICI : On vérifie simplement si la traduction contient un caractère '<'
+      if(translations[lang][key].includes('<')){
+        el.innerHTML = translations[lang][key];
+      }else{
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
 
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
         const key = el.getAttribute('data-i18n-placeholder');
