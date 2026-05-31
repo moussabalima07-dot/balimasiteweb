@@ -152,6 +152,60 @@
     .btn-mail:hover{border-color:#2563eb;transform:translateY(-2px);}
 
     .footer{padding:28px 0 42px;color:var(--muted);text-align:center;border-top:1px solid var(--line);}
+    
+    .faq-container{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  max-width:800px;
+  margin:0 auto;
+}
+
+.faq-item{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  overflow:hidden;
+}
+
+.faq-question{
+  width:100%;
+  padding:16px 18px;
+  background:transparent;
+  border:none;
+  color:var(--text);
+  font-weight:700;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:1rem;
+}
+
+.faq-question span{
+  font-size:1.4rem;
+  color:var(--blue2);
+  transition:.2s ease;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  padding:0 18px;
+  color:var(--muted);
+  line-height:1.7;
+  transition:max-height .3s ease, padding .3s ease;
+}
+
+.faq-item.active .faq-answer{
+  max-height:200px;
+  padding:0 18px 16px 18px;
+}
+
+.faq-item.active .faq-question span{
+  transform:rotate(45deg);
+}
 
     @media(max-width:900px){
       .grid-3,.services-grid{grid-template-columns:1fr;}
@@ -550,6 +604,49 @@
   </p>
 </div>
 
+<section class="section" id="faq">
+  <div class="wrap">
+
+    <div class="label">FAQ</div>
+    <div class="title">Questions fréquentes</div>
+
+    <div class="faq-container">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Comment recevoir mon ebook ?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Après paiement, tu cliques sur “J’ai payé” sur WhatsApp et tu reçois ton ebook directement.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Est-ce que les sites web sont personnalisés ?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Combien de temps pour livrer un site ?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          En général entre 24h et 5 jours selon la complexité du projet.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
   <section class="section payment" id="paiement">
     <div class="wrap">
       <div class="label" data-i18n="payment.label">Paiement</div>
@@ -822,6 +919,18 @@
 
     document.getElementById('siteSearch')?.addEventListener('input', filterSite);
     document.getElementById('siteSearchTop')?.addEventListener('input', filterSite);
+
+document.querySelectorAll(".faq-question").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const item = btn.parentElement;
+
+    document.querySelectorAll(".faq-item").forEach(el=>{
+      if(el !== item) el.classList.remove("active");
+    });
+
+    item.classList.toggle("active");
+  });
+});
 
     setLang('fr');
     setCurrency('xof');
