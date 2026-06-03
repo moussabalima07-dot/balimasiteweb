@@ -36,6 +36,7 @@
     body.light-mode .payment-box{background:var(--card);}
     body.light-mode .cta-box{background:var(--card);}
     body.light-mode .card{background:rgba(0,0,0,.02);}
+    body.light-mode .hero-bg{filter:blur(6px) brightness(.7);opacity:.6;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -99,7 +100,15 @@
     .menu-open .hamburger span:nth-child(2){opacity:0;}
     .menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-    .hero{padding:78px 0 42px;text-align:center;}
+    .hero{padding:78px 0 42px;text-align:center;position:relative;overflow:hidden;}
+    .hero-bg{
+      position:absolute;inset:0;z-index:1;
+      background:url('file_00000000a89c71f4ad646fadc4123ef0.png') center/cover no-repeat;
+      filter:blur(6px) brightness(.35);
+      opacity:.9;
+      pointer-events:none;
+    }
+
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,87,255,.12);border:1px solid rgba(77,143,255,.25);color:var(--blue2);padding:8px 14px;border-radius:999px;font-size:.84rem;margin-bottom:22px;}
     .dot{width:8px;height:8px;border-radius:50%;background:var(--blue2);animation:pulse 2s infinite;}
     @keyframes pulse{50%{transform:scale(.75);opacity:.55;}}
@@ -152,6 +161,16 @@
     .ebook-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;padding:12px 18px;border-radius:12px;font-weight:800;background:linear-gradient(135deg,rgba(216,178,106,.18),rgba(255,121,0,.12));border:1px solid rgba(216,178,106,.4);color:#F7DEAB;box-shadow:0 0 22px rgba(216,178,106,.14);transition:.25s ease;}
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
+
+    .about-photo{
+      width:130px;height:130px;border-radius:50%;
+      object-fit:cover;object-position:center;
+      border:3px solid var(--gold2);
+      box-shadow:0 0 30px rgba(216,178,106,.25);
+      margin:0 auto 22px;
+      display:block;
+      background:var(--card);
+    }
 
     .services-price-switch{margin-bottom:20px;}
     .currency-label{color:var(--muted);font-size:.9rem;font-weight:700;margin-bottom:10px;display:block;letter-spacing:.3px;}
@@ -236,59 +255,20 @@
     }
     .whatsapp-float:hover{transform:scale(1.1);}
 
-    .faq-container{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      max-width:800px;
-      margin:0 auto;
-    }
-
-    .faq-item{
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.03);
-      overflow:hidden;
-    }
-
+    .faq-container{display:flex;flex-direction:column;gap:12px;max-width:800px;margin:0 auto;}
+    .faq-item{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);overflow:hidden;}
     .faq-question{
-      width:100%;
-      padding:16px 18px;
-      background:transparent;
-      border:none;
-      color:var(--text);
-      font-weight:700;
-      text-align:left;
-      cursor:pointer;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-size:1rem;
+      width:100%;padding:16px 18px;background:transparent;border:none;
+      color:var(--text);font-weight:700;text-align:left;cursor:pointer;
+      display:flex;justify-content:space-between;align-items:center;font-size:1rem;
     }
-
-    .faq-question span{
-      font-size:1.4rem;
-      color:var(--blue2);
-      transition:.2s ease;
-    }
-
+    .faq-question span{font-size:1.4rem;color:var(--blue2);transition:.2s ease;}
     .faq-answer{
-      max-height:0;
-      overflow:hidden;
-      padding:0 18px;
-      color:var(--muted);
-      line-height:1.7;
-      transition:max-height .4s ease, padding .3s ease;
+      max-height:0;overflow:hidden;padding:0 18px;color:var(--muted);
+      line-height:1.7;transition:max-height .4s ease, padding .3s ease;
     }
-
-    .faq-item.active .faq-answer{
-      max-height:500px;
-      padding:0 18px 16px 18px;
-    }
-
-    .faq-item.active .faq-question span{
-      transform:rotate(45deg);
-    }
+    .faq-item.active .faq-answer{max-height:500px;padding:0 18px 16px 18px;}
+    .faq-item.active .faq-question span{transform:rotate(45deg);}
 
     @media(max-width:900px){
       .grid-3,.services-grid,.compare-grid{grid-template-columns:1fr;}
@@ -359,15 +339,17 @@
   <div class="menu-overlay" id="menuOverlay"></div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal"></nav>
 
+  <!-- ★ HERO AVEC FOND -->
   <header class="hero" id="home">
-    <div class="wrap">
+    <div class="hero-bg"></div>
+    <div class="wrap" style="position:relative;z-index:2;">
       <div class="badge"><span class="dot"></span><span data-i18n="hero.badge">Disponible pour de nouveaux projets</span></div>
       <h1>
         <span data-i18n="hero.title1">TON SITE WEB.</span><br>
         <span data-i18n="hero.title2">TES CLIENTS.</span><br>
         <span class="accent" data-i18n="hero.title3">TES VENTES.</span>
       </h1>
-      <p data-i18n="hero.subtitle">J'aide les entrepreneurs à vendre plus vite avec des sites propres, rapides et pensés pour convertir.</p>
+      <p data-i18n="hero.subtitle">Je crée des sites propres, rapides et pensés pour vendre.</p>
       <div class="actions">
         <a href="#services" class="btn btn-primary" data-i18n="hero.cta">Voir mes services</a>
       </div>
@@ -404,17 +386,16 @@
       <div class="label" data-i18n="about.label">Qui suis-je</div>
       <div class="title" data-i18n="about.title">Je ne construis pas des sites.<br>Je construis des preuves.</div>
 
-      <div style="max-width:780px;margin:0 auto 36px;text-align:center;">
+      <img src="" alt="Moussa Balima" class="about-photo" loading="lazy">
+
+      <div style="max-width:700px;margin:0 auto 36px;text-align:center;">
         <p style="color:var(--muted);line-height:1.9;font-size:1rem;" data-i18n="about.text1">
-          Je m'appelle <strong style="color:var(--text);">Moussa Balima</strong>. Je suis développeur web freelance, basé au Burkina Faso.
-          Mon métier, c'est de créer des sites qui inspirent confiance avant même qu'on te parle.
-          Des sites qui disent à tes clients : <em style="color:var(--gold2);">"Cette personne est sérieuse. Tu peux lui faire confiance."</em>
+          <strong style="color:var(--text);">Moussa Balima</strong>, développeur web freelance au Burkina Faso.
+          Je crée des sites qui disent à tes clients : <em style="color:var(--gold2);">"Tu peux lui faire confiance."</em>
         </p>
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:18px;" data-i18n="about.text2">
-          Mais je ne me suis pas arrêté là. J'ai créé <strong style="color:var(--gold2);">l'Académie Web BALIMA</strong>
-          pour former ceux qui veulent apprendre le développement web, et une
-          <strong style="color:var(--gold2);">Bibliothèque d'ebooks</strong> pour aider chacun à transformer son mindset,
-          ses émotions et ses finances.
+        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:16px;" data-i18n="about.text2">
+          J'ai aussi créé <strong style="color:var(--gold2);">l'Académie Web BALIMA</strong> pour former au développement web,
+          et une <strong style="color:var(--gold2);">Bibliothèque d'ebooks</strong> pour transformer ton mindset et tes finances.
         </p>
       </div>
 
@@ -422,19 +403,19 @@
         <div class="services-card" style="text-align:center;">
           <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">🖥️</div>
           <h3 data-i18n="about.pillar1.title">Création de sites</h3>
-          <p class="compat" data-i18n="about.pillar1.desc">Je crée ton site professionnel. Capte l'attention, gagne la confiance et transforme tes visiteurs en clients.</p>
+          <p class="compat" data-i18n="about.pillar1.desc">Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.</p>
           <a href="#services" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar1.cta">Voir les offres</a>
         </div>
         <div class="services-card" style="text-align:center;">
           <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">🎓</div>
           <h3 data-i18n="about.pillar2.title">Formations web</h3>
-          <p class="compat" data-i18n="about.pillar2.desc">Apprends le développement web de A à Z avec des formations claires, pratiques et accessibles à tous.</p>
+          <p class="compat" data-i18n="about.pillar2.desc">Apprends le développement web de A à Z avec des formations claires et pratiques.</p>
           <a href="#academie-web" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar2.cta">Découvrir l'académie</a>
         </div>
         <div class="services-card" style="text-align:center;">
           <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">📚</div>
           <h3 data-i18n="about.pillar3.title">Ebooks puissants</h3>
-          <p class="compat" data-i18n="about.pillar3.desc">Des livres numériques qui transforment ton mindset, tes émotions et ta façon de voir l'argent et la réussite.</p>
+          <p class="compat" data-i18n="about.pillar3.desc">Des livres numériques pour transformer ton mindset, tes émotions et tes finances.</p>
           <a href="#bibliotheque" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar3.cta">Explorer la bibliothèque</a>
         </div>
       </div>
@@ -826,7 +807,7 @@
         "hero.title1": "TON SITE WEB.",
         "hero.title2": "TES CLIENTS.",
         "hero.title3": "TES VENTES.",
-        "hero.subtitle": "J'aide les entrepreneurs à vendre plus vite avec des sites propres, rapides et pensés pour convertir.",
+        "hero.subtitle": "Je crée des sites propres, rapides et pensés pour vendre.",
         "hero.cta": "Voir mes services",
         "stats.sites": "Sites livrés",
         "stats.ebooks": "Ebooks vendus",
@@ -834,16 +815,16 @@
         "stats.satisfaction": "% à l'écoute",
         "about.label": "Qui suis-je",
         "about.title": "Je ne construis pas des sites.<br>Je construis des preuves.",
-        "about.text1": "Je m'appelle <strong style='color:var(--text);'>Moussa Balima</strong>. Je suis développeur web freelance, basé au Burkina Faso. Mon métier, c'est de créer des sites qui inspirent confiance avant même qu'on te parle. Des sites qui disent à tes clients : <em style='color:var(--gold2);'>\"Cette personne est sérieuse. Tu peux lui faire confiance.\"</em>",
-        "about.text2": "Mais je ne me suis pas arrêté là. J'ai créé <strong style='color:var(--gold2);'>l'Académie Web BALIMA</strong> pour former ceux qui veulent apprendre le développement web, et une <strong style='color:var(--gold2);'>Bibliothèque d'ebooks</strong> pour aider chacun à transformer son mindset, ses émotions et ses finances.",
+        "about.text1": "<strong style='color:var(--text);'>Moussa Balima</strong>, développeur web freelance au Burkina Faso. Je crée des sites qui disent à tes clients : <em style='color:var(--gold2);'>\"Tu peux lui faire confiance.\"</em>",
+        "about.text2": "J'ai aussi créé <strong style='color:var(--gold2);'>l'Académie Web BALIMA</strong> pour former au développement web, et une <strong style='color:var(--gold2);'>Bibliothèque d'ebooks</strong> pour transformer ton mindset et tes finances.",
         "about.pillar1.title": "Création de sites",
-        "about.pillar1.desc": "Je crée ton site professionnel. Capte l'attention, gagne la confiance et transforme tes visiteurs en clients.",
+        "about.pillar1.desc": "Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.",
         "about.pillar1.cta": "Voir les offres",
         "about.pillar2.title": "Formations web",
-        "about.pillar2.desc": "Apprends le développement web de A à Z avec des formations claires, pratiques et accessibles à tous.",
+        "about.pillar2.desc": "Apprends le développement web de A à Z avec des formations claires et pratiques.",
         "about.pillar2.cta": "Découvrir l'académie",
         "about.pillar3.title": "Ebooks puissants",
-        "about.pillar3.desc": "Des livres numériques qui transforment ton mindset, tes émotions et ta façon de voir l'argent et la réussite.",
+        "about.pillar3.desc": "Des livres numériques pour transformer ton mindset, tes émotions et tes finances.",
         "about.pillar3.cta": "Explorer la bibliothèque",
         "about.closing": "Peu importe où tu pars, tu mérites un site à la hauteur de tes ambitions.",
         "services.label": "Ce que je fais",
@@ -985,7 +966,7 @@
         "hero.title1": "YOUR WEBSITE.",
         "hero.title2": "YOUR CLIENTS.",
         "hero.title3": "YOUR SALES.",
-        "hero.subtitle": "I help entrepreneurs sell faster with clean, fast websites built to convert.",
+        "hero.subtitle": "I create clean, fast websites built to sell.",
         "hero.cta": "See my services",
         "stats.sites": "Sites delivered",
         "stats.ebooks": "Ebooks sold",
@@ -993,16 +974,16 @@
         "stats.satisfaction": "% listening",
         "about.label": "Who I am",
         "about.title": "I don't build websites.<br>I build proof.",
-        "about.text1": "My name is <strong style='color:var(--text);'>Moussa Balima</strong>. I'm a freelance web developer based in Burkina Faso. My job is to create websites that inspire trust before anyone even speaks to you. Sites that tell your clients: <em style='color:var(--gold2);'>\"This person is serious. You can trust them.\"</em>",
-        "about.text2": "But I didn't stop there. I created <strong style='color:var(--gold2);'>BALIMA Web Academy</strong> to train those who want to learn web development, and a <strong style='color:var(--gold2);'>Library of ebooks</strong> to help everyone transform their mindset, emotions and finances.",
+        "about.text1": "<strong style='color:var(--text);'>Moussa Balima</strong>, freelance web developer in Burkina Faso. I create websites that tell your clients: <em style='color:var(--gold2);'>\"You can trust him.\"</em>",
+        "about.text2": "I also created <strong style='color:var(--gold2);'>BALIMA Web Academy</strong> to train in web development, and a <strong style='color:var(--gold2);'>Library of ebooks</strong> to transform your mindset and finances.",
         "about.pillar1.title": "Website creation",
-        "about.pillar1.desc": "I create your professional website. Capture attention, gain trust and turn your visitors into customers.",
+        "about.pillar1.desc": "I create your professional site to capture attention and turn visitors into customers.",
         "about.pillar1.cta": "See offers",
         "about.pillar2.title": "Web training",
-        "about.pillar2.desc": "Learn web development from A to Z with clear, practical and accessible training for everyone.",
+        "about.pillar2.desc": "Learn web development from A to Z with clear and practical training.",
         "about.pillar2.cta": "Discover the academy",
         "about.pillar3.title": "Powerful ebooks",
-        "about.pillar3.desc": "Digital books that transform your mindset, your emotions and the way you see money and success.",
+        "about.pillar3.desc": "Digital books to transform your mindset, emotions and finances.",
         "about.pillar3.cta": "Explore the library",
         "about.closing": "No matter where you start, you deserve a website that matches your ambitions.",
         "services.label": "What I do",
