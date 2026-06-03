@@ -18,7 +18,6 @@
       --card:#111e33;
     }
 
-    /* ★ MODE CLAIR */
     body.light-mode{
       --bg:#F4F7FF;
       --text:#080C14;
@@ -72,7 +71,6 @@
     .lang-btn{border:none;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer;transition:.2s ease;min-width:48px;}
     .lang-btn.active{background:rgba(77,143,255,.18);color:var(--gold2);}
 
-    /* ★ TOGGLE DARK/LIGHT */
     .theme-toggle{
       width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
       background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;
@@ -119,13 +117,11 @@
     .label{font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:14px;font-weight:700;}
     .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;margin-bottom:26px;letter-spacing:1px;}
 
-    /* ★ CHIFFRES CLÉS */
     .stats-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;text-align:center;}
     .stat-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
     .stat-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);color:var(--blue2);line-height:1;}
     .stat-label{color:var(--muted);font-size:.88rem;font-weight:600;}
 
-    /* ★ FILTRES */
     .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;justify-content:center;}
     .filter-btn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;transition:.2s ease;font-size:.88rem;}
     .filter-btn.active,.filter-btn:hover{background:rgba(216,178,106,.14);color:var(--gold2);border-color:rgba(216,178,106,.35);}
@@ -139,7 +135,6 @@
     .card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25);position:relative;transition:border-color .3s ease, background .3s ease;}
     .ebook-img{width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;object-position:center;display:block;background:#111e33;}
 
-    /* ★ BADGE SUR CARTE */
     .card-badge{
       position:absolute;top:12px;right:12px;
       padding:6px 12px;border-radius:999px;font-size:.72rem;font-weight:800;
@@ -184,7 +179,6 @@
     .premium-btn{display:flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#111827;text-decoration:none;font-weight:900;transition:.2s ease;}
     .premium-btn:hover{transform:translateY(-1px);filter:brightness(1.03);}
 
-    /* ★ AVANT/APRÈS */
     .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:800px;margin:0 auto 40px;}
     .compare-card{border-radius:18px;padding:28px;border:1px solid var(--line);text-align:center;}
     .compare-card.before{background:rgba(255,0,0,.04);border-color:rgba(255,0,0,.15);}
@@ -197,7 +191,6 @@
     .compare-card.before li::before{content:"✕";position:absolute;left:0;color:#EF4444;font-weight:800;}
     .compare-card.after li::before{content:"✓";position:absolute;left:0;color:#22C55E;font-weight:800;}
 
-    /* ★ ÉTOILES AVIS */
     .stars{display:inline-flex;gap:2px;color:var(--gold2);font-size:1rem;line-height:1;}
     .stars .star-empty{color:rgba(255,255,255,.2);}
 
@@ -221,7 +214,6 @@
 
     .footer{padding:28px 0 42px;color:var(--muted);text-align:center;border-top:1px solid var(--line);}
 
-    /* ★ BACK TO TOP */
     .back-to-top{
       position:fixed;bottom:28px;right:28px;z-index:998;
       width:48px;height:48px;border-radius:50%;
@@ -234,7 +226,6 @@
     .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
     .back-to-top:hover{background:#1d4ed8;transform:translateY(-3px);}
 
-    /* ★ WHATSAPP FLOTTANT */
     .whatsapp-float{
       position:fixed;bottom:92px;right:28px;z-index:999;
       width:56px;height:56px;border-radius:50%;
@@ -332,10 +323,8 @@
 </head>
 <body>
 
-  <!-- ★ BOUTON REMONTER EN HAUT -->
   <button class="back-to-top" id="backToTop" aria-label="Remonter en haut" title="Remonter en haut">↑</button>
 
-  <!-- ★ BOUTON WHATSAPP FLOTTANT -->
   <a href="https://wa.me/22607190217" class="whatsapp-float" target="_blank" aria-label="WhatsApp" title="Me contacter sur WhatsApp">💬</a>
 
   <div class="nav">
@@ -353,7 +342,6 @@
           <button class="lang-btn active" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <!-- ★ TOGGLE DARK/LIGHT -->
         <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode sombre / clair">🌙</button>
         <button class="hamburger" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -407,6 +395,53 @@
           <span class="stat-label" data-i18n="stats.satisfaction">% à l'écoute</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ★ QUI SUIS-JE -->
+  <section class="section tight" id="qui-suis-je">
+    <div class="wrap">
+      <div class="label" data-i18n="about.label">Qui suis-je</div>
+      <div class="title" data-i18n="about.title">Je ne construis pas des sites.<br>Je construis des preuves.</div>
+
+      <div style="max-width:780px;margin:0 auto 36px;text-align:center;">
+        <p style="color:var(--muted);line-height:1.9;font-size:1rem;" data-i18n="about.text1">
+          Je m'appelle <strong style="color:var(--text);">Moussa Balima</strong>. Je suis développeur web freelance, basé au Burkina Faso.
+          Mon métier, c'est de créer des sites qui inspirent confiance avant même qu'on te parle.
+          Des sites qui disent à tes clients : <em style="color:var(--gold2);">"Cette personne est sérieuse. Tu peux lui faire confiance."</em>
+        </p>
+        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:18px;" data-i18n="about.text2">
+          Mais je ne me suis pas arrêté là. J'ai créé <strong style="color:var(--gold2);">l'Académie Web BALIMA</strong>
+          pour former ceux qui veulent apprendre le développement web, et une
+          <strong style="color:var(--gold2);">Bibliothèque d'ebooks</strong> pour aider chacun à transformer son mindset,
+          ses émotions et ses finances.
+        </p>
+      </div>
+
+      <div class="services-grid" style="margin-top:10px;">
+        <div class="services-card" style="text-align:center;">
+          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">🖥️</div>
+          <h3 data-i18n="about.pillar1.title">Création de sites</h3>
+          <p class="compat" data-i18n="about.pillar1.desc">Je crée ton site professionnel. Capte l'attention, gagne la confiance et transforme tes visiteurs en clients.</p>
+          <a href="#services" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar1.cta">Voir les offres</a>
+        </div>
+        <div class="services-card" style="text-align:center;">
+          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">🎓</div>
+          <h3 data-i18n="about.pillar2.title">Formations web</h3>
+          <p class="compat" data-i18n="about.pillar2.desc">Apprends le développement web de A à Z avec des formations claires, pratiques et accessibles à tous.</p>
+          <a href="#academie-web" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar2.cta">Découvrir l'académie</a>
+        </div>
+        <div class="services-card" style="text-align:center;">
+          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">📚</div>
+          <h3 data-i18n="about.pillar3.title">Ebooks puissants</h3>
+          <p class="compat" data-i18n="about.pillar3.desc">Des livres numériques qui transforment ton mindset, tes émotions et ta façon de voir l'argent et la réussite.</p>
+          <a href="#bibliotheque" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar3.cta">Explorer la bibliothèque</a>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--gold2);font-weight:700;font-size:1.1rem;margin-top:32px;line-height:1.7;" data-i18n="about.closing">
+        Peu importe où tu pars, tu mérites un site à la hauteur de tes ambitions.
+      </p>
     </div>
   </section>
 
@@ -565,7 +600,6 @@
     <div class="wrap">
       <div class="label" data-i18n="academy.label">Formation Développement Web</div>
       <div class="title" data-i18n="academy.title">Académie Web BALIMA</div>
-      <!-- ★ FILTRES ACADÉMIE -->
       <div class="filter-bar" id="academyFilters">
         <button class="filter-btn active" data-filter="all">Tous</button>
         <button class="filter-btn" data-filter="best">🔥 Best-seller</button>
@@ -583,7 +617,6 @@
         <input type="search" id="siteSearch" data-i18n-placeholder="search.placeholder" placeholder="Rechercher un ebook, un service...">
         <button type="button" onclick="filterSite()" data-i18n="search.button">Rechercher</button>
       </div>
-      <!-- ★ FILTRES BIBLIOTHÈQUE -->
       <div class="filter-bar" id="libraryFilters">
         <button class="filter-btn active" data-filter="all">Tous</button>
         <button class="filter-btn" data-filter="best">🔥 Best-seller</button>
@@ -691,9 +724,6 @@
   </footer>
 
   <script>
-    // ─────────────────────────────────────
-    // ★ BASE DE DONNÉES PRODUITS
-    // ─────────────────────────────────────
     const products = {
       academy: [
         { img:"copilot_image_1780308421868.jpeg", titleKey:"academy.1.title", descKey:"academy.1.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"dev" },
@@ -718,7 +748,6 @@
       ]
     };
 
-    // ★ AVIS
     const reviews = [
       { name:"Aïcha O.", rating:4, textKey:"reviews.1" },
       { name:"Moussa K.", rating:5, textKey:"reviews.2" },
@@ -726,7 +755,6 @@
       { name:"Kadija B.", rating:4, textKey:"reviews.4" }
     ];
 
-    // ★ ÉTOILES
     function renderStars(rating){
       let html = '<span class="stars">';
       for(let i=1; i<=5; i++){
@@ -736,12 +764,10 @@
       return html;
     }
 
-    // ★ BADGE LABEL
     function badgeLabel(type){
       return type === 'bestseller' ? '🔥 Best-seller' : '💛 Promo';
     }
 
-    // ★ CONSTRUCTION CARTE PRODUIT
     function buildProductCard(p, containerId){
       const container = document.getElementById(containerId);
       if(!container) return;
@@ -771,7 +797,6 @@
       products.library.forEach(p => buildProductCard(p, 'cards'));
     }
 
-    // ★ AVIS
     function buildReviews(){
       const grid = document.getElementById('reviewsGrid');
       if(!grid) return;
@@ -787,7 +812,6 @@
       });
     }
 
-    // ★ TRADUCTIONS
     const translations = {
       fr: {
         "meta.title": "Balima Web Developer",
@@ -808,6 +832,20 @@
         "stats.ebooks": "Ebooks vendus",
         "stats.days": "Jours sur 7",
         "stats.satisfaction": "% à l'écoute",
+        "about.label": "Qui suis-je",
+        "about.title": "Je ne construis pas des sites.<br>Je construis des preuves.",
+        "about.text1": "Je m'appelle <strong style='color:var(--text);'>Moussa Balima</strong>. Je suis développeur web freelance, basé au Burkina Faso. Mon métier, c'est de créer des sites qui inspirent confiance avant même qu'on te parle. Des sites qui disent à tes clients : <em style='color:var(--gold2);'>\"Cette personne est sérieuse. Tu peux lui faire confiance.\"</em>",
+        "about.text2": "Mais je ne me suis pas arrêté là. J'ai créé <strong style='color:var(--gold2);'>l'Académie Web BALIMA</strong> pour former ceux qui veulent apprendre le développement web, et une <strong style='color:var(--gold2);'>Bibliothèque d'ebooks</strong> pour aider chacun à transformer son mindset, ses émotions et ses finances.",
+        "about.pillar1.title": "Création de sites",
+        "about.pillar1.desc": "Je crée ton site professionnel. Capte l'attention, gagne la confiance et transforme tes visiteurs en clients.",
+        "about.pillar1.cta": "Voir les offres",
+        "about.pillar2.title": "Formations web",
+        "about.pillar2.desc": "Apprends le développement web de A à Z avec des formations claires, pratiques et accessibles à tous.",
+        "about.pillar2.cta": "Découvrir l'académie",
+        "about.pillar3.title": "Ebooks puissants",
+        "about.pillar3.desc": "Des livres numériques qui transforment ton mindset, tes émotions et ta façon de voir l'argent et la réussite.",
+        "about.pillar3.cta": "Explorer la bibliothèque",
+        "about.closing": "Peu importe où tu pars, tu mérites un site à la hauteur de tes ambitions.",
         "services.label": "Ce que je fais",
         "services.title": "Mes Services",
         "services.currencyLabel": "Prix / devise",
@@ -953,6 +991,20 @@
         "stats.ebooks": "Ebooks sold",
         "stats.days": "Days a week",
         "stats.satisfaction": "% listening",
+        "about.label": "Who I am",
+        "about.title": "I don't build websites.<br>I build proof.",
+        "about.text1": "My name is <strong style='color:var(--text);'>Moussa Balima</strong>. I'm a freelance web developer based in Burkina Faso. My job is to create websites that inspire trust before anyone even speaks to you. Sites that tell your clients: <em style='color:var(--gold2);'>\"This person is serious. You can trust them.\"</em>",
+        "about.text2": "But I didn't stop there. I created <strong style='color:var(--gold2);'>BALIMA Web Academy</strong> to train those who want to learn web development, and a <strong style='color:var(--gold2);'>Library of ebooks</strong> to help everyone transform their mindset, emotions and finances.",
+        "about.pillar1.title": "Website creation",
+        "about.pillar1.desc": "I create your professional website. Capture attention, gain trust and turn your visitors into customers.",
+        "about.pillar1.cta": "See offers",
+        "about.pillar2.title": "Web training",
+        "about.pillar2.desc": "Learn web development from A to Z with clear, practical and accessible training for everyone.",
+        "about.pillar2.cta": "Discover the academy",
+        "about.pillar3.title": "Powerful ebooks",
+        "about.pillar3.desc": "Digital books that transform your mindset, your emotions and the way you see money and success.",
+        "about.pillar3.cta": "Explore the library",
+        "about.closing": "No matter where you start, you deserve a website that matches your ambitions.",
         "services.label": "What I do",
         "services.title": "My Services",
         "services.currencyLabel": "Price / currency",
@@ -1126,7 +1178,6 @@
       });
     }
 
-    // ★ FILTRE PAR BADGE
     function setupFilters(containerId, filterBarId){
       const filterBar = document.getElementById(filterBarId);
       const container = document.getElementById(containerId);
@@ -1152,7 +1203,6 @@
       });
     }
 
-    // ★ MENU MOBILE
     function buildMobileMenu(){
       const desktopMenu = document.getElementById('desktopMenu');
       const mobileMenu = document.getElementById('mobileMenu');
@@ -1166,7 +1216,6 @@
       });
     }
 
-    // ★ COMPTEUR ANIMÉ
     function animateCounters(){
       const statsRow = document.getElementById('statsRow');
       if(!statsRow) return;
@@ -1197,7 +1246,6 @@
       run();
     }
 
-    // ★ INIT
     buildAllProductCards();
     buildReviews();
     buildMobileMenu();
@@ -1206,7 +1254,6 @@
     setupFilters('cards', 'libraryFilters');
     animateCounters();
 
-    // ★ ÉVÉNEMENTS
     document.querySelectorAll('.lang-btn').forEach(btn=>{
       btn.addEventListener('click', ()=>setLang(btn.dataset.lang));
     });
@@ -1231,7 +1278,6 @@
       }
     });
 
-    // ★ HAMBURGER
     const menuBtn = document.getElementById('menuBtn');
     const menuOverlay = document.getElementById('menuOverlay');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -1247,11 +1293,9 @@
     });
     document.addEventListener('keydown', e=>{ if(e.key === 'Escape') toggleMenu(false); });
 
-    // ★ RECHERCHE
     document.getElementById('siteSearch')?.addEventListener('input', filterSite);
     document.getElementById('siteSearchTop')?.addEventListener('input', filterSite);
 
-    // ★ FAQ
     document.querySelectorAll(".faq-question").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         const item = btn.parentElement;
@@ -1262,7 +1306,6 @@
       });
     });
 
-    // ★ BACK TO TOP
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('visible', window.scrollY > 500);
@@ -1271,14 +1314,12 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ★ DARK/LIGHT TOGGLE
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', ()=>{
       document.body.classList.toggle('light-mode');
       themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
     });
 
-    // ★ INIT DEVISE
     setCurrency('xof');
   </script>
 </body>
