@@ -18,6 +18,26 @@
       --card:#111e33;
     }
 
+    /* ★ MODE CLAIR */
+    body.light-mode{
+      --bg:#F4F7FF;
+      --text:#080C14;
+      --muted:#4B5563;
+      --blue:#0057FF;
+      --blue2:#2563EB;
+      --gold:#B8860B;
+      --gold2:#8B6914;
+      --line:rgba(0,0,0,.1);
+      --card:#FFFFFF;
+    }
+    body.light-mode .nav{background:rgba(244,247,255,.92);}
+    body.light-mode .mobile-menu{background:rgba(244,247,255,.96);}
+    body.light-mode .services-card{background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.01));}
+    body.light-mode .ebook-img{background:#E5E7EB;}
+    body.light-mode .payment-box{background:var(--card);}
+    body.light-mode .cta-box{background:var(--card);}
+    body.light-mode .card{background:rgba(0,0,0,.02);}
+
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
@@ -28,12 +48,13 @@
         var(--bg);
       color:var(--text);
       overflow-x:hidden;
+      transition:background .3s ease, color .3s ease;
     }
     a{text-decoration:none;color:inherit;}
     img{max-width:100%;display:block;}
     .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 
-    .nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(8,12,20,.78);border-bottom:1px solid var(--line);}
+    .nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(8,12,20,.78);border-bottom:1px solid var(--line);transition:background .3s ease;}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:84px;padding-top:4px;padding-bottom:4px;}
 
     .brand{display:flex;align-items:center;gap:16px;font-weight:700;letter-spacing:.5px;flex-shrink:0;padding:4px 10px 4px 8px;border-radius:16px;}
@@ -51,6 +72,15 @@
     .lang-btn{border:none;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer;transition:.2s ease;min-width:48px;}
     .lang-btn.active{background:rgba(77,143,255,.18);color:var(--gold2);}
 
+    /* ★ TOGGLE DARK/LIGHT */
+    .theme-toggle{
+      width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+      background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;
+      display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+      transition:.25s ease;flex-shrink:0;
+    }
+    .theme-toggle:hover{background:rgba(77,143,255,.15);}
+
     .menu{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end;}
     .menu a{color:var(--muted);font-size:.92rem;}
     .menu a:hover{color:var(--text);}
@@ -61,7 +91,7 @@
 
     .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.25s ease;z-index:1098;}
 
-    .mobile-menu{position:fixed;top:96px;right:24px;width:min(320px, calc(100% - 48px));padding:18px;border-radius:20px;background:rgba(13,20,34,.96);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.42);backdrop-filter:blur(18px);transform:translateY(-12px) scale(.98);opacity:0;pointer-events:none;transition:.25s ease;z-index:1100;display:flex;flex-direction:column;gap:10px;}
+    .mobile-menu{position:fixed;top:96px;right:24px;width:min(320px,calc(100% - 48px));padding:18px;border-radius:20px;background:rgba(13,20,34,.96);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.42);backdrop-filter:blur(18px);transform:translateY(-12px) scale(.98);opacity:0;pointer-events:none;transition:.25s ease;z-index:1100;display:flex;flex-direction:column;gap:10px;}
     .mobile-menu a{padding:14px 16px;border-radius:14px;color:var(--text);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);font-weight:700;}
     .mobile-menu a:hover{background:rgba(216,178,106,.12);color:var(--gold2);}
 
@@ -89,14 +119,35 @@
     .label{font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:14px;font-weight:700;}
     .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;margin-bottom:26px;letter-spacing:1px;}
 
+    /* ★ CHIFFRES CLÉS */
+    .stats-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;text-align:center;}
+    .stat-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
+    .stat-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);color:var(--blue2);line-height:1;}
+    .stat-label{color:var(--muted);font-size:.88rem;font-weight:600;}
+
+    /* ★ FILTRES */
+    .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;justify-content:center;}
+    .filter-btn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;transition:.2s ease;font-size:.88rem;}
+    .filter-btn.active,.filter-btn:hover{background:rgba(216,178,106,.14);color:var(--gold2);border-color:rgba(216,178,106,.35);}
+
     .search-area{display:flex;gap:12px;max-width:720px;width:100%;margin:0 0 28px;}
     .search-area input{flex:1;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);outline:none;font-size:1rem;}
     .search-area input::placeholder{color:var(--muted);}
     .search-area button{padding:14px 18px;border:none;border-radius:14px;background:linear-gradient(135deg,rgba(0,87,255,.98),rgba(77,143,255,.95));color:#fff;font-weight:700;cursor:pointer;}
 
     .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
-    .card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25);}
+    .card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25);position:relative;transition:border-color .3s ease, background .3s ease;}
     .ebook-img{width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;object-position:center;display:block;background:#111e33;}
+
+    /* ★ BADGE SUR CARTE */
+    .card-badge{
+      position:absolute;top:12px;right:12px;
+      padding:6px 12px;border-radius:999px;font-size:.72rem;font-weight:800;
+      z-index:2;letter-spacing:.3px;backdrop-filter:blur(6px);
+    }
+    .card-badge.bestseller{background:rgba(255,121,0,.22);color:#FFB347;border:1px solid rgba(255,121,0,.4);}
+    .card-badge.promo{background:rgba(216,178,106,.15);color:var(--gold2);border:1px solid rgba(216,178,106,.35);}
+
     .card-body{padding:20px;text-align:center;}
     .card h3{font-size:1.08rem;margin-bottom:10px;min-height:2.8em;display:flex;align-items:center;justify-content:center;}
     .card p{font-size:.86rem;color:var(--muted);line-height:1.7;margin-bottom:14px;min-height:4.6em;}
@@ -114,9 +165,9 @@
     .currency-btn.active,.currency-btn:hover{background:rgba(216,178,106,.14);color:var(--gold2);border-color:rgba(216,178,106,.35);}
 
     .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
-    .services-card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.28);transition:.25s ease;}
+    .services-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.28);transition:.25s ease;}
     .services-card:hover{transform:translateY(-6px);border-color:rgba(77,143,255,.28);}
-    .services-featured{border-color:rgba(216,178,106,.42);background:linear-gradient(180deg, rgba(216,178,106,.08), rgba(255,255,255,.03));transform:translateY(-8px);}
+    .services-featured{border-color:rgba(216,178,106,.42);background:linear-gradient(180deg,rgba(216,178,106,.08),rgba(255,255,255,.03));transform:translateY(-8px);}
     .services-featured:hover{transform:translateY(-12px);}
     .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
     .icon{width:44px;height:44px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);font-size:1.1rem;}
@@ -133,7 +184,20 @@
     .premium-btn{display:flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#111827;text-decoration:none;font-weight:900;transition:.2s ease;}
     .premium-btn:hover{transform:translateY(-1px);filter:brightness(1.03);}
 
-    /* ★ AVIS : système d'étoiles CSS propre */
+    /* ★ AVANT/APRÈS */
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:800px;margin:0 auto 40px;}
+    .compare-card{border-radius:18px;padding:28px;border:1px solid var(--line);text-align:center;}
+    .compare-card.before{background:rgba(255,0,0,.04);border-color:rgba(255,0,0,.15);}
+    .compare-card.after{background:rgba(0,255,0,.04);border-color:rgba(0,255,0,.15);}
+    .compare-card h4{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;margin-bottom:14px;letter-spacing:1px;}
+    .compare-card.before h4{color:#EF4444;}
+    .compare-card.after h4{color:#22C55E;}
+    .compare-card ul{list-style:none;display:grid;gap:10px;text-align:left;}
+    .compare-card li{position:relative;padding-left:22px;color:var(--muted);font-size:.9rem;line-height:1.6;}
+    .compare-card.before li::before{content:"✕";position:absolute;left:0;color:#EF4444;font-weight:800;}
+    .compare-card.after li::before{content:"✓";position:absolute;left:0;color:#22C55E;font-weight:800;}
+
+    /* ★ ÉTOILES AVIS */
     .stars{display:inline-flex;gap:2px;color:var(--gold2);font-size:1rem;line-height:1;}
     .stars .star-empty{color:rgba(255,255,255,.2);}
 
@@ -159,7 +223,7 @@
 
     /* ★ BACK TO TOP */
     .back-to-top{
-      position:fixed;bottom:28px;right:28px;z-index:999;
+      position:fixed;bottom:28px;right:28px;z-index:998;
       width:48px;height:48px;border-radius:50%;
       background:var(--blue);color:#fff;border:none;
       font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
@@ -169,6 +233,17 @@
     }
     .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
     .back-to-top:hover{background:#1d4ed8;transform:translateY(-3px);}
+
+    /* ★ WHATSAPP FLOTTANT */
+    .whatsapp-float{
+      position:fixed;bottom:92px;right:28px;z-index:999;
+      width:56px;height:56px;border-radius:50%;
+      background:#25D366;color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.6rem;box-shadow:0 8px 28px rgba(37,211,102,.35);
+      transition:transform .25s ease;
+    }
+    .whatsapp-float:hover{transform:scale(1.1);}
 
     .faq-container{
       display:flex;
@@ -225,7 +300,7 @@
     }
 
     @media(max-width:900px){
-      .grid-3,.services-grid{grid-template-columns:1fr;}
+      .grid-3,.services-grid,.compare-grid{grid-template-columns:1fr;}
       .nav-search{display:none;}
       .hamburger{display:flex;}
       .hero{padding-top:56px;}
@@ -237,6 +312,8 @@
       .menu{display:none;}
       .lang-btn{padding:7px 10px;min-width:42px;font-size:.82rem;}
       .back-to-top{bottom:20px;right:16px;width:42px;height:42px;font-size:1.2rem;}
+      .whatsapp-float{bottom:78px;right:16px;width:50px;height:50px;font-size:1.4rem;}
+      .stats-row{gap:24px;}
     }
 
     @media (max-width:900px) and (orientation:landscape){
@@ -246,6 +323,7 @@
       .hero p,.actions{justify-content:flex-start;margin-left:0;}
       .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
       .services-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .compare-grid{grid-template-columns:1fr 1fr;}
       .menu{display:flex;}
       .nav-search{display:flex;max-width:300px;}
       .hamburger{display:none;}
@@ -256,6 +334,9 @@
 
   <!-- ★ BOUTON REMONTER EN HAUT -->
   <button class="back-to-top" id="backToTop" aria-label="Remonter en haut" title="Remonter en haut">↑</button>
+
+  <!-- ★ BOUTON WHATSAPP FLOTTANT -->
+  <a href="https://wa.me/22607190217" class="whatsapp-float" target="_blank" aria-label="WhatsApp" title="Me contacter sur WhatsApp">💬</a>
 
   <div class="nav">
     <div class="wrap nav-inner">
@@ -272,10 +353,11 @@
           <button class="lang-btn active" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
+        <!-- ★ TOGGLE DARK/LIGHT -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode sombre / clair">🌙</button>
         <button class="hamburger" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
-        <!-- ★ MENU DESKTOP avec data-i18n -->
         <div class="menu" id="desktopMenu">
           <a href="#services" data-i18n="nav.services">Mes Services</a>
           <a href="#academie-web" data-i18n="nav.academy">Académie Web</a>
@@ -287,7 +369,6 @@
   </div>
 
   <div class="menu-overlay" id="menuOverlay"></div>
-  <!-- ★ MENU MOBILE : généré dynamiquement par JS depuis le menu desktop -->
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal"></nav>
 
   <header class="hero" id="home">
@@ -304,6 +385,30 @@
       </div>
     </div>
   </header>
+
+  <!-- ★ CHIFFRES CLÉS -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="stats-row" id="statsRow">
+        <div class="stat-item">
+          <span class="stat-number" data-target="15">0</span>
+          <span class="stat-label" data-i18n="stats.sites">Sites livrés</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="40">0</span>
+          <span class="stat-label" data-i18n="stats.ebooks">Ebooks vendus</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="7">0</span>
+          <span class="stat-label" data-i18n="stats.days">Jours sur 7</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="100">0</span>
+          <span class="stat-label" data-i18n="stats.satisfaction">% à l'écoute</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="services">
     <div class="wrap">
@@ -387,6 +492,32 @@
     </div>
   </section>
 
+  <!-- ★ AVANT / APRÈS -->
+  <section class="section" id="avant-apres">
+    <div class="wrap">
+      <div class="label" data-i18n="compare.label">Avant / Après</div>
+      <div class="title" data-i18n="compare.title">Ce que change un site professionnel</div>
+      <div class="compare-grid">
+        <div class="compare-card before">
+          <h4 data-i18n="compare.before.title">Sans site pro</h4>
+          <ul>
+            <li data-i18n="compare.before.li1">Les clients potentiels hésitent à faire confiance</li>
+            <li data-i18n="compare.before.li2">Difficile de montrer son sérieux avec une simple page Facebook</li>
+            <li data-i18n="compare.before.li3">Aucune vente automatique, tout se fait manuellement</li>
+          </ul>
+        </div>
+        <div class="compare-card after">
+          <h4 data-i18n="compare.after.title">Avec un site pro</h4>
+          <ul>
+            <li data-i18n="compare.after.li1">Une image de marque qui inspire immédiatement confiance</li>
+            <li data-i18n="compare.after.li2">Tes clients te prennent au sérieux avant même de te parler</li>
+            <li data-i18n="compare.after.li3">Des ventes qui rentrent même quand tu dors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
       <div class="label" data-i18n="why.label">Pourquoi moi ?</div>
@@ -434,9 +565,13 @@
     <div class="wrap">
       <div class="label" data-i18n="academy.label">Formation Développement Web</div>
       <div class="title" data-i18n="academy.title">Académie Web BALIMA</div>
-      <div class="grid-3" id="academyCards">
-        <!-- ★ Rempli dynamiquement par JS -->
+      <!-- ★ FILTRES ACADÉMIE -->
+      <div class="filter-bar" id="academyFilters">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="best">🔥 Best-seller</button>
+        <button class="filter-btn" data-filter="promo">💛 Promo</button>
       </div>
+      <div class="grid-3" id="academyCards"></div>
     </div>
   </section>
 
@@ -448,19 +583,25 @@
         <input type="search" id="siteSearch" data-i18n-placeholder="search.placeholder" placeholder="Rechercher un ebook, un service...">
         <button type="button" onclick="filterSite()" data-i18n="search.button">Rechercher</button>
       </div>
-      <div class="grid-3" id="cards">
-        <!-- ★ Rempli dynamiquement par JS -->
+      <!-- ★ FILTRES BIBLIOTHÈQUE -->
+      <div class="filter-bar" id="libraryFilters">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="best">🔥 Best-seller</button>
+        <button class="filter-btn" data-filter="promo">💛 Promo</button>
+        <button class="filter-btn" data-filter="mindset">🧠 Mindset</button>
+        <button class="filter-btn" data-filter="business">💼 Business</button>
+        <button class="filter-btn" data-filter="dev">💻 Développement Web</button>
+        <button class="filter-btn" data-filter="perso">🌱 Développement Personnel</button>
       </div>
+      <div class="grid-3" id="cards"></div>
     </div>
   </section>
 
   <section class="section" id="avis">
     <div class="wrap">
-      <div class="label" data-i18n="reviews.label">Témoignages</div>
+      <div class="label" data-i18n="reviews.label">Avis</div>
       <div class="title" data-i18n="reviews.title">Ce que disent mes clients</div>
-      <div class="services-grid" id="reviewsGrid">
-        <!-- ★ Rempli dynamiquement par JS avec les étoiles CSS -->
-      </div>
+      <div class="services-grid" id="reviewsGrid"></div>
     </div>
   </section>
 
@@ -551,63 +692,65 @@
 
   <script>
     // ─────────────────────────────────────
-    // ★ 1. BASE DE DONNÉES CENTRALISÉE
+    // ★ BASE DE DONNÉES PRODUITS
     // ─────────────────────────────────────
     const products = {
       academy: [
-        { img:"copilot_image_1780308421868.jpeg", titleKey:"academy.1.title", descKey:"academy.1.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"copilot_image_1780308427014.jpeg", titleKey:"academy.2.title", descKey:"academy.2.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"copilot_image_1780308424263.jpeg", titleKey:"academy.3.title", descKey:"academy.3.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"copilot_image_1780308429549.jpeg", titleKey:"academy.4.title", descKey:"academy.4.desc", old:"25 000 XOF", newPrice:"10 000 XOF", code:"*144*2*1*07190217*10000#" },
-        { img:"copilot_image_1780308434613.jpeg", titleKey:"academy.5.title", descKey:"academy.5.desc", old:"25 000 XOF", newPrice:"10 000 XOF", code:"*144*2*1*07190217*10000#" },
-        { img:"copilot_image_1780308431871.jpeg", titleKey:"academy.6.title", descKey:"academy.6.desc", old:"30 000 XOF", newPrice:"15 000 XOF", code:"*144*2*1*07190217*15000#" },
-        { img:"copilot_image_1780308437089.jpeg", titleKey:"academy.7.title", descKey:"academy.7.desc", old:"25 000 XOF", newPrice:"10 000 XOF", code:"*144*2*1*07190217*10000#" },
-        { img:"copilot_image_1780308440508.jpeg", titleKey:"academy.8.title", descKey:"academy.8.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" }
+        { img:"copilot_image_1780308421868.jpeg", titleKey:"academy.1.title", descKey:"academy.1.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"dev" },
+        { img:"copilot_image_1780308427014.jpeg", titleKey:"academy.2.title", descKey:"academy.2.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"dev" },
+        { img:"copilot_image_1780308424263.jpeg", titleKey:"academy.3.title", descKey:"academy.3.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"dev" },
+        { img:"copilot_image_1780308429549.jpeg", titleKey:"academy.4.title", descKey:"academy.4.desc", old:"25 000 XOF", newPrice:"10 000 XOF", code:"*144*2*1*07190217*10000#", badge:"bestseller", cat:"dev" },
+        { img:"copilot_image_1780308434613.jpeg", titleKey:"academy.5.title", descKey:"academy.5.desc", old:"25 000 XOF", newPrice:"10 000 XOF", code:"*144*2*1*07190217*10000#", badge:"bestseller", cat:"dev" },
+        { img:"copilot_image_1780308431871.jpeg", titleKey:"academy.6.title", descKey:"academy.6.desc", old:"30 000 XOF", newPrice:"15 000 XOF", code:"*144*2*1*07190217*15000#", badge:"bestseller", cat:"dev" },
+        { img:"copilot_image_1780308437089.jpeg", titleKey:"academy.7.title", descKey:"academy.7.desc", old:"25 000 XOF", newPrice:"10 000 XOF", code:"*144*2*1*07190217*10000#", badge:"bestseller", cat:"dev" },
+        { img:"copilot_image_1780308440508.jpeg", titleKey:"academy.8.title", descKey:"academy.8.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"business" }
       ],
       library: [
-        { img:"image_1779908400452~2.jpeg", titleKey:"ebooks.1.title", descKey:"ebooks.1.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"image_1779908664552~2.jpeg", titleKey:"ebooks.2.title", descKey:"ebooks.2.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"image_1779908832127~2.jpeg", titleKey:"ebooks.3.title", descKey:"ebooks.3.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"file_000000008c7071f4b0f58c0142959d08.png", titleKey:"ebooks.4.title", descKey:"ebooks.4.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"file_000000008bdc7246ae1a58f05786e6dc.png?v=1", titleKey:"ebooks.5.title", descKey:"ebooks.5.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"1780017760061.png", titleKey:"ebooks.6.title", descKey:"ebooks.6.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"file_000000005b5472439f6cbaa59986fab4.png", titleKey:"ebooks.7.title", descKey:"ebooks.7.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"image_1780133780711.jpeg", titleKey:"ebooks.8.title", descKey:"ebooks.8.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" },
-        { img:"image_1780133806459.jpeg", titleKey:"ebooks.9.title", descKey:"ebooks.9.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#" }
+        { img:"image_1779908400452~2.jpeg", titleKey:"ebooks.1.title", descKey:"ebooks.1.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"mindset" },
+        { img:"image_1779908664552~2.jpeg", titleKey:"ebooks.2.title", descKey:"ebooks.2.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"perso" },
+        { img:"image_1779908832127~2.jpeg", titleKey:"ebooks.3.title", descKey:"ebooks.3.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"business" },
+        { img:"file_000000008c7071f4b0f58c0142959d08.png", titleKey:"ebooks.4.title", descKey:"ebooks.4.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"perso" },
+        { img:"file_000000008bdc7246ae1a58f05786e6dc.png?v=1", titleKey:"ebooks.5.title", descKey:"ebooks.5.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"perso" },
+        { img:"1780017760061.png", titleKey:"ebooks.6.title", descKey:"ebooks.6.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"business" },
+        { img:"file_000000005b5472439f6cbaa59986fab4.png", titleKey:"ebooks.7.title", descKey:"ebooks.7.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"perso" },
+        { img:"image_1780133780711.jpeg", titleKey:"ebooks.8.title", descKey:"ebooks.8.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"promo", cat:"mindset" },
+        { img:"image_1780133806459.jpeg", titleKey:"ebooks.9.title", descKey:"ebooks.9.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"mindset" }
       ]
     };
 
-    // ★ Avis avec étoiles (note sur 5)
+    // ★ AVIS
     const reviews = [
-      { name:"Issa Traoré", rating:4, textKey:"reviews.1" },
-      { name:"Aïcha Ouédraogo", rating:5, textKey:"reviews.2" },
-      { name:"Moussa Kaboré", rating:4, textKey:"reviews.3" },
-      { name:"Fatoumata Coulibaly", rating:4, textKey:"reviews.4" }
+      { name:"Aïcha O.", rating:4, textKey:"reviews.1" },
+      { name:"Moussa K.", rating:5, textKey:"reviews.2" },
+      { name:"Ibrahim S.", rating:4, textKey:"reviews.3" },
+      { name:"Kadija B.", rating:4, textKey:"reviews.4" }
     ];
 
-    // ─────────────────────────────────────
-    // ★ 2. FONCTION POUR GÉNÉRER LES ÉTOILES
-    // ─────────────────────────────────────
+    // ★ ÉTOILES
     function renderStars(rating){
       let html = '<span class="stars">';
       for(let i=1; i<=5; i++){
-        html += i <= rating
-          ? '<span>★</span>'
-          : '<span class="star-empty">★</span>';
+        html += i <= rating ? '<span>★</span>' : '<span class="star-empty">★</span>';
       }
       html += '</span>';
       return html;
     }
 
-    // ─────────────────────────────────────
-    // ★ 3. GÉNÉRER LES CARTES DYNAMIQUEMENT
-    // ─────────────────────────────────────
+    // ★ BADGE LABEL
+    function badgeLabel(type){
+      return type === 'bestseller' ? '🔥 Best-seller' : '💛 Promo';
+    }
+
+    // ★ CONSTRUCTION CARTE PRODUIT
     function buildProductCard(p, containerId){
       const container = document.getElementById(containerId);
       if(!container) return;
       const article = document.createElement('article');
       article.className = 'card';
+      article.setAttribute('data-badge', p.badge);
+      article.setAttribute('data-cat', p.cat);
       article.innerHTML = `
+        <span class="card-badge ${p.badge}">${badgeLabel(p.badge)}</span>
         <img src="${p.img}" alt="" class="ebook-img" loading="lazy">
         <div class="card-body">
           <h3 data-i18n="${p.titleKey}"></h3>
@@ -622,13 +765,13 @@
     }
 
     function buildAllProductCards(){
+      document.getElementById('academyCards').innerHTML = '';
+      document.getElementById('cards').innerHTML = '';
       products.academy.forEach(p => buildProductCard(p, 'academyCards'));
       products.library.forEach(p => buildProductCard(p, 'cards'));
     }
 
-    // ─────────────────────────────────────
-    // ★ 4. GÉNÉRER LES AVIS
-    // ─────────────────────────────────────
+    // ★ AVIS
     function buildReviews(){
       const grid = document.getElementById('reviewsGrid');
       if(!grid) return;
@@ -644,9 +787,7 @@
       });
     }
 
-    // ─────────────────────────────────────
-    // ★ 5. TRADUCTIONS (complétées)
-    // ─────────────────────────────────────
+    // ★ TRADUCTIONS
     const translations = {
       fr: {
         "meta.title": "Balima Web Developer",
@@ -663,6 +804,10 @@
         "hero.title3": "TES VENTES.",
         "hero.subtitle": "J'aide les entrepreneurs à vendre plus vite avec des sites propres, rapides et pensés pour convertir.",
         "hero.cta": "Voir mes services",
+        "stats.sites": "Sites livrés",
+        "stats.ebooks": "Ebooks vendus",
+        "stats.days": "Jours sur 7",
+        "stats.satisfaction": "% à l'écoute",
         "services.label": "Ce que je fais",
         "services.title": "Mes Services",
         "services.currencyLabel": "Prix / devise",
@@ -692,6 +837,16 @@
         "services.card4.li3": "Site vitrine",
         "services.card4.li4": "Optimisation de base",
         "services.order": "Commander",
+        "compare.label": "Avant / Après",
+        "compare.title": "Ce que change un site professionnel",
+        "compare.before.title": "Sans site pro",
+        "compare.before.li1": "Les clients potentiels hésitent à faire confiance",
+        "compare.before.li2": "Difficile de montrer son sérieux avec une simple page Facebook",
+        "compare.before.li3": "Aucune vente automatique, tout se fait manuellement",
+        "compare.after.title": "Avec un site pro",
+        "compare.after.li1": "Une image de marque qui inspire immédiatement confiance",
+        "compare.after.li2": "Tes clients te prennent au sérieux avant même de te parler",
+        "compare.after.li3": "Des ventes qui rentrent même quand tu dors",
         "why.label": "Pourquoi moi ?",
         "why.title": "Un site web n'est pas une dépense. C'est un investissement.",
         "why.text1": "Aujourd'hui, beaucoup de personnes peuvent créer un site internet. Mon objectif n'est pas simplement de te livrer un site joli à regarder. Je crée des sites pensés pour inspirer confiance, mettre en valeur ton activité et donner une image professionnelle à ton entreprise.",
@@ -744,18 +899,18 @@
         "ebooks.8.desc": "Un guide puissant sur l'alpha, bêta, delta, omega et sigma pour mieux comprendre les archétypes masculins.",
         "ebooks.9.title": "Les Pauvres Obéissent, Les Riches Négocient",
         "ebooks.9.desc": "Un ebook sur l'état d'esprit, la négociation et la manière de reprendre le contrôle de ses choix financiers.",
-        "reviews.label": "Témoignages",
+        "reviews.label": "Avis",
         "reviews.title": "Ce que disent mes clients",
         "reviews.cta": "Laisser un avis WhatsApp",
         "reviews.note": "Les retours des lecteurs et clients sont les bienvenus.",
-        "reviews.1.name": "Issa Traoré",
-        "reviews.1.text": "J'ai commandé un site vitrine pour mon activité de vente de téléphones. Le résultat est très propre et professionnel. J'aurais aimé avoir un peu plus de détails sur la personnalisation au début, mais une fois terminé, le site est vraiment efficace.",
-        "reviews.2.name": "Aïcha Ouédraogo",
-        "reviews.2.text": "\"Mindset de Réussite Africaine\" est très motivant. Les idées sont simples mais puissantes. Ça m'a aidé à changer ma façon de voir mes objectifs.",
-        "reviews.3.name": "Moussa Kaboré",
-        "reviews.3.text": "Le site que j'ai reçu est rapide et fonctionne bien sur téléphone. Petit point à améliorer : j'aurais aimé plus de propositions de design, mais globalement le travail est sérieux.",
-        "reviews.4.name": "Fatoumata Coulibaly",
-        "reviews.4.text": "Le contenu est intéressant et facile à lire. Certains chapitres sont un peu courts, mais les conseils sont utiles et directement applicables dans la vie quotidienne.",
+        "reviews.1.name": "Aïcha O.",
+        "reviews.1.text": "J'ai acheté son ebook 'Mindset de Réussite Africaine' un peu par hasard. Et là... j'ai lu 3 pages et j'ai failli pleurer. C'est comme si chaque mot s'adressait directement à ma situation. Depuis, j'ai changé ma routine, je me lève plus tôt, je crois en moi. Moussa, si tu lis ça : que Dieu te bénisse.",
+        "reviews.2.name": "Moussa K.",
+        "reviews.2.text": "Je voulais juste une page simple pour vendre mes chaussures. Il m'a appelé, il a pris le temps de comprendre mon activité, il m'a proposé des idées que j'avais même pas imaginées. Le résultat est magnifique. Et le plus fou ? Mes ventes ont augmenté la première semaine. C'est plus qu'un développeur, c'est un partenaire.",
+        "reviews.3.name": "Ibrahim S.",
+        "reviews.3.text": "J'ai hésité 2 semaines avant de le contacter... Grosse erreur ! J'aurais dû le faire depuis longtemps. Il est patient, il répond vite, et surtout il tient ses promesses. Mon site était prêt en 3 jours. Propre, rapide, exactement ce que je voulais. Je lui ai déjà recommandé 2 amis.",
+        "reviews.4.name": "Kadija B.",
+        "reviews.4.text": "Son ebook sur la procrastination m'a sauvé la vie. Vraiment. Chaque page est une claque. J'étais bloquée depuis des mois, et là tout s'est débloqué. Le seul petit truc : j'aurais aimé qu'il soit plus long tellement c'était bon !",
         "faq.label": "FAQ",
         "faq.title": "Questions fréquentes",
         "faq.q1": "Comment recevoir mon ebook ?",
@@ -794,6 +949,10 @@
         "hero.title3": "YOUR SALES.",
         "hero.subtitle": "I help entrepreneurs sell faster with clean, fast websites built to convert.",
         "hero.cta": "See my services",
+        "stats.sites": "Sites delivered",
+        "stats.ebooks": "Ebooks sold",
+        "stats.days": "Days a week",
+        "stats.satisfaction": "% listening",
         "services.label": "What I do",
         "services.title": "My Services",
         "services.currencyLabel": "Price / currency",
@@ -823,6 +982,16 @@
         "services.card4.li3": "Showcase website",
         "services.card4.li4": "Basic optimization",
         "services.order": "Order",
+        "compare.label": "Before / After",
+        "compare.title": "What a professional website changes",
+        "compare.before.title": "Without a pro site",
+        "compare.before.li1": "Potential clients hesitate to trust you",
+        "compare.before.li2": "Hard to show professionalism with just a Facebook page",
+        "compare.before.li3": "No automatic sales, everything is manual",
+        "compare.after.title": "With a pro site",
+        "compare.after.li1": "A brand image that immediately inspires trust",
+        "compare.after.li2": "Clients take you seriously before even talking to you",
+        "compare.after.li3": "Sales coming in even while you sleep",
         "why.label": "Why me?",
         "why.title": "A website is not an expense. It's an investment.",
         "why.text1": "Today, many people can create a website. My goal is not simply to deliver a nice-looking site. I create sites designed to inspire trust, showcase your activity and give a professional image to your business.",
@@ -875,18 +1044,18 @@
         "ebooks.8.desc": "A powerful guide on alpha, beta, delta, omega and sigma to better understand masculine archetypes.",
         "ebooks.9.title": "The Poor Obey, The Rich Negotiate",
         "ebooks.9.desc": "An ebook about mindset, negotiation, and taking back control of your financial choices.",
-        "reviews.label": "Testimonials",
+        "reviews.label": "Reviews",
         "reviews.title": "What my clients say",
         "reviews.cta": "Leave a WhatsApp review",
         "reviews.note": "Feedback from readers and clients is welcome.",
-        "reviews.1.name": "Issa Traoré",
-        "reviews.1.text": "I ordered a showcase website for my phone sales business. The result is very clean and professional. I would have liked a bit more detail on customization at the start, but once finished, the site is really effective.",
-        "reviews.2.name": "Aïcha Ouédraogo",
-        "reviews.2.text": "\"African Success Mindset\" is very motivating. The ideas are simple but powerful. It helped me change the way I see my goals.",
-        "reviews.3.name": "Moussa Kaboré",
-        "reviews.3.text": "The site I received is fast and works well on mobile. Small improvement point: I would have liked more design proposals, but overall the work is serious.",
-        "reviews.4.name": "Fatoumata Coulibaly",
-        "reviews.4.text": "The content is interesting and easy to read. Some chapters are a bit short, but the tips are useful and directly applicable in daily life.",
+        "reviews.1.name": "Aïcha O.",
+        "reviews.1.text": "I bought his ebook 'African Success Mindset' a bit by chance. And then... I read 3 pages and I almost cried. It's as if every word spoke directly to my situation. Since then, I've changed my routine, I wake up earlier, I believe in myself. Moussa, if you read this: may God bless you.",
+        "reviews.2.name": "Moussa K.",
+        "reviews.2.text": "I just wanted a simple page to sell my shoes. He called me, took the time to understand my business, and proposed ideas I hadn't even imagined. The result is beautiful. And the craziest part? My sales increased the first week. He's more than a developer, he's a partner.",
+        "reviews.3.name": "Ibrahim S.",
+        "reviews.3.text": "I hesitated for 2 weeks before contacting him... Big mistake! I should have done it a long time ago. He's patient, responds quickly, and most importantly, keeps his promises. My site was ready in 3 days. Clean, fast, exactly what I wanted. I've already recommended him to 2 friends.",
+        "reviews.4.name": "Kadija B.",
+        "reviews.4.text": "His ebook on procrastination saved my life. Really. Every page is a wake-up call. I was stuck for months, and then everything unlocked. The only small thing: I wish it were longer because it was so good!",
         "faq.label": "FAQ",
         "faq.title": "Frequent questions",
         "faq.q1": "How do I receive my ebook?",
@@ -912,9 +1081,6 @@
       }
     };
 
-    // ─────────────────────────────────────
-    // ★ 6. CHANGEMENT DE LANGUE
-    // ─────────────────────────────────────
     let currentLang = 'fr';
 
     function setLang(lang){
@@ -938,13 +1104,9 @@
       document.querySelectorAll('.lang-btn').forEach(btn=>{
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
-      // ★ Recréer le menu mobile dans la bonne langue
       buildMobileMenu();
     }
 
-    // ─────────────────────────────────────
-    // ★ 7. CHANGEMENT DE DEVISE
-    // ─────────────────────────────────────
     function setCurrency(currency){
       document.querySelectorAll('.currency-btn').forEach(btn=>{
         btn.classList.toggle('active', btn.dataset.currency === currency);
@@ -956,9 +1118,6 @@
       });
     }
 
-    // ─────────────────────────────────────
-    // ★ 8. RECHERCHE
-    // ─────────────────────────────────────
     function filterSite(){
       const query = (document.getElementById('siteSearch')?.value || document.getElementById('siteSearchTop')?.value || '').toLowerCase().trim();
       document.querySelectorAll('#cards .card, #academyCards .card').forEach(card=>{
@@ -967,9 +1126,33 @@
       });
     }
 
-    // ─────────────────────────────────────
-    // ★ 9. MENU MOBILE DYNAMIQUE
-    // ─────────────────────────────────────
+    // ★ FILTRE PAR BADGE
+    function setupFilters(containerId, filterBarId){
+      const filterBar = document.getElementById(filterBarId);
+      const container = document.getElementById(containerId);
+      if(!filterBar || !container) return;
+
+      filterBar.querySelectorAll('.filter-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          container.querySelectorAll('.card').forEach(card=>{
+            if(filter === 'all'){
+              card.style.display = '';
+            } else if(filter === 'best'){
+              card.style.display = card.dataset.badge === 'bestseller' ? '' : 'none';
+            } else if(filter === 'promo'){
+              card.style.display = card.dataset.badge === 'promo' ? '' : 'none';
+            } else {
+              card.style.display = card.dataset.cat === filter ? '' : 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // ★ MENU MOBILE
     function buildMobileMenu(){
       const desktopMenu = document.getElementById('desktopMenu');
       const mobileMenu = document.getElementById('mobileMenu');
@@ -983,19 +1166,47 @@
       });
     }
 
-    // ─────────────────────────────────────
-    // ★ 10. INITIALISATION DOM
-    // ─────────────────────────────────────
+    // ★ COMPTEUR ANIMÉ
+    function animateCounters(){
+      const statsRow = document.getElementById('statsRow');
+      if(!statsRow) return;
+      const numbers = statsRow.querySelectorAll('.stat-number');
+      let animated = false;
+
+      function run(){
+        if(animated) return;
+        const rect = statsRow.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100){
+          animated = true;
+          numbers.forEach(el=>{
+            const target = parseInt(el.dataset.target);
+            const duration = 1500;
+            const start = performance.now();
+            function update(now){
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              el.textContent = Math.floor(progress * target) + (el.dataset.target === '100' ? '%' : el.dataset.target === '7' ? '/7' : '');
+              if(progress < 1) requestAnimationFrame(update);
+              else el.textContent = target + (el.dataset.target === '100' ? '%' : el.dataset.target === '7' ? '/7' : '');
+            }
+            requestAnimationFrame(update);
+          });
+        }
+      }
+      window.addEventListener('scroll', run);
+      run();
+    }
+
+    // ★ INIT
     buildAllProductCards();
     buildReviews();
     buildMobileMenu();
-
-    // Réappliquer la langue après génération dynamique
     setTimeout(() => setLang('fr'), 50);
+    setupFilters('academyCards', 'academyFilters');
+    setupFilters('cards', 'libraryFilters');
+    animateCounters();
 
-    // ─────────────────────────────────────
-    // ★ 11. ÉVÉNEMENTS
-    // ─────────────────────────────────────
+    // ★ ÉVÉNEMENTS
     document.querySelectorAll('.lang-btn').forEach(btn=>{
       btn.addEventListener('click', ()=>setLang(btn.dataset.lang));
     });
@@ -1004,7 +1215,6 @@
       btn.addEventListener('click', ()=>setCurrency(btn.dataset.currency));
     });
 
-    // ★ Délégation d'événement pour les boutons "Acheter" générés dynamiquement
     document.addEventListener('click', (e) => {
       const buyBtn = e.target.closest('.buy-btn');
       if(buyBtn){
@@ -1021,7 +1231,7 @@
       }
     });
 
-    // ★ Menu hamburger
+    // ★ HAMBURGER
     const menuBtn = document.getElementById('menuBtn');
     const menuOverlay = document.getElementById('menuOverlay');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -1037,11 +1247,11 @@
     });
     document.addEventListener('keydown', e=>{ if(e.key === 'Escape') toggleMenu(false); });
 
-    // ★ Recherche
+    // ★ RECHERCHE
     document.getElementById('siteSearch')?.addEventListener('input', filterSite);
     document.getElementById('siteSearchTop')?.addEventListener('input', filterSite);
 
-    // ★ FAQ accordéon
+    // ★ FAQ
     document.querySelectorAll(".faq-question").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         const item = btn.parentElement;
@@ -1052,7 +1262,7 @@
       });
     });
 
-    // ★ BOUTON REMONTER EN HAUT
+    // ★ BACK TO TOP
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       backToTop.classList.toggle('visible', window.scrollY > 500);
@@ -1061,7 +1271,14 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ★ Initialisation devise
+    // ★ DARK/LIGHT TOGGLE
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('light-mode');
+      themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    });
+
+    // ★ INIT DEVISE
     setCurrency('xof');
   </script>
 </body>
