@@ -37,6 +37,8 @@
     body.light-mode .cta-box{background:var(--card);}
     body.light-mode .card{background:rgba(0,0,0,.02);}
     body.light-mode .hero-bg{filter:blur(3px) brightness(.8);opacity:.7;}
+    body.light-mode .about-full-bg::before{opacity:.15;}
+    body.light-mode .about-full-bg p{background:rgba(255,255,255,.7);color:#000;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -162,7 +164,33 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
-    /* Qui suis-je - section avec les deux images */
+    /* Section Qui suis-je avec fond plein écran */
+    .about-full-bg {
+      position: relative;
+      background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.85));
+      border-radius: 32px;
+      margin: 0 0 20px 0;
+      overflow: hidden;
+    }
+    .about-full-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('creation-site.jpg') center/cover no-repeat;
+      filter: blur(5px) brightness(0.55);
+      opacity: 0.45;
+      z-index: 0;
+    }
+    .about-full-bg > * {
+      position: relative;
+      z-index: 1;
+    }
+    .about-content-box {
+      padding: 48px 40px;
+    }
     .about-header{
       display:flex;
       align-items:center;
@@ -175,7 +203,7 @@
       width:130px;height:130px;border-radius:50%;
       object-fit:cover;object-position:center;
       border:3px solid var(--gold2);
-      box-shadow:0 0 30px rgba(216,178,106,.25);
+      box-shadow:0 0 30px rgba(216,178,106,.5);
       background:var(--card);
     }
     .about-web-badge{
@@ -189,7 +217,7 @@
       height:auto;
       border-radius:12px;
       border:2px solid var(--gold2);
-      background:rgba(0,0,0,.3);
+      background:rgba(0,0,0,.5);
       padding:8px;
     }
     .about-web-badge span{
@@ -197,6 +225,27 @@
       color:var(--gold2);
       font-weight:700;
       letter-spacing:2px;
+    }
+    .about-text-box {
+      background: rgba(0,0,0,.5);
+      backdrop-filter: blur(3px);
+      border-radius: 24px;
+      padding: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .about-text-box p {
+      color: var(--text) !important;
+      background: transparent !important;
+      padding: 0 !important;
+    }
+    @media (max-width: 768px) {
+      .about-content-box {
+        padding: 32px 24px;
+      }
+      .about-text-box {
+        padding: 16px;
+      }
     }
 
     .services-price-switch{margin-bottom:20px;}
@@ -280,21 +329,6 @@
     .services-card li::before{content:"✓";position:absolute;left:0;color:var(--blue2);font-weight:800;}
     .premium-btn{display:flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#111827;text-decoration:none;font-weight:900;transition:.2s ease;}
     .premium-btn:hover{transform:translateY(-1px);filter:brightness(1.03);}
-
-    .pillar-icon-img{
-      width:44px;height:44px;border-radius:12px;
-      object-fit:cover;
-      margin:0 auto 14px;
-    }
-    /* Carte création de site avec image */
-    .create-site-card .icon img{
-      width:44px;height:44px;object-fit:cover;
-      border-radius:12px;
-    }
-    .create-site-card .icon{
-      background:rgba(0,0,0,.4);
-      padding:0;
-    }
 
     .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:800px;margin:0 auto 40px;}
     .compare-card{border-radius:18px;padding:28px;border:1px solid var(--line);text-align:center;}
@@ -438,7 +472,7 @@
   <div class="menu-overlay" id="menuOverlay"></div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal"></nav>
 
-  <!-- HERO AVEC NOUVEAU FOND -->
+  <!-- HERO -->
   <header class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="wrap" style="position:relative;z-index:2;">
@@ -479,48 +513,55 @@
     </div>
   </section>
 
-  <!-- QUI SUIS-JE AVEC LES DEUX IMAGES -->
+  <!-- QUI SUIS-JE AVEC FOND PLEIN ÉCRAN -->
   <section class="section tight" id="qui-suis-je">
     <div class="wrap">
-      <div class="label" data-i18n="about.label">Qui suis-je</div>
-      <div class="title" data-i18n="about.title">Je ne construis pas des sites.<br>Je construis des preuves.</div>
+      <div class="about-full-bg">
+        <div class="about-content-box">
+          
+          <div class="label" data-i18n="about.label" style="text-align:center;">Qui suis-je</div>
+          <div class="title" data-i18n="about.title" style="text-align:center;">Je ne construis pas des sites.<br>Je construis des preuves.</div>
 
-      <div class="about-header">
-        <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
-        <div class="about-web-badge">
-          <img src="is_web_development_good_career.jpg" alt="Web Development" loading="lazy">
-          <span>WEB DEVELOPMENT</span>
+          <div class="about-header" style="justify-content:center; margin-top:20px;">
+            <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
+            <div class="about-web-badge">
+              <img src="is_web_development_good_career.jpg" alt="Web Development" loading="lazy">
+              <span>WEB DEVELOPMENT</span>
+            </div>
+          </div>
+
+          <div class="about-text-box">
+            <p style="color:var(--text);line-height:1.9;font-size:1rem;" data-i18n="about.text1">
+              <strong style="color:var(--gold2);">Moussa Balima</strong>, développeur web freelance au Burkina Faso.
+              Je crée des sites qui disent à tes clients : <em style="color:var(--gold2);">"Tu peux lui faire confiance."</em>
+            </p>
+            <p style="color:var(--text);line-height:1.9;font-size:1rem;margin-top:16px;" data-i18n="about.text2">
+              J'ai aussi créé <strong style="color:var(--gold2);">l'Académie Web BALIMA</strong> pour former au développement web,
+              et une <strong style="color:var(--gold2);">Bibliothèque d'ebooks</strong> pour transformer ton mindset et tes finances.
+            </p>
+          </div>
+
         </div>
       </div>
 
-      <div style="max-width:700px;margin:0 auto 36px;text-align:center;">
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;" data-i18n="about.text1">
-          <strong style="color:var(--text);">Moussa Balima</strong>, développeur web freelance au Burkina Faso.
-          Je crée des sites qui disent à tes clients : <em style="color:var(--gold2);">"Tu peux lui faire confiance."</em>
-        </p>
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:16px;" data-i18n="about.text2">
-          J'ai aussi créé <strong style="color:var(--gold2);">l'Académie Web BALIMA</strong> pour former au développement web,
-          et une <strong style="color:var(--gold2);">Bibliothèque d'ebooks</strong> pour transformer ton mindset et tes finances.
-        </p>
-      </div>
-
-      <div class="services-grid" style="margin-top:10px;">
-        <div class="services-card create-site-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;">
-            <img src="creation-site.jpg" alt="Créer un site internet">
-          </div>
+      <!-- Les 3 cartes en dessous -->
+      <div class="services-grid" style="margin-top:40px;">
+        <div class="services-card" style="text-align:center;">
+          <div class="icon" style="margin:0 auto 14px; background:rgba(0,0,0,.6);">🖥️</div>
           <h3 data-i18n="about.pillar1.title">Création de sites</h3>
           <p class="compat" data-i18n="about.pillar1.desc">Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.</p>
           <a href="#services" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar1.cta">Voir les offres</a>
         </div>
+        
         <div class="services-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">🎓</div>
+          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem; background:rgba(0,0,0,.6);">🎓</div>
           <h3 data-i18n="about.pillar2.title">Formations web</h3>
           <p class="compat" data-i18n="about.pillar2.desc">Apprends le développement web de A à Z avec des formations claires et pratiques.</p>
           <a href="#academie-web" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar2.cta">Découvrir l'académie</a>
         </div>
+        
         <div class="services-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">📚</div>
+          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem; background:rgba(0,0,0,.6);">📚</div>
           <h3 data-i18n="about.pillar3.title">Ebooks puissants</h3>
           <p class="compat" data-i18n="about.pillar3.desc">Des livres numériques pour transformer ton mindset, tes émotions et tes finances.</p>
           <a href="#bibliotheque" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar3.cta">Explorer la bibliothèque</a>
@@ -563,7 +604,6 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-i18n="services.order">Commander</a>
         </div>
         
-        <!-- Carte Page de vente avec fond flouté -->
         <div class="services-card services-featured sales-blur">
           <div class="top"><div class="badge" data-i18n="services.card2.badge">Offre principale</div><div class="icon">◈</div></div>
           <h3 data-i18n="services.card2.title">Page de vente</h3>
@@ -581,7 +621,6 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-i18n="services.order">Commander</a>
         </div>
         
-        <!-- Carte Site vitrine (Pro) avec fond flouté -->
         <div class="services-card pro-blur">
           <div class="top"><div class="badge" data-i18n="services.card3.badge">Pro</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card3.title">Site vitrine</h3>
@@ -665,26 +704,10 @@
         </p>
       </div>
       <div class="services-grid">
-        <div class="services-card">
-          <div class="icon">⚡</div>
-          <h3 data-i18n="why.card1.title">Rapidité</h3>
-          <p class="compat" data-i18n="why.card1.desc">Sites rapides et fluides pour une meilleure expérience utilisateur.</p>
-        </div>
-        <div class="services-card">
-          <div class="icon">📱</div>
-          <h3 data-i18n="why.card2.title">Compatible partout</h3>
-          <p class="compat" data-i18n="why.card2.desc">Parfait sur téléphone, tablette et ordinateur.</p>
-        </div>
-        <div class="services-card">
-          <div class="icon">🎯</div>
-          <h3 data-i18n="why.card3.title">Orienté résultats</h3>
-          <p class="compat" data-i18n="why.card3.desc">Chaque page est conçue pour convertir les visiteurs en clients.</p>
-        </div>
-        <div class="services-card">
-          <div class="icon">🤝</div>
-          <h3 data-i18n="why.card4.title">Accompagnement</h3>
-          <p class="compat" data-i18n="why.card4.desc">Je reste disponible même après la livraison du site.</p>
-        </div>
+        <div class="services-card"><div class="icon">⚡</div><h3 data-i18n="why.card1.title">Rapidité</h3><p class="compat" data-i18n="why.card1.desc">Sites rapides et fluides pour une meilleure expérience utilisateur.</p></div>
+        <div class="services-card"><div class="icon">📱</div><h3 data-i18n="why.card2.title">Compatible partout</h3><p class="compat" data-i18n="why.card2.desc">Parfait sur téléphone, tablette et ordinateur.</p></div>
+        <div class="services-card"><div class="icon">🎯</div><h3 data-i18n="why.card3.title">Orienté résultats</h3><p class="compat" data-i18n="why.card3.desc">Chaque page est conçue pour convertir les visiteurs en clients.</p></div>
+        <div class="services-card"><div class="icon">🤝</div><h3 data-i18n="why.card4.title">Accompagnement</h3><p class="compat" data-i18n="why.card4.desc">Je reste disponible même après la livraison du site.</p></div>
       </div>
     </div>
   </section>
@@ -747,27 +770,9 @@
       <div class="label" data-i18n="faq.label">FAQ</div>
       <div class="title" data-i18n="faq.title">Questions fréquentes</div>
       <div class="faq-container">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq.q1">Comment recevoir mon ebook ?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer" data-i18n="faq.a1">Après paiement, tu cliques sur "J'ai payé" sur WhatsApp et tu reçois ton ebook directement.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq.q2">Est-ce que les sites web sont personnalisés ?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer" data-i18n="faq.a2">Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq.q3">Combien de temps pour livrer un site ?</span>
-            <span>+</span>
-          </button>
-          <div class="faq-answer" data-i18n="faq.a3">En général entre 24h et 5 jours selon la complexité du projet.</div>
-        </div>
+        <div class="faq-item"><button class="faq-question"><span data-i18n="faq.q1">Comment recevoir mon ebook ?</span><span>+</span></button><div class="faq-answer" data-i18n="faq.a1">Après paiement, tu cliques sur "J'ai payé" sur WhatsApp et tu reçois ton ebook directement.</div></div>
+        <div class="faq-item"><button class="faq-question"><span data-i18n="faq.q2">Est-ce que les sites web sont personnalisés ?</span><span>+</span></button><div class="faq-answer" data-i18n="faq.a2">Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.</div></div>
+        <div class="faq-item"><button class="faq-question"><span data-i18n="faq.q3">Combien de temps pour livrer un site ?</span><span>+</span></button><div class="faq-answer" data-i18n="faq.a3">En général entre 24h et 5 jours selon la complexité du projet.</div></div>
       </div>
     </div>
   </section>
@@ -778,10 +783,7 @@
       <div class="label" data-i18n="payment.label">Paiement</div>
       <div class="title" data-i18n="payment.title">Paiement Orange Money</div>
       <div class="payment-box">
-        <div class="pay-top">
-          <img src="Screenshot_20260528-001853_Google~2.jpg" alt="Orange Money" class="pay-logo" loading="lazy">
-          <strong data-i18n="payment.secure">Paiement sécurisé par Orange Money</strong>
-        </div>
+        <div class="pay-top"><img src="Screenshot_20260528-001853_Google~2.jpg" alt="Orange Money" class="pay-logo" loading="lazy"><strong data-i18n="payment.secure">Paiement sécurisé par Orange Money</strong></div>
         <div class="pay-row"><span data-i18n="payment.amountLabel">Montant</span> : <strong>5 000 XOF</strong></div>
         <div class="pay-row"><span data-i18n="payment.numberLabel">Numéro Orange Money</span> : <strong>+226 07190217</strong></div>
         <div class="pay-row" data-i18n="payment.instruction">Après paiement, clique sur <strong>J'ai payé</strong> pour m'envoyer une confirmation WhatsApp.</div>
@@ -923,7 +925,7 @@
         "stats.satisfaction": "% à l'écoute",
         "about.label": "Qui suis-je",
         "about.title": "Je ne construis pas des sites.<br>Je construis des preuves.",
-        "about.text1": "<strong style='color:var(--text);'>Moussa Balima</strong>, développeur web freelance au Burkina Faso. Je crée des sites qui disent à tes clients : <em style='color:var(--gold2);'>\"Tu peux lui faire confiance.\"</em>",
+        "about.text1": "<strong style='color:var(--gold2);'>Moussa Balima</strong>, développeur web freelance au Burkina Faso. Je crée des sites qui disent à tes clients : <em style='color:var(--gold2);'>\"Tu peux lui faire confiance.\"</em>",
         "about.text2": "J'ai aussi créé <strong style='color:var(--gold2);'>l'Académie Web BALIMA</strong> pour former au développement web, et une <strong style='color:var(--gold2);'>Bibliothèque d'ebooks</strong> pour transformer ton mindset et tes finances.",
         "about.pillar1.title": "Création de sites",
         "about.pillar1.desc": "Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.",
@@ -1082,7 +1084,7 @@
         "stats.satisfaction": "% listening",
         "about.label": "Who I am",
         "about.title": "I don't build websites.<br>I build proof.",
-        "about.text1": "<strong style='color:var(--text);'>Moussa Balima</strong>, freelance web developer in Burkina Faso. I create websites that tell your clients: <em style='color:var(--gold2);'>\"You can trust him.\"</em>",
+        "about.text1": "<strong style='color:var(--gold2);'>Moussa Balima</strong>, freelance web developer in Burkina Faso. I create websites that tell your clients: <em style='color:var(--gold2);'>\"You can trust him.\"</em>",
         "about.text2": "I also created <strong style='color:var(--gold2);'>BALIMA Web Academy</strong> to train in web development, and a <strong style='color:var(--gold2);'>Library of ebooks</strong> to transform your mindset and finances.",
         "about.pillar1.title": "Website creation",
         "about.pillar1.desc": "I create your professional site to capture attention and turn visitors into customers.",
@@ -1412,4 +1414,4 @@
     setCurrency('xof');
   </script>
 </body>
-    </html>
+  </html>
