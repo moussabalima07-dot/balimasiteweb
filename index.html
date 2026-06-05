@@ -38,7 +38,7 @@
     body.light-mode .card{background:rgba(0,0,0,.02);}
     body.light-mode .hero-bg{filter:blur(3px) brightness(.8);opacity:.7;}
     body.light-mode .about-full-bg::before{opacity:.15;}
-    body.light-mode .about-full-bg p{background:rgba(255,255,255,.7);color:#000;}
+    body.light-mode .create-site-bg::before{opacity:.2;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -164,10 +164,10 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
-    /* Section Qui suis-je avec fond plein écran */
+    /* Section Qui suis-je - fond avec l'image WEB DEVELOPMENT */
     .about-full-bg {
       position: relative;
-      background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.85));
+      background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.8));
       border-radius: 32px;
       margin: 0 0 20px 0;
       overflow: hidden;
@@ -179,9 +179,9 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('creation-site.jpg') center/cover no-repeat;
-      filter: blur(5px) brightness(0.55);
-      opacity: 0.45;
+      background: url('is_web_development_good_career.jpg') center/cover no-repeat;
+      filter: blur(4px) brightness(0.6);
+      opacity: 0.4;
       z-index: 0;
     }
     .about-full-bg > * {
@@ -191,40 +191,17 @@
     .about-content-box {
       padding: 48px 40px;
     }
-    .about-header{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:24px;
-      margin-bottom:32px;
-      flex-wrap:wrap;
-    }
     .about-photo{
-      width:130px;height:130px;border-radius:50%;
-      object-fit:cover;object-position:center;
-      border:3px solid var(--gold2);
-      box-shadow:0 0 30px rgba(216,178,106,.5);
-      background:var(--card);
-    }
-    .about-web-badge{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:8px;
-    }
-    .about-web-badge img{
-      width:100px;
-      height:auto;
-      border-radius:12px;
-      border:2px solid var(--gold2);
-      background:rgba(0,0,0,.5);
-      padding:8px;
-    }
-    .about-web-badge span{
-      font-size:.75rem;
-      color:var(--gold2);
-      font-weight:700;
-      letter-spacing:2px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid var(--gold2);
+      box-shadow: 0 0 30px rgba(216,178,106,.5);
+      background: var(--card);
+      margin: 0 auto 20px;
+      display: block;
     }
     .about-text-box {
       background: rgba(0,0,0,.5);
@@ -246,6 +223,30 @@
       .about-text-box {
         padding: 16px;
       }
+    }
+
+    /* Carte Création de sites avec fond "je crée votre page de vente" */
+    .create-site-bg {
+      background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.85));
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .create-site-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
+      filter: blur(5px) brightness(0.55);
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .create-site-bg > * {
+      position: relative;
+      z-index: 1;
     }
 
     .services-price-switch{margin-bottom:20px;}
@@ -312,10 +313,6 @@
       border:1px solid rgba(255,255,255,.07);
       font-size:1.1rem;
       overflow:hidden;
-    }
-    .icon img{
-      width:100%;height:100%;object-fit:cover;
-      border-radius:14px;
     }
     .services-card h3{font-size:1.2rem;margin-bottom:10px;}
     .compat{color:var(--muted);font-size:.88rem;margin-bottom:16px;}
@@ -417,7 +414,7 @@
       .back-to-top{bottom:20px;right:16px;width:42px;height:42px;font-size:1.2rem;}
       .whatsapp-float{bottom:78px;right:16px;width:50px;height:50px;font-size:1.4rem;}
       .stats-row{gap:24px;}
-      .about-header{flex-direction:column;gap:16px;}
+      .about-content-box{padding:24px 16px;}
     }
 
     @media (max-width:900px) and (orientation:landscape){
@@ -493,27 +490,15 @@
   <section class="section tight">
     <div class="wrap">
       <div class="stats-row" id="statsRow">
-        <div class="stat-item">
-          <span class="stat-number" data-target="15">0</span>
-          <span class="stat-label" data-i18n="stats.sites">Sites livrés</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="40">0</span>
-          <span class="stat-label" data-i18n="stats.ebooks">Ebooks vendus</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="7">0</span>
-          <span class="stat-label" data-i18n="stats.days">Jours sur 7</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="100">0</span>
-          <span class="stat-label" data-i18n="stats.satisfaction">% à l'écoute</span>
-        </div>
+        <div class="stat-item"><span class="stat-number" data-target="15">0</span><span class="stat-label" data-i18n="stats.sites">Sites livrés</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="40">0</span><span class="stat-label" data-i18n="stats.ebooks">Ebooks vendus</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="7">0</span><span class="stat-label" data-i18n="stats.days">Jours sur 7</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="100">0</span><span class="stat-label" data-i18n="stats.satisfaction">% à l'écoute</span></div>
       </div>
     </div>
   </section>
 
-  <!-- QUI SUIS-JE AVEC FOND PLEIN ÉCRAN -->
+  <!-- QUI SUIS-JE - fond avec image WEB DEVELOPMENT, plus de cadre rectangulaire -->
   <section class="section tight" id="qui-suis-je">
     <div class="wrap">
       <div class="about-full-bg">
@@ -522,13 +507,8 @@
           <div class="label" data-i18n="about.label" style="text-align:center;">Qui suis-je</div>
           <div class="title" data-i18n="about.title" style="text-align:center;">Je ne construis pas des sites.<br>Je construis des preuves.</div>
 
-          <div class="about-header" style="justify-content:center; margin-top:20px;">
-            <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
-            <div class="about-web-badge">
-              <img src="is_web_development_good_career.jpg" alt="Web Development" loading="lazy">
-              <span>WEB DEVELOPMENT</span>
-            </div>
-          </div>
+          <!-- UNIQUEMENT LA PHOTO DE PROFIL ARRONDIE (pas de second cadre) -->
+          <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
 
           <div class="about-text-box">
             <p style="color:var(--text);line-height:1.9;font-size:1rem;" data-i18n="about.text1">
@@ -546,10 +526,12 @@
 
       <!-- Les 3 cartes en dessous -->
       <div class="services-grid" style="margin-top:40px;">
-        <div class="services-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px; background:rgba(0,0,0,.6);">🖥️</div>
-          <h3 data-i18n="about.pillar1.title">Création de sites</h3>
-          <p class="compat" data-i18n="about.pillar1.desc">Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.</p>
+        
+        <!-- Carte Création de sites avec le fond "je crée votre page de vente" -->
+        <div class="services-card create-site-bg" style="text-align:center;">
+          <div class="icon" style="margin:0 auto 14px; background:rgba(0,0,0,.5); border:1px solid var(--gold); font-size:1.8rem;">🖥️</div>
+          <h3 data-i18n="about.pillar1.title" style="color:var(--gold2);">Création de sites</h3>
+          <p class="compat" data-i18n="about.pillar1.desc" style="color:var(--text);">Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.</p>
           <a href="#services" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar1.cta">Voir les offres</a>
         </div>
         
@@ -591,16 +573,8 @@
           <div class="top"><div class="badge" data-i18n="services.card1.badge">Démarrage</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card1.title">Page de capture</h3>
           <div class="compat" data-i18n="services.card1.compat">Compatible mobile / PC</div>
-          <div class="price">
-            <span class="xof">24 000 XOF</span>
-            <span class="eur">37 EUR</span>
-            <span class="usd">40 USD</span>
-          </div>
-          <ul>
-            <li data-i18n="services.card1.li1">Design moderne</li>
-            <li data-i18n="services.card1.li2">Formulaire de capture</li>
-            <li data-i18n="services.card1.li3">Interface claire</li>
-          </ul>
+          <div class="price"><span class="xof">24 000 XOF</span><span class="eur">37 EUR</span><span class="usd">40 USD</span></div>
+          <ul><li data-i18n="services.card1.li1">Design moderne</li><li data-i18n="services.card1.li2">Formulaire de capture</li><li data-i18n="services.card1.li3">Interface claire</li></ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-i18n="services.order">Commander</a>
         </div>
         
@@ -608,16 +582,8 @@
           <div class="top"><div class="badge" data-i18n="services.card2.badge">Offre principale</div><div class="icon">◈</div></div>
           <h3 data-i18n="services.card2.title">Page de vente</h3>
           <div class="compat" data-i18n="services.card2.compat">Compatible mobile / PC</div>
-          <div class="price">
-            <span class="xof">42 000 XOF</span>
-            <span class="eur">65 EUR</span>
-            <span class="usd">70 USD</span>
-          </div>
-          <ul>
-            <li data-i18n="services.card2.li1">Structure de conversion</li>
-            <li data-i18n="services.card2.li2">Design premium</li>
-            <li data-i18n="services.card2.li3">Bouton d'action visible</li>
-          </ul>
+          <div class="price"><span class="xof">42 000 XOF</span><span class="eur">65 EUR</span><span class="usd">70 USD</span></div>
+          <ul><li data-i18n="services.card2.li1">Structure de conversion</li><li data-i18n="services.card2.li2">Design premium</li><li data-i18n="services.card2.li3">Bouton d'action visible</li></ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-i18n="services.order">Commander</a>
         </div>
         
@@ -625,16 +591,8 @@
           <div class="top"><div class="badge" data-i18n="services.card3.badge">Pro</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card3.title">Site vitrine</h3>
           <div class="compat" data-i18n="services.card3.compat">Compatible mobile / PC</div>
-          <div class="price">
-            <span class="xof">72 000 XOF</span>
-            <span class="eur">110 EUR</span>
-            <span class="usd">120 USD</span>
-          </div>
-          <ul>
-            <li data-i18n="services.card3.li1">3 à 5 pages</li>
-            <li data-i18n="services.card3.li2">Image professionnelle</li>
-            <li data-i18n="services.card3.li3">Structure propre</li>
-          </ul>
+          <div class="price"><span class="xof">72 000 XOF</span><span class="eur">110 EUR</span><span class="usd">120 USD</span></div>
+          <ul><li data-i18n="services.card3.li1">3 à 5 pages</li><li data-i18n="services.card3.li2">Image professionnelle</li><li data-i18n="services.card3.li3">Structure propre</li></ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-i18n="services.order">Commander</a>
         </div>
         
@@ -642,17 +600,8 @@
           <div class="top"><div class="badge" data-i18n="services.card4.badge">Pack complet</div><div class="icon">◆</div></div>
           <h3 data-i18n="services.card4.title">BOOST ULTIME</h3>
           <div class="compat" data-i18n="services.card4.compat">Compatible mobile / PC</div>
-          <div class="price">
-            <span class="xof">120 000 XOF</span>
-            <span class="eur">185 EUR</span>
-            <span class="usd">200 USD</span>
-          </div>
-          <ul>
-            <li data-i18n="services.card4.li1">Page de capture</li>
-            <li data-i18n="services.card4.li2">Page de vente</li>
-            <li data-i18n="services.card4.li3">Site vitrine</li>
-            <li data-i18n="services.card4.li4">Optimisation de base</li>
-          </ul>
+          <div class="price"><span class="xof">120 000 XOF</span><span class="eur">185 EUR</span><span class="usd">200 USD</span></div>
+          <ul><li data-i18n="services.card4.li1">Page de capture</li><li data-i18n="services.card4.li2">Page de vente</li><li data-i18n="services.card4.li3">Site vitrine</li><li data-i18n="services.card4.li4">Optimisation de base</li></ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20le%20pack%20BOOST%20ULTIME." data-i18n="services.order">Commander</a>
         </div>
       </div>
@@ -665,22 +614,8 @@
       <div class="label" data-i18n="compare.label">Avant / Après</div>
       <div class="title" data-i18n="compare.title">Ce que change un site professionnel</div>
       <div class="compare-grid">
-        <div class="compare-card before">
-          <h4 data-i18n="compare.before.title">Sans site pro</h4>
-          <ul>
-            <li data-i18n="compare.before.li1">Les clients potentiels hésitent à faire confiance</li>
-            <li data-i18n="compare.before.li2">Difficile de montrer son sérieux avec une simple page Facebook</li>
-            <li data-i18n="compare.before.li3">Aucune vente automatique, tout se fait manuellement</li>
-          </ul>
-        </div>
-        <div class="compare-card after">
-          <h4 data-i18n="compare.after.title">Avec un site pro</h4>
-          <ul>
-            <li data-i18n="compare.after.li1">Une image de marque qui inspire immédiatement confiance</li>
-            <li data-i18n="compare.after.li2">Tes clients te prennent au sérieux avant même de te parler</li>
-            <li data-i18n="compare.after.li3">Des ventes qui rentrent même quand tu dors</li>
-          </ul>
-        </div>
+        <div class="compare-card before"><h4 data-i18n="compare.before.title">Sans site pro</h4><ul><li data-i18n="compare.before.li1">Les clients potentiels hésitent à faire confiance</li><li data-i18n="compare.before.li2">Difficile de montrer son sérieux avec une simple page Facebook</li><li data-i18n="compare.before.li3">Aucune vente automatique, tout se fait manuellement</li></ul></div>
+        <div class="compare-card after"><h4 data-i18n="compare.after.title">Avec un site pro</h4><ul><li data-i18n="compare.after.li1">Une image de marque qui inspire immédiatement confiance</li><li data-i18n="compare.after.li2">Tes clients te prennent au sérieux avant même de te parler</li><li data-i18n="compare.after.li3">Des ventes qui rentrent même quand tu dors</li></ul></div>
       </div>
     </div>
   </section>
@@ -690,18 +625,8 @@
       <div class="label" data-i18n="why.label">Pourquoi moi ?</div>
       <div class="title" data-i18n="why.title">Un site web n'est pas une dépense. C'est un investissement.</div>
       <div style="max-width:850px;margin:0 auto 40px;text-align:center;">
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;" data-i18n="why.text1">
-          Aujourd'hui, beaucoup de personnes peuvent créer un site internet.
-          Mon objectif n'est pas simplement de te livrer un site joli à regarder.
-          Je crée des sites pensés pour inspirer confiance, mettre en valeur ton activité
-          et donner une image professionnelle à ton entreprise.
-        </p>
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:20px;" data-i18n="why.text2">
-          Chaque projet est réalisé avec sérieux, attention aux détails et une seule priorité :
-          <strong style="color:var(--gold2);">
-            faire en sorte que ton activité paraisse aussi professionnelle que la valeur que tu apportes réellement.
-          </strong>
-        </p>
+        <p style="color:var(--muted);line-height:1.9;font-size:1rem;" data-i18n="why.text1">Aujourd'hui, beaucoup de personnes peuvent créer un site internet. Mon objectif n'est pas simplement de te livrer un site joli à regarder. Je crée des sites pensés pour inspirer confiance, mettre en valeur ton activité et donner une image professionnelle à ton entreprise.</p>
+        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:20px;" data-i18n="why.text2">Chaque projet est réalisé avec sérieux, attention aux détails et une seule priorité : <strong style="color:var(--gold2);">faire en sorte que ton activité paraisse aussi professionnelle que la valeur que tu apportes réellement.</strong></p>
       </div>
       <div class="services-grid">
         <div class="services-card"><div class="icon">⚡</div><h3 data-i18n="why.card1.title">Rapidité</h3><p class="compat" data-i18n="why.card1.desc">Sites rapides et fluides pour une meilleure expérience utilisateur.</p></div>
@@ -758,9 +683,7 @@
   </section>
 
   <div style="text-align:center;margin-top:30px;">
-    <a href="https://wa.me/22607190217?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis%20sur%20votre%20site%20ou%20vos%20ebooks." class="btn btn-primary" style="padding:14px 22px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:10px;">
-      💬 <span data-i18n="reviews.cta">Laisser un avis WhatsApp</span>
-    </a>
+    <a href="https://wa.me/22607190217?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis%20sur%20votre%20site%20ou%20vos%20ebooks." class="btn btn-primary" style="padding:14px 22px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:10px;">💬 <span data-i18n="reviews.cta">Laisser un avis WhatsApp</span></a>
     <p style="color:var(--muted);margin-top:10px;margin-bottom:60px;font-size:.9rem;" data-i18n="reviews.note">Les retours des lecteurs et clients sont les bienvenus.</p>
   </div>
 
@@ -846,16 +769,12 @@
 
     function renderStars(rating){
       let html = '<span class="stars">';
-      for(let i=1; i<=5; i++){
-        html += i <= rating ? '<span>★</span>' : '<span class="star-empty">★</span>';
-      }
+      for(let i=1; i<=5; i++) html += i <= rating ? '<span>★</span>' : '<span class="star-empty">★</span>';
       html += '</span>';
       return html;
     }
 
-    function badgeLabel(type){
-      return type === 'bestseller' ? '🔥 Best-seller' : '💛 Promo';
-    }
+    function badgeLabel(type){ return type === 'bestseller' ? '🔥 Best-seller' : '💛 Promo'; }
 
     function buildProductCard(p, containerId){
       const container = document.getElementById(containerId);
@@ -864,18 +783,7 @@
       article.className = 'card';
       article.setAttribute('data-badge', p.badge);
       article.setAttribute('data-cat', p.cat);
-      article.innerHTML = `
-        <span class="card-badge ${p.badge}">${badgeLabel(p.badge)}</span>
-        <img src="${p.img}" alt="" class="ebook-img" loading="lazy">
-        <div class="card-body">
-          <h3 data-i18n="${p.titleKey}"></h3>
-          <p data-i18n="${p.descKey}"></p>
-          <div class="old">${p.old}</div>
-          <div class="new">${p.newPrice}</div>
-          <a href="#paiement" class="ebook-btn buy-btn" data-code="${p.code}" data-i18n="ebooks.buy">Acheter</a>
-          <div class="buy-note" data-i18n="ebooks.note">Appuie puis valide le code dans l'application téléphone.</div>
-        </div>
-      `;
+      article.innerHTML = `<span class="card-badge ${p.badge}">${badgeLabel(p.badge)}</span><img src="${p.img}" alt="" class="ebook-img" loading="lazy"><div class="card-body"><h3 data-i18n="${p.titleKey}"></h3><p data-i18n="${p.descKey}"></p><div class="old">${p.old}</div><div class="new">${p.newPrice}</div><a href="#paiement" class="ebook-btn buy-btn" data-code="${p.code}" data-i18n="ebooks.buy">Acheter</a><div class="buy-note" data-i18n="ebooks.note">Appuie puis valide le code dans l'application téléphone.</div></div>`;
       container.appendChild(article);
     }
 
@@ -895,331 +803,66 @@
       reviews.forEach(r => {
         const card = document.createElement('div');
         card.className = 'services-card';
-        card.innerHTML = `
-          <h3>${renderStars(r.rating)} <span data-i18n="${r.textKey}.name">${r.name}</span></h3>
-          <p class="compat" data-i18n="${r.textKey}.text"></p>
-        `;
+        card.innerHTML = `<h3>${renderStars(r.rating)} <span data-i18n="${r.textKey}.name">${r.name}</span></h3><p class="compat" data-i18n="${r.textKey}.text"></p>`;
         grid.appendChild(card);
       });
     }
 
     const translations = {
       fr: {
-        "meta.title": "Balima Web Developer",
-        "brand": "BALIMA WEB<br>DEVELOPER",
-        "search.placeholder": "Rechercher...",
-        "search.button": "Rechercher",
-        "nav.services": "Mes Services",
-        "nav.academy": "Académie Web",
-        "nav.library": "Bibliothèque",
-        "nav.contact": "Me contacter",
-        "hero.badge": "Disponible pour de nouveaux projets",
-        "hero.title1": "TON SITE WEB.",
-        "hero.title2": "TES CLIENTS.",
-        "hero.title3": "TES VENTES.",
-        "hero.subtitle": "Je crée des sites propres, rapides et pensés pour vendre.",
-        "hero.cta": "Voir mes services",
-        "stats.sites": "Sites livrés",
-        "stats.ebooks": "Ebooks vendus",
-        "stats.days": "Jours sur 7",
-        "stats.satisfaction": "% à l'écoute",
-        "about.label": "Qui suis-je",
-        "about.title": "Je ne construis pas des sites.<br>Je construis des preuves.",
+        "meta.title": "Balima Web Developer","brand": "BALIMA WEB<br>DEVELOPER","search.placeholder": "Rechercher...","search.button": "Rechercher",
+        "nav.services": "Mes Services","nav.academy": "Académie Web","nav.library": "Bibliothèque","nav.contact": "Me contacter",
+        "hero.badge": "Disponible pour de nouveaux projets","hero.title1": "TON SITE WEB.","hero.title2": "TES CLIENTS.","hero.title3": "TES VENTES.","hero.subtitle": "Je crée des sites propres, rapides et pensés pour vendre.","hero.cta": "Voir mes services",
+        "stats.sites": "Sites livrés","stats.ebooks": "Ebooks vendus","stats.days": "Jours sur 7","stats.satisfaction": "% à l'écoute",
+        "about.label": "Qui suis-je","about.title": "Je ne construis pas des sites.<br>Je construis des preuves.",
         "about.text1": "<strong style='color:var(--gold2);'>Moussa Balima</strong>, développeur web freelance au Burkina Faso. Je crée des sites qui disent à tes clients : <em style='color:var(--gold2);'>\"Tu peux lui faire confiance.\"</em>",
         "about.text2": "J'ai aussi créé <strong style='color:var(--gold2);'>l'Académie Web BALIMA</strong> pour former au développement web, et une <strong style='color:var(--gold2);'>Bibliothèque d'ebooks</strong> pour transformer ton mindset et tes finances.",
-        "about.pillar1.title": "Création de sites",
-        "about.pillar1.desc": "Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.",
-        "about.pillar1.cta": "Voir les offres",
-        "about.pillar2.title": "Formations web",
-        "about.pillar2.desc": "Apprends le développement web de A à Z avec des formations claires et pratiques.",
-        "about.pillar2.cta": "Découvrir l'académie",
-        "about.pillar3.title": "Ebooks puissants",
-        "about.pillar3.desc": "Des livres numériques pour transformer ton mindset, tes émotions et tes finances.",
-        "about.pillar3.cta": "Explorer la bibliothèque",
+        "about.pillar1.title": "Création de sites","about.pillar1.desc": "Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.","about.pillar1.cta": "Voir les offres",
+        "about.pillar2.title": "Formations web","about.pillar2.desc": "Apprends le développement web de A à Z avec des formations claires et pratiques.","about.pillar2.cta": "Découvrir l'académie",
+        "about.pillar3.title": "Ebooks puissants","about.pillar3.desc": "Des livres numériques pour transformer ton mindset, tes émotions et tes finances.","about.pillar3.cta": "Explorer la bibliothèque",
         "about.closing": "Peu importe où tu pars, tu mérites un site à la hauteur de tes ambitions.",
-        "services.label": "Ce que je fais",
-        "services.title": "Mes Services",
-        "services.currencyLabel": "Prix / devise",
-        "services.card1.badge": "Démarrage",
-        "services.card1.title": "Page de capture",
-        "services.card1.compat": "Compatible mobile / PC",
-        "services.card1.li1": "Design moderne",
-        "services.card1.li2": "Formulaire de capture",
-        "services.card1.li3": "Interface claire",
-        "services.card2.badge": "Offre principale",
-        "services.card2.title": "Page de vente",
-        "services.card2.compat": "Compatible mobile / PC",
-        "services.card2.li1": "Structure de conversion",
-        "services.card2.li2": "Design premium",
-        "services.card2.li3": "Bouton d'action visible",
-        "services.card3.badge": "Pro",
-        "services.card3.title": "Site vitrine",
-        "services.card3.compat": "Compatible mobile / PC",
-        "services.card3.li1": "3 à 5 pages",
-        "services.card3.li2": "Image professionnelle",
-        "services.card3.li3": "Structure propre",
-        "services.card4.badge": "Pack complet",
-        "services.card4.title": "BOOST ULTIME",
-        "services.card4.compat": "Compatible mobile / PC",
-        "services.card4.li1": "Page de capture",
-        "services.card4.li2": "Page de vente",
-        "services.card4.li3": "Site vitrine",
-        "services.card4.li4": "Optimisation de base",
+        "services.label": "Ce que je fais","services.title": "Mes Services","services.currencyLabel": "Prix / devise",
+        "services.card1.badge": "Démarrage","services.card1.title": "Page de capture","services.card1.compat": "Compatible mobile / PC","services.card1.li1": "Design moderne","services.card1.li2": "Formulaire de capture","services.card1.li3": "Interface claire",
+        "services.card2.badge": "Offre principale","services.card2.title": "Page de vente","services.card2.compat": "Compatible mobile / PC","services.card2.li1": "Structure de conversion","services.card2.li2": "Design premium","services.card2.li3": "Bouton d'action visible",
+        "services.card3.badge": "Pro","services.card3.title": "Site vitrine","services.card3.compat": "Compatible mobile / PC","services.card3.li1": "3 à 5 pages","services.card3.li2": "Image professionnelle","services.card3.li3": "Structure propre",
+        "services.card4.badge": "Pack complet","services.card4.title": "BOOST ULTIME","services.card4.compat": "Compatible mobile / PC","services.card4.li1": "Page de capture","services.card4.li2": "Page de vente","services.card4.li3": "Site vitrine","services.card4.li4": "Optimisation de base",
         "services.order": "Commander",
-        "compare.label": "Avant / Après",
-        "compare.title": "Ce que change un site professionnel",
-        "compare.before.title": "Sans site pro",
-        "compare.before.li1": "Les clients potentiels hésitent à faire confiance",
-        "compare.before.li2": "Difficile de montrer son sérieux avec une simple page Facebook",
-        "compare.before.li3": "Aucune vente automatique, tout se fait manuellement",
-        "compare.after.title": "Avec un site pro",
-        "compare.after.li1": "Une image de marque qui inspire immédiatement confiance",
-        "compare.after.li2": "Tes clients te prennent au sérieux avant même de te parler",
-        "compare.after.li3": "Des ventes qui rentrent même quand tu dors",
-        "why.label": "Pourquoi moi ?",
-        "why.title": "Un site web n'est pas une dépense. C'est un investissement.",
-        "why.text1": "Aujourd'hui, beaucoup de personnes peuvent créer un site internet. Mon objectif n'est pas simplement de te livrer un site joli à regarder. Je crée des sites pensés pour inspirer confiance, mettre en valeur ton activité et donner une image professionnelle à ton entreprise.",
-        "why.text2": "Chaque projet est réalisé avec sérieux, attention aux détails et une seule priorité : <strong style='color:var(--gold2);'>faire en sorte que ton activité paraisse aussi professionnelle que la valeur que tu apportes réellement.</strong>",
-        "why.card1.title": "Rapidité",
-        "why.card1.desc": "Sites rapides et fluides pour une meilleure expérience utilisateur.",
-        "why.card2.title": "Compatible partout",
-        "why.card2.desc": "Parfait sur téléphone, tablette et ordinateur.",
-        "why.card3.title": "Orienté résultats",
-        "why.card3.desc": "Chaque page est conçue pour convertir les visiteurs en clients.",
-        "why.card4.title": "Accompagnement",
-        "why.card4.desc": "Je reste disponible même après la livraison du site.",
-        "academy.label": "Formation Développement Web",
-        "academy.title": "Académie Web BALIMA",
-        "academy.1.title": "HTML DE ZÉRO À EXPERT",
-        "academy.1.desc": "Apprends à créer la structure complète d'un site web professionnel.",
-        "academy.2.title": "MAÎTRISER CSS MODERNE",
-        "academy.2.desc": "Responsive Design, Flexbox, Grid et animations modernes.",
-        "academy.3.title": "JAVASCRIPT SANS CONFUSION",
-        "academy.3.desc": "Comprends JavaScript étape par étape avec projets réels.",
-        "academy.4.title": "FRONTEND COMPLET",
-        "academy.4.desc": "HTML, CSS et JavaScript réunis pour devenir développeur Frontend.",
-        "academy.5.title": "BACKEND POUR DÉBUTANTS",
-        "academy.5.desc": "Serveurs, bases de données, API et logique web.",
-        "academy.6.title": "CRÉER UN SITE WEB DE A À Z",
-        "academy.6.desc": "Conception, développement, hébergement et mise en ligne.",
-        "academy.7.title": "WORDPRESS & WOOCOMMERCE",
-        "academy.7.desc": "Créer blogs, sites et boutiques en ligne facilement.",
-        "academy.8.title": "DEVENIR FREELANCE WEB",
-        "academy.8.desc": "Trouver des clients et générer des revenus avec le web.",
-        "library.label": "Ressources & Savoirs",
-        "library.title": "La Bibliothèque du Succès",
-        "ebooks.buy": "Acheter",
-        "ebooks.note": "Appuie puis valide le code dans l'application téléphone.",
-        "ebooks.1.title": "Mindset de Réussite Africaine",
-        "ebooks.1.desc": "Penser grand, agir juste, réussir sans limites. L'esprit, la discipline, l'héritage.",
-        "ebooks.2.title": "Maîtriser ses Émotions",
-        "ebooks.2.desc": "L'art de garder le contrôle et prendre les bonnes décisions avec calme.",
-        "ebooks.3.title": "Vendre en Ligne de A à Z",
-        "ebooks.3.desc": "Le guide complet pour lancer, développer et automatiser ton business en ligne.",
-        "ebooks.4.title": "Sortir de la Procrastination",
-        "ebooks.4.desc": "Apprends à passer à l'action, à rester concentré et à reprendre le contrôle de ton temps.",
-        "ebooks.5.title": "Reprendre le Contrôle de sa Vie",
-        "ebooks.5.desc": "Un guide puissant pour retrouver l'équilibre, la discipline et la clarté dans ta vie quotidienne.",
-        "ebooks.6.title": "Créer des Revenus avec son Téléphone",
-        "ebooks.6.desc": "Apprends à générer des revenus en exploitant intelligemment ton téléphone et les opportunités digitales.",
-        "ebooks.7.title": "Santé, Nutrition et Beauté Naturelle",
-        "ebooks.7.desc": "Découvre une approche simple et naturelle pour nourrir ton corps, prendre soin de toi et rayonner.",
-        "ebooks.8.title": "Les 5 Traits de la Masculinité",
-        "ebooks.8.desc": "Un guide puissant sur l'alpha, bêta, delta, omega et sigma pour mieux comprendre les archétypes masculins.",
-        "ebooks.9.title": "Les Pauvres Obéissent, Les Riches Négocient",
-        "ebooks.9.desc": "Un ebook sur l'état d'esprit, la négociation et la manière de reprendre le contrôle de ses choix financiers.",
-        "reviews.label": "Avis",
-        "reviews.title": "Ce que disent mes clients",
-        "reviews.cta": "Laisser un avis WhatsApp",
-        "reviews.note": "Les retours des lecteurs et clients sont les bienvenus.",
-        "reviews.1.name": "Aïcha O.",
-        "reviews.1.text": "J'ai acheté son ebook 'Mindset de Réussite Africaine' un peu par hasard. Et là... j'ai lu 3 pages et j'ai failli pleurer. C'est comme si chaque mot s'adressait directement à ma situation. Depuis, j'ai changé ma routine, je me lève plus tôt, je crois en moi. Moussa, si tu lis ça : que Dieu te bénisse.",
-        "reviews.2.name": "Moussa K.",
-        "reviews.2.text": "Je voulais juste une page simple pour vendre mes chaussures. Il m'a appelé, il a pris le temps de comprendre mon activité, il m'a proposé des idées que j'avais même pas imaginées. Le résultat est magnifique. Et le plus fou ? Mes ventes ont augmenté la première semaine. C'est plus qu'un développeur, c'est un partenaire.",
-        "reviews.3.name": "Ibrahim S.",
-        "reviews.3.text": "J'ai hésité 2 semaines avant de le contacter... Grosse erreur ! J'aurais dû le faire depuis longtemps. Il est patient, il répond vite, et surtout il tient ses promesses. Mon site était prêt en 3 jours. Propre, rapide, exactement ce que je voulais. Je lui ai déjà recommandé 2 amis.",
-        "reviews.4.name": "Kadija B.",
-        "reviews.4.text": "Son ebook sur la procrastination m'a sauvé la vie. Vraiment. Chaque page est une claque. J'étais bloquée depuis des mois, et là tout s'est débloqué. Le seul petit truc : j'aurais aimé qu'il soit plus long tellement c'était bon !",
-        "faq.label": "FAQ",
-        "faq.title": "Questions fréquentes",
-        "faq.q1": "Comment recevoir mon ebook ?",
-        "faq.a1": "Après paiement, tu cliques sur \"J'ai payé\" sur WhatsApp et tu reçois ton ebook directement.",
-        "faq.q2": "Est-ce que les sites web sont personnalisés ?",
-        "faq.a2": "Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.",
-        "faq.q3": "Combien de temps pour livrer un site ?",
-        "faq.a3": "En général entre 24h et 5 jours selon la complexité du projet.",
-        "payment.label": "Paiement",
-        "payment.title": "Paiement Orange Money",
-        "payment.secure": "Paiement sécurisé par Orange Money",
-        "payment.amountLabel": "Montant",
-        "payment.numberLabel": "Numéro Orange Money",
-        "payment.instruction": "Après paiement, clique sur <strong>J'ai payé</strong> pour m'envoyer une confirmation WhatsApp.",
-        "payment.paid": "J'ai payé",
-        "payment.question": "Poser une question",
-        "contact.label": "Contact",
-        "contact.title": "Prêt à lancer ton projet ?",
-        "contact.subtitle": "Ce que tu vends a de la valeur. Ton site doit le montrer.",
-        "contact.whatsapp": "WhatsApp",
-        "contact.email": "Email",
+        "compare.label": "Avant / Après","compare.title": "Ce que change un site professionnel","compare.before.title": "Sans site pro","compare.before.li1": "Les clients potentiels hésitent à faire confiance","compare.before.li2": "Difficile de montrer son sérieux avec une simple page Facebook","compare.before.li3": "Aucune vente automatique, tout se fait manuellement","compare.after.title": "Avec un site pro","compare.after.li1": "Une image de marque qui inspire immédiatement confiance","compare.after.li2": "Tes clients te prennent au sérieux avant même de te parler","compare.after.li3": "Des ventes qui rentrent même quand tu dors",
+        "why.label": "Pourquoi moi ?","why.title": "Un site web n'est pas une dépense. C'est un investissement.","why.text1": "Aujourd'hui, beaucoup de personnes peuvent créer un site internet. Mon objectif n'est pas simplement de te livrer un site joli à regarder. Je crée des sites pensés pour inspirer confiance, mettre en valeur ton activité et donner une image professionnelle à ton entreprise.","why.text2": "Chaque projet est réalisé avec sérieux, attention aux détails et une seule priorité : <strong style='color:var(--gold2);'>faire en sorte que ton activité paraisse aussi professionnelle que la valeur que tu apportes réellement.</strong>","why.card1.title": "Rapidité","why.card1.desc": "Sites rapides et fluides pour une meilleure expérience utilisateur.","why.card2.title": "Compatible partout","why.card2.desc": "Parfait sur téléphone, tablette et ordinateur.","why.card3.title": "Orienté résultats","why.card3.desc": "Chaque page est conçue pour convertir les visiteurs en clients.","why.card4.title": "Accompagnement","why.card4.desc": "Je reste disponible même après la livraison du site.",
+        "academy.label": "Formation Développement Web","academy.title": "Académie Web BALIMA","academy.1.title": "HTML DE ZÉRO À EXPERT","academy.1.desc": "Apprends à créer la structure complète d'un site web professionnel.","academy.2.title": "MAÎTRISER CSS MODERNE","academy.2.desc": "Responsive Design, Flexbox, Grid et animations modernes.","academy.3.title": "JAVASCRIPT SANS CONFUSION","academy.3.desc": "Comprends JavaScript étape par étape avec projets réels.","academy.4.title": "FRONTEND COMPLET","academy.4.desc": "HTML, CSS et JavaScript réunis pour devenir développeur Frontend.","academy.5.title": "BACKEND POUR DÉBUTANTS","academy.5.desc": "Serveurs, bases de données, API et logique web.","academy.6.title": "CRÉER UN SITE WEB DE A À Z","academy.6.desc": "Conception, développement, hébergement et mise en ligne.","academy.7.title": "WORDPRESS & WOOCOMMERCE","academy.7.desc": "Créer blogs, sites et boutiques en ligne facilement.","academy.8.title": "DEVENIR FREELANCE WEB","academy.8.desc": "Trouver des clients et générer des revenus avec le web.",
+        "library.label": "Ressources & Savoirs","library.title": "La Bibliothèque du Succès","ebooks.buy": "Acheter","ebooks.note": "Appuie puis valide le code dans l'application téléphone.","ebooks.1.title": "Mindset de Réussite Africaine","ebooks.1.desc": "Penser grand, agir juste, réussir sans limites. L'esprit, la discipline, l'héritage.","ebooks.2.title": "Maîtriser ses Émotions","ebooks.2.desc": "L'art de garder le contrôle et prendre les bonnes décisions avec calme.","ebooks.3.title": "Vendre en Ligne de A à Z","ebooks.3.desc": "Le guide complet pour lancer, développer et automatiser ton business en ligne.","ebooks.4.title": "Sortir de la Procrastination","ebooks.4.desc": "Apprends à passer à l'action, à rester concentré et à reprendre le contrôle de ton temps.","ebooks.5.title": "Reprendre le Contrôle de sa Vie","ebooks.5.desc": "Un guide puissant pour retrouver l'équilibre, la discipline et la clarté dans ta vie quotidienne.","ebooks.6.title": "Créer des Revenus avec son Téléphone","ebooks.6.desc": "Apprends à générer des revenus en exploitant intelligemment ton téléphone et les opportunités digitales.","ebooks.7.title": "Santé, Nutrition et Beauté Naturelle","ebooks.7.desc": "Découvre une approche simple et naturelle pour nourrir ton corps, prendre soin de toi et rayonner.","ebooks.8.title": "Les 5 Traits de la Masculinité","ebooks.8.desc": "Un guide puissant sur l'alpha, bêta, delta, omega et sigma pour mieux comprendre les archétypes masculins.","ebooks.9.title": "Les Pauvres Obéissent, Les Riches Négocient","ebooks.9.desc": "Un ebook sur l'état d'esprit, la négociation et la manière de reprendre le contrôle de ses choix financiers.",
+        "reviews.label": "Avis","reviews.title": "Ce que disent mes clients","reviews.cta": "Laisser un avis WhatsApp","reviews.note": "Les retours des lecteurs et clients sont les bienvenus.","reviews.1.name": "Aïcha O.","reviews.1.text": "J'ai acheté son ebook 'Mindset de Réussite Africaine' un peu par hasard. Et là... j'ai lu 3 pages et j'ai failli pleurer. C'est comme si chaque mot s'adressait directement à ma situation. Depuis, j'ai changé ma routine, je me lève plus tôt, je crois en moi. Moussa, si tu lis ça : que Dieu te bénisse.","reviews.2.name": "Moussa K.","reviews.2.text": "Je voulais juste une page simple pour vendre mes chaussures. Il m'a appelé, il a pris le temps de comprendre mon activité, il m'a proposé des idées que j'avais même pas imaginées. Le résultat est magnifique. Et le plus fou ? Mes ventes ont augmenté la première semaine. C'est plus qu'un développeur, c'est un partenaire.","reviews.3.name": "Ibrahim S.","reviews.3.text": "J'ai hésité 2 semaines avant de le contacter... Grosse erreur ! J'aurais dû le faire depuis longtemps. Il est patient, il répond vite, et surtout il tient ses promesses. Mon site était prêt en 3 jours. Propre, rapide, exactement ce que je voulais. Je lui ai déjà recommandé 2 amis.","reviews.4.name": "Kadija B.","reviews.4.text": "Son ebook sur la procrastination m'a sauvé la vie. Vraiment. Chaque page est une claque. J'étais bloquée depuis des mois, et là tout s'est débloqué. Le seul petit truc : j'aurais aimé qu'il soit plus long tellement c'était bon !",
+        "faq.label": "FAQ","faq.title": "Questions fréquentes","faq.q1": "Comment recevoir mon ebook ?","faq.a1": "Après paiement, tu cliques sur \"J'ai payé\" sur WhatsApp et tu reçois ton ebook directement.","faq.q2": "Est-ce que les sites web sont personnalisés ?","faq.a2": "Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.","faq.q3": "Combien de temps pour livrer un site ?","faq.a3": "En général entre 24h et 5 jours selon la complexité du projet.",
+        "payment.label": "Paiement","payment.title": "Paiement Orange Money","payment.secure": "Paiement sécurisé par Orange Money","payment.amountLabel": "Montant","payment.numberLabel": "Numéro Orange Money","payment.instruction": "Après paiement, clique sur <strong>J'ai payé</strong> pour m'envoyer une confirmation WhatsApp.","payment.paid": "J'ai payé","payment.question": "Poser une question",
+        "contact.label": "Contact","contact.title": "Prêt à lancer ton projet ?","contact.subtitle": "Ce que tu vends a de la valeur. Ton site doit le montrer.","contact.whatsapp": "WhatsApp","contact.email": "Email",
         "footer.text": "© 2026 Balima Web Developer · Développeur Web Freelance · Burkina Faso 🇧🇫 · Tous droits réservés"
       },
       en: {
-        "meta.title": "Balima Web Developer",
-        "brand": "BALIMA WEB<br>DEVELOPER",
-        "search.placeholder": "Search...",
-        "search.button": "Search",
-        "nav.services": "My Services",
-        "nav.academy": "Web Academy",
-        "nav.library": "Library",
-        "nav.contact": "Contact me",
-        "hero.badge": "Available for new projects",
-        "hero.title1": "YOUR WEBSITE.",
-        "hero.title2": "YOUR CLIENTS.",
-        "hero.title3": "YOUR SALES.",
-        "hero.subtitle": "I create clean, fast websites built to sell.",
-        "hero.cta": "See my services",
-        "stats.sites": "Sites delivered",
-        "stats.ebooks": "Ebooks sold",
-        "stats.days": "Days a week",
-        "stats.satisfaction": "% listening",
-        "about.label": "Who I am",
-        "about.title": "I don't build websites.<br>I build proof.",
+        "meta.title": "Balima Web Developer","brand": "BALIMA WEB<br>DEVELOPER","search.placeholder": "Search...","search.button": "Search",
+        "nav.services": "My Services","nav.academy": "Web Academy","nav.library": "Library","nav.contact": "Contact me",
+        "hero.badge": "Available for new projects","hero.title1": "YOUR WEBSITE.","hero.title2": "YOUR CLIENTS.","hero.title3": "YOUR SALES.","hero.subtitle": "I create clean, fast websites built to sell.","hero.cta": "See my services",
+        "stats.sites": "Sites delivered","stats.ebooks": "Ebooks sold","stats.days": "Days a week","stats.satisfaction": "% listening",
+        "about.label": "Who I am","about.title": "I don't build websites.<br>I build proof.",
         "about.text1": "<strong style='color:var(--gold2);'>Moussa Balima</strong>, freelance web developer in Burkina Faso. I create websites that tell your clients: <em style='color:var(--gold2);'>\"You can trust him.\"</em>",
         "about.text2": "I also created <strong style='color:var(--gold2);'>BALIMA Web Academy</strong> to train in web development, and a <strong style='color:var(--gold2);'>Library of ebooks</strong> to transform your mindset and finances.",
-        "about.pillar1.title": "Website creation",
-        "about.pillar1.desc": "I create your professional site to capture attention and turn visitors into customers.",
-        "about.pillar1.cta": "See offers",
-        "about.pillar2.title": "Web training",
-        "about.pillar2.desc": "Learn web development from A to Z with clear and practical training.",
-        "about.pillar2.cta": "Discover the academy",
-        "about.pillar3.title": "Powerful ebooks",
-        "about.pillar3.desc": "Digital books to transform your mindset, emotions and finances.",
-        "about.pillar3.cta": "Explore the library",
+        "about.pillar1.title": "Website creation","about.pillar1.desc": "I create your professional site to capture attention and turn visitors into customers.","about.pillar1.cta": "See offers",
+        "about.pillar2.title": "Web training","about.pillar2.desc": "Learn web development from A to Z with clear and practical training.","about.pillar2.cta": "Discover the academy",
+        "about.pillar3.title": "Powerful ebooks","about.pillar3.desc": "Digital books to transform your mindset, emotions and finances.","about.pillar3.cta": "Explore the library",
         "about.closing": "No matter where you start, you deserve a website that matches your ambitions.",
-        "services.label": "What I do",
-        "services.title": "My Services",
-        "services.currencyLabel": "Price / currency",
-        "services.card1.badge": "Starter",
-        "services.card1.title": "Capture Page",
-        "services.card1.compat": "Mobile / PC friendly",
-        "services.card1.li1": "Modern design",
-        "services.card1.li2": "Lead capture form",
-        "services.card1.li3": "Clear interface",
-        "services.card2.badge": "Main offer",
-        "services.card2.title": "Sales Page",
-        "services.card2.compat": "Mobile / PC friendly",
-        "services.card2.li1": "Conversion structure",
-        "services.card2.li2": "Premium design",
-        "services.card2.li3": "Visible call-to-action",
-        "services.card3.badge": "Pro",
-        "services.card3.title": "Showcase Website",
-        "services.card3.compat": "Mobile / PC friendly",
-        "services.card3.li1": "3 to 5 pages",
-        "services.card3.li2": "Professional look",
-        "services.card3.li3": "Clean structure",
-        "services.card4.badge": "Full pack",
-        "services.card4.title": "ULTIMATE BOOST",
-        "services.card4.compat": "Mobile / PC friendly",
-        "services.card4.li1": "Capture page",
-        "services.card4.li2": "Sales page",
-        "services.card4.li3": "Showcase website",
-        "services.card4.li4": "Basic optimization",
+        "services.label": "What I do","services.title": "My Services","services.currencyLabel": "Price / currency",
+        "services.card1.badge": "Starter","services.card1.title": "Capture Page","services.card1.compat": "Mobile / PC friendly","services.card1.li1": "Modern design","services.card1.li2": "Lead capture form","services.card1.li3": "Clear interface",
+        "services.card2.badge": "Main offer","services.card2.title": "Sales Page","services.card2.compat": "Mobile / PC friendly","services.card2.li1": "Conversion structure","services.card2.li2": "Premium design","services.card2.li3": "Visible call-to-action",
+        "services.card3.badge": "Pro","services.card3.title": "Showcase Website","services.card3.compat": "Mobile / PC friendly","services.card3.li1": "3 to 5 pages","services.card3.li2": "Professional look","services.card3.li3": "Clean structure",
+        "services.card4.badge": "Full pack","services.card4.title": "ULTIMATE BOOST","services.card4.compat": "Mobile / PC friendly","services.card4.li1": "Capture page","services.card4.li2": "Sales page","services.card4.li3": "Showcase website","services.card4.li4": "Basic optimization",
         "services.order": "Order",
-        "compare.label": "Before / After",
-        "compare.title": "What a professional website changes",
-        "compare.before.title": "Without a pro site",
-        "compare.before.li1": "Potential clients hesitate to trust you",
-        "compare.before.li2": "Hard to show professionalism with just a Facebook page",
-        "compare.before.li3": "No automatic sales, everything is manual",
-        "compare.after.title": "With a pro site",
-        "compare.after.li1": "A brand image that immediately inspires trust",
-        "compare.after.li2": "Clients take you seriously before even talking to you",
-        "compare.after.li3": "Sales coming in even while you sleep",
-        "why.label": "Why me?",
-        "why.title": "A website is not an expense. It's an investment.",
-        "why.text1": "Today, many people can create a website. My goal is not simply to deliver a nice-looking site. I create sites designed to inspire trust, showcase your activity and give a professional image to your business.",
-        "why.text2": "Every project is carried out with seriousness, attention to detail and one priority: <strong style='color:var(--gold2);'>making your activity look as professional as the value you truly bring.</strong>",
-        "why.card1.title": "Speed",
-        "why.card1.desc": "Fast and smooth sites for a better user experience.",
-        "why.card2.title": "Compatible everywhere",
-        "why.card2.desc": "Perfect on phone, tablet and computer.",
-        "why.card3.title": "Results oriented",
-        "why.card3.desc": "Every page is designed to convert visitors into customers.",
-        "why.card4.title": "Support",
-        "why.card4.desc": "I remain available even after site delivery.",
-        "academy.label": "Web Development Training",
-        "academy.title": "BALIMA Web Academy",
-        "academy.1.title": "HTML FROM ZERO TO EXPERT",
-        "academy.1.desc": "Learn to create the complete structure of a professional website.",
-        "academy.2.title": "MASTER MODERN CSS",
-        "academy.2.desc": "Responsive Design, Flexbox, Grid and modern animations.",
-        "academy.3.title": "JAVASCRIPT WITHOUT CONFUSION",
-        "academy.3.desc": "Understand JavaScript step by step with real projects.",
-        "academy.4.title": "COMPLETE FRONTEND",
-        "academy.4.desc": "HTML, CSS and JavaScript combined to become a Frontend developer.",
-        "academy.5.title": "BACKEND FOR BEGINNERS",
-        "academy.5.desc": "Servers, databases, APIs and web logic.",
-        "academy.6.title": "CREATE A WEBSITE FROM A TO Z",
-        "academy.6.desc": "Design, development, hosting and going live.",
-        "academy.7.title": "WORDPRESS & WOOCOMMERCE",
-        "academy.7.desc": "Create blogs, sites and online stores easily.",
-        "academy.8.title": "BECOME A WEB FREELANCER",
-        "academy.8.desc": "Find clients and generate income with the web.",
-        "library.label": "Resources & Knowledge",
-        "library.title": "Success Library",
-        "ebooks.buy": "Buy",
-        "ebooks.note": "Tap then validate the code in the phone app.",
-        "ebooks.1.title": "African Success Mindset",
-        "ebooks.1.desc": "Think big, act right, and succeed without limits. Mindset, discipline, legacy.",
-        "ebooks.2.title": "Master Your Emotions",
-        "ebooks.2.desc": "The art of staying in control and making good decisions calmly.",
-        "ebooks.3.title": "Sell Online from A to Z",
-        "ebooks.3.desc": "The complete guide to launch, grow, and automate your online business.",
-        "ebooks.4.title": "Stop Procrastinating",
-        "ebooks.4.desc": "Learn to take action, stay focused, and regain control of your time.",
-        "ebooks.5.title": "Take Back Control of Your Life",
-        "ebooks.5.desc": "A powerful guide to regain balance, discipline, and clarity in daily life.",
-        "ebooks.6.title": "Make Money with Your Phone",
-        "ebooks.6.desc": "Learn how to generate income by using your phone and digital opportunities wisely.",
-        "ebooks.7.title": "Health, Nutrition and Natural Beauty",
-        "ebooks.7.desc": "Discover a simple, natural approach to nourish your body, care for yourself, and glow.",
-        "ebooks.8.title": "The 5 Traits of Masculinity",
-        "ebooks.8.desc": "A powerful guide on alpha, beta, delta, omega and sigma to better understand masculine archetypes.",
-        "ebooks.9.title": "The Poor Obey, The Rich Negotiate",
-        "ebooks.9.desc": "An ebook about mindset, negotiation, and taking back control of your financial choices.",
-        "reviews.label": "Reviews",
-        "reviews.title": "What my clients say",
-        "reviews.cta": "Leave a WhatsApp review",
-        "reviews.note": "Feedback from readers and clients is welcome.",
-        "reviews.1.name": "Aïcha O.",
-        "reviews.1.text": "I bought his ebook 'African Success Mindset' a bit by chance. And then... I read 3 pages and I almost cried. It's as if every word spoke directly to my situation. Since then, I've changed my routine, I wake up earlier, I believe in myself. Moussa, if you read this: may God bless you.",
-        "reviews.2.name": "Moussa K.",
-        "reviews.2.text": "I just wanted a simple page to sell my shoes. He called me, took the time to understand my business, and proposed ideas I hadn't even imagined. The result is beautiful. And the craziest part? My sales increased the first week. He's more than a developer, he's a partner.",
-        "reviews.3.name": "Ibrahim S.",
-        "reviews.3.text": "I hesitated for 2 weeks before contacting him... Big mistake! I should have done it a long time ago. He's patient, responds quickly, and most importantly, keeps his promises. My site was ready in 3 days. Clean, fast, exactly what I wanted. I've already recommended him to 2 friends.",
-        "reviews.4.name": "Kadija B.",
-        "reviews.4.text": "His ebook on procrastination saved my life. Really. Every page is a wake-up call. I was stuck for months, and then everything unlocked. The only small thing: I wish it were longer because it was so good!",
-        "faq.label": "FAQ",
-        "faq.title": "Frequent questions",
-        "faq.q1": "How do I receive my ebook?",
-        "faq.a1": "After payment, click \"I've paid\" on WhatsApp and you'll receive your ebook directly.",
-        "faq.q2": "Are the websites personalized?",
-        "faq.a2": "Yes, each site is adapted to your activity, your style and your goals.",
-        "faq.q3": "How long to deliver a site?",
-        "faq.a3": "Generally between 24 hours and 5 days depending on the project complexity.",
-        "payment.label": "Payment",
-        "payment.title": "Orange Money Payment",
-        "payment.secure": "Secure payment via Orange Money",
-        "payment.amountLabel": "Amount",
-        "payment.numberLabel": "Orange Money Number",
-        "payment.instruction": "After payment, click <strong>I've paid</strong> to send me a WhatsApp confirmation.",
-        "payment.paid": "I've paid",
-        "payment.question": "Ask a question",
-        "contact.label": "Contact",
-        "contact.title": "Ready to launch your project?",
-        "contact.subtitle": "What you sell has value. Your website should show it.",
-        "contact.whatsapp": "WhatsApp",
-        "contact.email": "Email",
+        "compare.label": "Before / After","compare.title": "What a professional website changes","compare.before.title": "Without a pro site","compare.before.li1": "Potential clients hesitate to trust you","compare.before.li2": "Hard to show professionalism with just a Facebook page","compare.before.li3": "No automatic sales, everything is manual","compare.after.title": "With a pro site","compare.after.li1": "A brand image that immediately inspires trust","compare.after.li2": "Clients take you seriously before even talking to you","compare.after.li3": "Sales coming in even while you sleep",
+        "why.label": "Why me?","why.title": "A website is not an expense. It's an investment.","why.text1": "Today, many people can create a website. My goal is not simply to deliver a nice-looking site. I create sites designed to inspire trust, showcase your activity and give a professional image to your business.","why.text2": "Every project is carried out with seriousness, attention to detail and one priority: <strong style='color:var(--gold2);'>making your activity look as professional as the value you truly bring.</strong>","why.card1.title": "Speed","why.card1.desc": "Fast and smooth sites for a better user experience.","why.card2.title": "Compatible everywhere","why.card2.desc": "Perfect on phone, tablet and computer.","why.card3.title": "Results oriented","why.card3.desc": "Every page is designed to convert visitors into customers.","why.card4.title": "Support","why.card4.desc": "I remain available even after site delivery.",
+        "academy.label": "Web Development Training","academy.title": "BALIMA Web Academy","academy.1.title": "HTML FROM ZERO TO EXPERT","academy.1.desc": "Learn to create the complete structure of a professional website.","academy.2.title": "MASTER MODERN CSS","academy.2.desc": "Responsive Design, Flexbox, Grid and modern animations.","academy.3.title": "JAVASCRIPT WITHOUT CONFUSION","academy.3.desc": "Understand JavaScript step by step with real projects.","academy.4.title": "COMPLETE FRONTEND","academy.4.desc": "HTML, CSS and JavaScript combined to become a Frontend developer.","academy.5.title": "BACKEND FOR BEGINNERS","academy.5.desc": "Servers, databases, APIs and web logic.","academy.6.title": "CREATE A WEBSITE FROM A TO Z","academy.6.desc": "Design, development, hosting and going live.","academy.7.title": "WORDPRESS & WOOCOMMERCE","academy.7.desc": "Create blogs, sites and online stores easily.","academy.8.title": "BECOME A WEB FREELANCER","academy.8.desc": "Find clients and generate income with the web.",
+        "library.label": "Resources & Knowledge","library.title": "Success Library","ebooks.buy": "Buy","ebooks.note": "Tap then validate the code in the phone app.","ebooks.1.title": "African Success Mindset","ebooks.1.desc": "Think big, act right, and succeed without limits. Mindset, discipline, legacy.","ebooks.2.title": "Master Your Emotions","ebooks.2.desc": "The art of staying in control and making good decisions calmly.","ebooks.3.title": "Sell Online from A to Z","ebooks.3.desc": "The complete guide to launch, grow, and automate your online business.","ebooks.4.title": "Stop Procrastinating","ebooks.4.desc": "Learn to take action, stay focused, and regain control of your time.","ebooks.5.title": "Take Back Control of Your Life","ebooks.5.desc": "A powerful guide to regain balance, discipline, and clarity in daily life.","ebooks.6.title": "Make Money with Your Phone","ebooks.6.desc": "Learn how to generate income by using your phone and digital opportunities wisely.","ebooks.7.title": "Health, Nutrition and Natural Beauty","ebooks.7.desc": "Discover a simple, natural approach to nourish your body, care for yourself, and glow.","ebooks.8.title": "The 5 Traits of Masculinity","ebooks.8.desc": "A powerful guide on alpha, beta, delta, omega and sigma to better understand masculine archetypes.","ebooks.9.title": "The Poor Obey, The Rich Negotiate","ebooks.9.desc": "An ebook about mindset, negotiation, and taking back control of your financial choices.",
+        "reviews.label": "Reviews","reviews.title": "What my clients say","reviews.cta": "Leave a WhatsApp review","reviews.note": "Feedback from readers and clients is welcome.","reviews.1.name": "Aïcha O.","reviews.1.text": "I bought his ebook 'African Success Mindset' a bit by chance. And then... I read 3 pages and I almost cried. It's as if every word spoke directly to my situation. Since then, I've changed my routine, I wake up earlier, I believe in myself. Moussa, if you read this: may God bless you.","reviews.2.name": "Moussa K.","reviews.2.text": "I just wanted a simple page to sell my shoes. He called me, took the time to understand my business, and proposed ideas I hadn't even imagined. The result is beautiful. And the craziest part? My sales increased the first week. He's more than a developer, he's a partner.","reviews.3.name": "Ibrahim S.","reviews.3.text": "I hesitated for 2 weeks before contacting him... Big mistake! I should have done it a long time ago. He's patient, responds quickly, and most importantly, keeps his promises. My site was ready in 3 days. Clean, fast, exactly what I wanted. I've already recommended him to 2 friends.","reviews.4.name": "Kadija B.","reviews.4.text": "His ebook on procrastination saved my life. Really. Every page is a wake-up call. I was stuck for months, and then everything unlocked. The only small thing: I wish it were longer because it was so good!",
+        "faq.label": "FAQ","faq.title": "Frequent questions","faq.q1": "How do I receive my ebook?","faq.a1": "After payment, click \"I've paid\" on WhatsApp and you'll receive your ebook directly.","faq.q2": "Are the websites personalized?","faq.a2": "Yes, each site is adapted to your activity, your style and your goals.","faq.q3": "How long to deliver a site?","faq.a3": "Generally between 24 hours and 5 days depending on the project complexity.",
+        "payment.label": "Payment","payment.title": "Orange Money Payment","payment.secure": "Secure payment via Orange Money","payment.amountLabel": "Amount","payment.numberLabel": "Orange Money Number","payment.instruction": "After payment, click <strong>I've paid</strong> to send me a WhatsApp confirmation.","payment.paid": "I've paid","payment.question": "Ask a question",
+        "contact.label": "Contact","contact.title": "Ready to launch your project?","contact.subtitle": "What you sell has value. Your website should show it.","contact.whatsapp": "WhatsApp","contact.email": "Email",
         "footer.text": "© 2026 Balima Web Developer · Freelance Web Developer · Burkina Faso 🇧🇫 · All rights reserved"
       }
     };
@@ -1233,27 +876,20 @@
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const key = el.getAttribute('data-i18n');
         if(translations[lang][key] !== undefined){
-          if(translations[lang][key].includes('<')){
-            el.innerHTML = translations[lang][key];
-          } else {
-            el.textContent = translations[lang][key];
-          }
+          if(translations[lang][key].includes('<')) el.innerHTML = translations[lang][key];
+          else el.textContent = translations[lang][key];
         }
       });
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
         const key = el.getAttribute('data-i18n-placeholder');
         if(translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
       });
-      document.querySelectorAll('.lang-btn').forEach(btn=>{
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
+      document.querySelectorAll('.lang-btn').forEach(btn=> btn.classList.toggle('active', btn.dataset.lang === lang));
       buildMobileMenu();
     }
 
     function setCurrency(currency){
-      document.querySelectorAll('.currency-btn').forEach(btn=>{
-        btn.classList.toggle('active', btn.dataset.currency === currency);
-      });
+      document.querySelectorAll('.currency-btn').forEach(btn=> btn.classList.toggle('active', btn.dataset.currency === currency));
       document.querySelectorAll('.price').forEach(price=>{
         price.querySelectorAll('span').forEach(span=>span.style.display='none');
         const target = price.querySelector('.'+currency);
@@ -1264,8 +900,7 @@
     function filterSite(){
       const query = (document.getElementById('siteSearch')?.value || document.getElementById('siteSearchTop')?.value || '').toLowerCase().trim();
       document.querySelectorAll('#cards .card, #academyCards .card').forEach(card=>{
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(query) ? '' : 'none';
+        card.style.display = card.textContent.toLowerCase().includes(query) ? '' : 'none';
       });
     }
 
@@ -1273,22 +908,16 @@
       const filterBar = document.getElementById(filterBarId);
       const container = document.getElementById(containerId);
       if(!filterBar || !container) return;
-
       filterBar.querySelectorAll('.filter-btn').forEach(btn=>{
         btn.addEventListener('click', ()=>{
           filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
           btn.classList.add('active');
           const filter = btn.dataset.filter;
           container.querySelectorAll('.card').forEach(card=>{
-            if(filter === 'all'){
-              card.style.display = '';
-            } else if(filter === 'best'){
-              card.style.display = card.dataset.badge === 'bestseller' ? '' : 'none';
-            } else if(filter === 'promo'){
-              card.style.display = card.dataset.badge === 'promo' ? '' : 'none';
-            } else {
-              card.style.display = card.dataset.cat === filter ? '' : 'none';
-            }
+            if(filter === 'all') card.style.display = '';
+            else if(filter === 'best') card.style.display = card.dataset.badge === 'bestseller' ? '' : 'none';
+            else if(filter === 'promo') card.style.display = card.dataset.badge === 'promo' ? '' : 'none';
+            else card.style.display = card.dataset.cat === filter ? '' : 'none';
           });
         });
       });
@@ -1312,7 +941,6 @@
       if(!statsRow) return;
       const numbers = statsRow.querySelectorAll('.stat-number');
       let animated = false;
-
       function run(){
         if(animated) return;
         const rect = statsRow.getBoundingClientRect();
@@ -1345,13 +973,8 @@
     setupFilters('cards', 'libraryFilters');
     animateCounters();
 
-    document.querySelectorAll('.lang-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>setLang(btn.dataset.lang));
-    });
-
-    document.querySelectorAll('.currency-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>setCurrency(btn.dataset.currency));
-    });
+    document.querySelectorAll('.lang-btn').forEach(btn=> btn.addEventListener('click', ()=>setLang(btn.dataset.lang)));
+    document.querySelectorAll('.currency-btn').forEach(btn=> btn.addEventListener('click', ()=>setCurrency(btn.dataset.currency)));
 
     document.addEventListener('click', (e) => {
       const buyBtn = e.target.closest('.buy-btn');
@@ -1379,9 +1002,7 @@
     }
     menuBtn.addEventListener('click', ()=>toggleMenu(!document.body.classList.contains('menu-open')));
     menuOverlay.addEventListener('click', ()=>toggleMenu(false));
-    mobileMenu.addEventListener('click', (e) => {
-      if(e.target.tagName === 'A') toggleMenu(false);
-    });
+    mobileMenu.addEventListener('click', (e) => { if(e.target.tagName === 'A') toggleMenu(false); });
     document.addEventListener('keydown', e=>{ if(e.key === 'Escape') toggleMenu(false); });
 
     document.getElementById('siteSearch')?.addEventListener('input', filterSite);
@@ -1390,20 +1011,14 @@
     document.querySelectorAll(".faq-question").forEach(btn=>{
       btn.addEventListener("click", ()=>{
         const item = btn.parentElement;
-        document.querySelectorAll(".faq-item").forEach(el=>{
-          if(el !== item) el.classList.remove("active");
-        });
+        document.querySelectorAll(".faq-item").forEach(el=>{ if(el !== item) el.classList.remove("active"); });
         item.classList.toggle("active");
       });
     });
 
     const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 500);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 500); });
+    backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', ()=>{
@@ -1414,4 +1029,4 @@
     setCurrency('xof');
   </script>
 </body>
-  </html>
+</html>
