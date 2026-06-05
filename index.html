@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title data-i18n="meta.title">Balima Web Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#080C14;
@@ -37,7 +37,7 @@
     body.light-mode .cta-box{background:var(--card);}
     body.light-mode .card{background:rgba(0,0,0,.02);}
     body.light-mode .hero-bg{filter:blur(2px) brightness(.7);opacity:.8;}
-    body.light-mode .about-full-bg::before{opacity:.2;}
+    body.light-mode .about-full-bg::before{opacity:.12;}
     body.light-mode .create-site-bg::before{opacity:.25;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
@@ -106,21 +106,28 @@
     .hero-bg{
       position:absolute;inset:0;z-index:1;
       background:url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
-      filter:blur(2px) brightness(.5);
-      opacity:.85;
+      filter:blur(2px) brightness(0.8);
+      opacity:0.55;
       pointer-events:none;
     }
-
-    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,87,255,.12);border:1px solid rgba(77,143,255,.25);color:var(--blue2);padding:8px 14px;border-radius:999px;font-size:.84rem;margin-bottom:22px;}
+    .hero::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.4);
+      z-index:1;
+      pointer-events:none;
+    }
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,87,255,.12);border:1px solid rgba(77,143,255,.25);color:var(--blue2);padding:8px 14px;border-radius:999px;font-size:.84rem;margin-bottom:22px;backdrop-filter:blur(4px);}
     .dot{width:8px;height:8px;border-radius:50%;background:var(--blue2);animation:pulse 2s infinite;}
     @keyframes pulse{50%{transform:scale(.75);opacity:.55;}}
-    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.8rem);line-height:.92;letter-spacing:1px;margin-bottom:18px;}
-    .accent{-webkit-text-stroke:2px var(--blue2);color:transparent;}
-    .hero p{max-width:680px;color:var(--muted);line-height:1.8;font-size:1.02rem;margin:0 auto;}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.8rem);line-height:.92;letter-spacing:1px;margin-bottom:18px;text-shadow:0 2px 15px rgba(0,0,0,0.6);}
+    .accent{-webkit-text-stroke:2px var(--blue2);color:transparent;text-shadow:none;}
+    .hero p{max-width:680px;color:var(--text);line-height:1.8;font-size:1.02rem;margin:0 auto;text-shadow:0 1px 8px rgba(0,0,0,0.5);font-weight:500;}
     .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:28px;}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:700;border:1px solid transparent;transition:.25s ease;cursor:pointer;}
     .btn:hover{transform:translateY(-2px);}
-    .btn-primary{background:linear-gradient(135deg,rgba(0,87,255,.98),rgba(77,143,255,.95));color:#fff;box-shadow:0 14px 32px rgba(0,87,255,.22);}
+    .btn-primary{background:linear-gradient(135deg,rgba(0,87,255,.98),rgba(77,143,255,.95));color:#fff;box-shadow:0 14px 32px rgba(0,87,255,.22);text-shadow:none;}
     .btn-secondary{background:rgba(255,255,255,.03);border-color:var(--line);color:var(--text);}
 
     .section{padding:28px 0;}
@@ -164,7 +171,7 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
-    /* Section Qui suis-je - fond sans cadre, comme le hero */
+    /* Section Qui suis-je - fond légèrement éclipsé */
     .about-full-bg {
       position: relative;
       background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.8));
@@ -179,8 +186,8 @@
       right: 0;
       bottom: 0;
       background: url('page-web-code-html.jpg') center/cover no-repeat;
-      filter: blur(2px) brightness(0.6);
-      opacity: 0.5;
+      filter: blur(2px) brightness(0.7);
+      opacity: 0.25;  /* Éclipsé juste un peu */
       z-index: 0;
     }
     .about-full-bg > * {
@@ -190,15 +197,15 @@
     .about-content-box {
       padding: 48px 40px;
     }
-    /* Photo de profil agrandie (taille réelle augmentée) */
+    /* Photo de profil - SANS bordure blanche */
     .about-photo{
       width: 180px;
       height: 180px;
-      border-radius: 0;
+      border-radius: 50%;
       object-fit: cover;
       object-position: center;
       border: none;
-      box-shadow: none;
+      box-shadow: 0 0 25px rgba(0,87,255,.3);
       background: transparent;
       margin: 0 auto 20px;
       display: block;
@@ -229,6 +236,67 @@
       }
     }
 
+    /* Style avancé pour les boutons de devise */
+    .services-price-switch {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .currency-label {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .currency-switch {
+      display: inline-flex;
+      gap: 8px;
+      background: rgba(255,255,255,.03);
+      padding: 6px;
+      border-radius: 60px;
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .currency-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+    .currency-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+      border-radius: 40px;
+    }
+    .currency-btn.active {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #111827;
+      box-shadow: 0 4px 15px rgba(216,178,106,.3);
+      transform: scale(1.02);
+    }
+    .currency-btn:hover:not(.active) {
+      color: var(--gold2);
+      background: rgba(216,178,106,.1);
+    }
+
     /* Cartes avec fonds floutés - moins flou */
     .services-card.capture-blur,
     .services-card.sales-blur,
@@ -244,7 +312,7 @@
       top:0;left:0;right:0;bottom:0;
       background:url('file_00000000a89c71f4ad646fadc4123ef0.png') center/cover no-repeat;
       filter:blur(2px) brightness(0.7);
-      opacity:0.45;
+      opacity:0.4;
       z-index:0;
     }
     .services-card.sales-blur::before{
@@ -253,7 +321,7 @@
       top:0;left:0;right:0;bottom:0;
       background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
       filter:blur(2px) brightness(0.7);
-      opacity:0.45;
+      opacity:0.4;
       z-index:0;
     }
     .services-card.pro-blur::before{
@@ -262,7 +330,7 @@
       top:0;left:0;right:0;bottom:0;
       background:url('technologies_web.jpg') center/cover no-repeat;
       filter:blur(2px) brightness(0.7);
-      opacity:0.45;
+      opacity:0.4;
       z-index:0;
     }
     .services-card.boost-blur::before{
@@ -271,7 +339,7 @@
       top:0;left:0;right:0;bottom:0;
       background:url('file_00000000a2087243b791b9b7e17d9251.png') center/cover no-repeat;
       filter:blur(2px) brightness(0.7);
-      opacity:0.45;
+      opacity:0.4;
       z-index:0;
     }
     .services-card.create-site-bg::before{
@@ -280,7 +348,7 @@
       top:0;left:0;right:0;bottom:0;
       background:url('creation-site.jpg') center/cover no-repeat;
       filter:blur(2px) brightness(0.7);
-      opacity:0.45;
+      opacity:0.4;
       z-index:0;
     }
     .services-card.capture-blur > *,
@@ -416,6 +484,8 @@
       .whatsapp-float{bottom:78px;right:16px;width:50px;height:50px;font-size:1.4rem;}
       .stats-row{gap:24px;}
       .about-content-box{padding:24px 16px;}
+      .currency-switch{gap:4px;}
+      .currency-btn{padding:6px 16px;font-size:0.8rem;}
     }
 
     @media (max-width:900px) and (orientation:landscape){
