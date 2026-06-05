@@ -39,6 +39,10 @@
     body.light-mode .hero-bg{filter:blur(3px) brightness(.8);opacity:.7;}
     body.light-mode .about-full-bg::before{opacity:.15;}
     body.light-mode .create-site-bg::before{opacity:.2;}
+    body.light-mode .capture-blur::before{opacity:.2;}
+    body.light-mode .sales-blur::before{opacity:.2;}
+    body.light-mode .pro-blur::before{opacity:.2;}
+    body.light-mode .boost-blur::before{opacity:.2;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -106,7 +110,7 @@
     .hero-bg{
       position:absolute;inset:0;z-index:1;
       background:url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
-      filter:blur(2px) brightness(1.0);
+      filter:blur(3px) brightness(.45);
       opacity:.9;
       pointer-events:none;
     }
@@ -164,7 +168,7 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
-    /* Section Qui suis-je - fond avec l'image WEB DEVELOPMENT */
+    /* Section Qui suis-je - fond avec la nouvelle image */
     .about-full-bg {
       position: relative;
       background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.8));
@@ -179,8 +183,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('is_web_development_good_career.jpg') center/cover no-repeat;
-      filter: blur(2px) brightness(1.2);
+      background: url('page-web-code-html.jpg') center/cover no-repeat;
+      filter: blur(4px) brightness(0.55);
       opacity: 0.4;
       z-index: 0;
     }
@@ -191,9 +195,10 @@
     .about-content-box {
       padding: 48px 40px;
     }
+    /* Photo de profil agrandie */
     .about-photo{
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center;
@@ -223,37 +228,104 @@
       .about-text-box {
         padding: 16px;
       }
+      .about-photo {
+        width: 120px;
+        height: 120px;
+      }
     }
 
-    /* Carte Création de sites avec fond "je crée votre page de vente" */
-    .create-site-bg {
-      background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.85));
-      position: relative;
-      overflow: hidden;
-      text-align: center;
+    /* Cartes avec fonds floutés */
+    .services-card.capture-blur{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
     }
-    .create-site-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
-      filter: blur(3px) brightness(1.0);
-      opacity: 0.40;
-      z-index: 0;
+    .services-card.capture-blur::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('file_00000000a89c71f4ad646fadc4123ef0.png') center/cover no-repeat;
+      filter:blur(6px) brightness(0.6);
+      opacity:0.35;
+      z-index:0;
     }
-    .create-site-bg > * {
-      position: relative;
-      z-index: 1;
+    .services-card.capture-blur > *{
+      position:relative;
+      z-index:1;
     }
 
-    .services-price-switch{margin-bottom:20px;}
-    .currency-label{color:var(--muted);font-size:.9rem;font-weight:700;margin-bottom:10px;display:block;letter-spacing:.3px;}
-    .currency-switch{display:flex;gap:10px;flex-wrap:wrap;}
-    .currency-btn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:700;transition:.2s ease;}
-    .currency-btn.active,.currency-btn:hover{background:rgba(216,178,106,.14);color:var(--gold2);border-color:rgba(216,178,106,.35);}
+    .services-card.sales-blur{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
+    }
+    .services-card.sales-blur::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
+      filter:blur(6px) brightness(0.6);
+      opacity:0.35;
+      z-index:0;
+    }
+    .services-card.sales-blur > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .services-card.pro-blur{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
+    }
+    .services-card.pro-blur::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('technologies_web.jpg') center/cover no-repeat;
+      filter:blur(6px) brightness(0.6);
+      opacity:0.35;
+      z-index:0;
+    }
+    .services-card.pro-blur > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .services-card.boost-blur{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
+    }
+    .services-card.boost-blur::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('file_00000000a2087243b791b9b7e17d9251.png') center/cover no-repeat;
+      filter:blur(6px) brightness(0.6);
+      opacity:0.35;
+      z-index:0;
+    }
+    .services-card.boost-blur > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .services-card.create-site-bg{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+    }
+    .services-card.create-site-bg::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('creation-site.jpg') center/cover no-repeat;
+      filter:blur(6px) brightness(0.55);
+      opacity:0.35;
+      z-index:0;
+    }
+    .services-card.create-site-bg > *{
+      position:relative;
+      z-index:1;
+    }
 
     .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
     .services-card{
@@ -265,42 +337,6 @@
       transition:.25s ease;
       position:relative;
       overflow:hidden;
-    }
-    /* Fond flouté pour la carte Page de vente */
-    .services-card.sales-blur{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
-    }
-    .services-card.sales-blur::before{
-      content:'';
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-      background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
-      filter:blur(4px);
-      opacity:.4;
-      z-index:0;
-    }
-    .services-card.sales-blur > *{
-      position:relative;
-      z-index:1;
-    }
-    /* Fond flouté pour la carte Site vitrine (Pro) */
-    .services-card.pro-blur{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
-    }
-    .services-card.pro-blur::before{
-      content:'';
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-      background:url('technologies_web.jpg') center/cover no-repeat;
-      filter:blur(6px);
-      opacity:.3;
-      z-index:0;
-    }
-    .services-card.pro-blur > *{
-      position:relative;
-      z-index:1;
     }
     .services-card:hover{transform:translateY(-6px);border-color:rgba(77,143,255,.28);}
     .services-featured{border-color:rgba(216,178,106,.42);background:linear-gradient(180deg,rgba(216,178,106,.08),rgba(255,255,255,.03));transform:translateY(-8px);}
@@ -498,7 +534,7 @@
     </div>
   </section>
 
-  <!-- QUI SUIS-JE - fond avec image WEB DEVELOPMENT, plus de cadre rectangulaire -->
+  <!-- QUI SUIS-JE - fond avec page-web-code-html.jpg -->
   <section class="section tight" id="qui-suis-je">
     <div class="wrap">
       <div class="about-full-bg">
@@ -507,7 +543,7 @@
           <div class="label" data-i18n="about.label" style="text-align:center;">Qui suis-je</div>
           <div class="title" data-i18n="about.title" style="text-align:center;">Je ne construis pas des sites.<br>Je construis des preuves.</div>
 
-          <!-- UNIQUEMENT LA PHOTO DE PROFIL ARRONDIE (pas de second cadre) -->
+          <!-- Photo de profil agrandie -->
           <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
 
           <div class="about-text-box">
@@ -527,7 +563,7 @@
       <!-- Les 3 cartes en dessous -->
       <div class="services-grid" style="margin-top:40px;">
         
-        <!-- Carte Création de sites avec le fond "je crée votre page de vente" -->
+        <!-- Carte Création de sites avec fond creation-site.jpg -->
         <div class="services-card create-site-bg" style="text-align:center;">
           <div class="icon" style="margin:0 auto 14px; background:rgba(0,0,0,.5); border:1px solid var(--gold); font-size:1.8rem;">🖥️</div>
           <h3 data-i18n="about.pillar1.title" style="color:var(--gold2);">Création de sites</h3>
@@ -569,7 +605,8 @@
         </div>
       </div>
       <div class="services-grid">
-        <div class="services-card">
+        <!-- Page de capture avec fond image code HTML -->
+        <div class="services-card capture-blur">
           <div class="top"><div class="badge" data-i18n="services.card1.badge">Démarrage</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card1.title">Page de capture</h3>
           <div class="compat" data-i18n="services.card1.compat">Compatible mobile / PC</div>
@@ -578,6 +615,7 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-i18n="services.order">Commander</a>
         </div>
         
+        <!-- Page de vente avec fond tunnel de vente -->
         <div class="services-card services-featured sales-blur">
           <div class="top"><div class="badge" data-i18n="services.card2.badge">Offre principale</div><div class="icon">◈</div></div>
           <h3 data-i18n="services.card2.title">Page de vente</h3>
@@ -587,6 +625,7 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-i18n="services.order">Commander</a>
         </div>
         
+        <!-- Site vitrine avec fond technologies_web -->
         <div class="services-card pro-blur">
           <div class="top"><div class="badge" data-i18n="services.card3.badge">Pro</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card3.title">Site vitrine</h3>
@@ -596,7 +635,8 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-i18n="services.order">Commander</a>
         </div>
         
-        <div class="services-card services-featured">
+        <!-- BOOST ULTIME avec fond des 3 services -->
+        <div class="services-card services-featured boost-blur">
           <div class="top"><div class="badge" data-i18n="services.card4.badge">Pack complet</div><div class="icon">◆</div></div>
           <h3 data-i18n="services.card4.title">BOOST ULTIME</h3>
           <div class="compat" data-i18n="services.card4.compat">Compatible mobile / PC</div>
@@ -1029,4 +1069,4 @@
     setCurrency('xof');
   </script>
 </body>
-</html>
+      </html>
