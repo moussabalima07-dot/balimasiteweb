@@ -36,7 +36,7 @@
     body.light-mode .payment-box{background:var(--card);}
     body.light-mode .cta-box{background:var(--card);}
     body.light-mode .card{background:rgba(0,0,0,.02);}
-    body.light-mode .hero-bg{filter:blur(6px) brightness(.7);opacity:.6;}
+    body.light-mode .hero-bg{filter:blur(3px) brightness(.8);opacity:.7;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -103,7 +103,7 @@
     .hero{padding:78px 0 42px;text-align:center;position:relative;overflow:hidden;}
     .hero-bg{
       position:absolute;inset:0;z-index:1;
-      background:url('file_00000000a89c71f4ad646fadc4123ef0.png') center/cover no-repeat;
+      background:url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
       filter:blur(3px) brightness(.45);
       opacity:.9;
       pointer-events:none;
@@ -162,14 +162,41 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
+    /* Qui suis-je - section avec les deux images */
+    .about-header{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:24px;
+      margin-bottom:32px;
+      flex-wrap:wrap;
+    }
     .about-photo{
       width:130px;height:130px;border-radius:50%;
       object-fit:cover;object-position:center;
       border:3px solid var(--gold2);
       box-shadow:0 0 30px rgba(216,178,106,.25);
-      margin:0 auto 22px;
-      display:block;
       background:var(--card);
+    }
+    .about-web-badge{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+    }
+    .about-web-badge img{
+      width:100px;
+      height:auto;
+      border-radius:12px;
+      border:2px solid var(--gold2);
+      background:rgba(0,0,0,.3);
+      padding:8px;
+    }
+    .about-web-badge span{
+      font-size:.75rem;
+      color:var(--gold2);
+      font-weight:700;
+      letter-spacing:2px;
     }
 
     .services-price-switch{margin-bottom:20px;}
@@ -179,12 +206,68 @@
     .currency-btn.active,.currency-btn:hover{background:rgba(216,178,106,.14);color:var(--gold2);border-color:rgba(216,178,106,.35);}
 
     .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
-    .services-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.28);transition:.25s ease;}
+    .services-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 24px 70px rgba(0,0,0,.28);
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    /* Fond flouté pour la carte Page de vente */
+    .services-card.sales-blur{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
+    }
+    .services-card.sales-blur::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
+      filter:blur(6px);
+      opacity:.3;
+      z-index:0;
+    }
+    .services-card.sales-blur > *{
+      position:relative;
+      z-index:1;
+    }
+    /* Fond flouté pour la carte Site vitrine (Pro) */
+    .services-card.pro-blur{
+      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
+      position:relative;
+    }
+    .services-card.pro-blur::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      background:url('technologies_web.jpg') center/cover no-repeat;
+      filter:blur(6px);
+      opacity:.3;
+      z-index:0;
+    }
+    .services-card.pro-blur > *{
+      position:relative;
+      z-index:1;
+    }
     .services-card:hover{transform:translateY(-6px);border-color:rgba(77,143,255,.28);}
     .services-featured{border-color:rgba(216,178,106,.42);background:linear-gradient(180deg,rgba(216,178,106,.08),rgba(255,255,255,.03));transform:translateY(-8px);}
     .services-featured:hover{transform:translateY(-12px);}
     .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
-    .icon{width:44px;height:44px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);font-size:1.1rem;}
+    .icon{
+      width:44px;height:44px;border-radius:16px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      font-size:1.1rem;
+      overflow:hidden;
+    }
+    .icon img{
+      width:100%;height:100%;object-fit:cover;
+      border-radius:14px;
+    }
     .services-card h3{font-size:1.2rem;margin-bottom:10px;}
     .compat{color:var(--muted);font-size:.88rem;margin-bottom:16px;}
     .price{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
@@ -197,6 +280,21 @@
     .services-card li::before{content:"✓";position:absolute;left:0;color:var(--blue2);font-weight:800;}
     .premium-btn{display:flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#111827;text-decoration:none;font-weight:900;transition:.2s ease;}
     .premium-btn:hover{transform:translateY(-1px);filter:brightness(1.03);}
+
+    .pillar-icon-img{
+      width:44px;height:44px;border-radius:12px;
+      object-fit:cover;
+      margin:0 auto 14px;
+    }
+    /* Carte création de site avec image */
+    .create-site-card .icon img{
+      width:44px;height:44px;object-fit:cover;
+      border-radius:12px;
+    }
+    .create-site-card .icon{
+      background:rgba(0,0,0,.4);
+      padding:0;
+    }
 
     .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:800px;margin:0 auto 40px;}
     .compare-card{border-radius:18px;padding:28px;border:1px solid var(--line);text-align:center;}
@@ -285,6 +383,7 @@
       .back-to-top{bottom:20px;right:16px;width:42px;height:42px;font-size:1.2rem;}
       .whatsapp-float{bottom:78px;right:16px;width:50px;height:50px;font-size:1.4rem;}
       .stats-row{gap:24px;}
+      .about-header{flex-direction:column;gap:16px;}
     }
 
     @media (max-width:900px) and (orientation:landscape){
@@ -339,7 +438,7 @@
   <div class="menu-overlay" id="menuOverlay"></div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal"></nav>
 
-  <!-- ★ HERO AVEC FOND -->
+  <!-- HERO AVEC NOUVEAU FOND -->
   <header class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="wrap" style="position:relative;z-index:2;">
@@ -356,7 +455,7 @@
     </div>
   </header>
 
-  <!-- ★ CHIFFRES CLÉS -->
+  <!-- CHIFFRES CLÉS -->
   <section class="section tight">
     <div class="wrap">
       <div class="stats-row" id="statsRow">
@@ -380,13 +479,19 @@
     </div>
   </section>
 
-  <!-- ★ QUI SUIS-JE -->
+  <!-- QUI SUIS-JE AVEC LES DEUX IMAGES -->
   <section class="section tight" id="qui-suis-je">
     <div class="wrap">
       <div class="label" data-i18n="about.label">Qui suis-je</div>
       <div class="title" data-i18n="about.title">Je ne construis pas des sites.<br>Je construis des preuves.</div>
 
-      <img src="" alt="Moussa Balima" class="about-photo" loading="lazy">
+      <div class="about-header">
+        <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
+        <div class="about-web-badge">
+          <img src="is_web_development_good_career.jpg" alt="Web Development" loading="lazy">
+          <span>WEB DEVELOPMENT</span>
+        </div>
+      </div>
 
       <div style="max-width:700px;margin:0 auto 36px;text-align:center;">
         <p style="color:var(--muted);line-height:1.9;font-size:1rem;" data-i18n="about.text1">
@@ -400,8 +505,10 @@
       </div>
 
       <div class="services-grid" style="margin-top:10px;">
-        <div class="services-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;">🖥️</div>
+        <div class="services-card create-site-card" style="text-align:center;">
+          <div class="icon" style="margin:0 auto 14px;">
+            <img src="creation-site.jpg" alt="Créer un site internet">
+          </div>
           <h3 data-i18n="about.pillar1.title">Création de sites</h3>
           <p class="compat" data-i18n="about.pillar1.desc">Je crée ton site pro pour capter l'attention et transformer tes visiteurs en clients.</p>
           <a href="#services" class="premium-btn" style="margin-top:12px;" data-i18n="about.pillar1.cta">Voir les offres</a>
@@ -455,7 +562,9 @@
           </ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-i18n="services.order">Commander</a>
         </div>
-        <div class="services-card services-featured">
+        
+        <!-- Carte Page de vente avec fond flouté -->
+        <div class="services-card services-featured sales-blur">
           <div class="top"><div class="badge" data-i18n="services.card2.badge">Offre principale</div><div class="icon">◈</div></div>
           <h3 data-i18n="services.card2.title">Page de vente</h3>
           <div class="compat" data-i18n="services.card2.compat">Compatible mobile / PC</div>
@@ -471,7 +580,9 @@
           </ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-i18n="services.order">Commander</a>
         </div>
-        <div class="services-card">
+        
+        <!-- Carte Site vitrine (Pro) avec fond flouté -->
+        <div class="services-card pro-blur">
           <div class="top"><div class="badge" data-i18n="services.card3.badge">Pro</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card3.title">Site vitrine</h3>
           <div class="compat" data-i18n="services.card3.compat">Compatible mobile / PC</div>
@@ -487,6 +598,7 @@
           </ul>
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-i18n="services.order">Commander</a>
         </div>
+        
         <div class="services-card services-featured">
           <div class="top"><div class="badge" data-i18n="services.card4.badge">Pack complet</div><div class="icon">◆</div></div>
           <h3 data-i18n="services.card4.title">BOOST ULTIME</h3>
@@ -508,7 +620,7 @@
     </div>
   </section>
 
-  <!-- ★ AVANT / APRÈS -->
+  <!-- AVANT / APRÈS -->
   <section class="section" id="avant-apres">
     <div class="wrap">
       <div class="label" data-i18n="compare.label">Avant / Après</div>
@@ -577,6 +689,7 @@
     </div>
   </section>
 
+  <!-- ACADÉMIE WEB -->
   <section class="section tight" id="academie-web">
     <div class="wrap">
       <div class="label" data-i18n="academy.label">Formation Développement Web</div>
@@ -590,6 +703,7 @@
     </div>
   </section>
 
+  <!-- BIBLIOTHÈQUE -->
   <section class="section tight" id="bibliotheque">
     <div class="wrap">
       <div class="label" data-i18n="library.label">Ressources & Savoirs</div>
@@ -611,6 +725,7 @@
     </div>
   </section>
 
+  <!-- AVIS -->
   <section class="section" id="avis">
     <div class="wrap">
       <div class="label" data-i18n="reviews.label">Avis</div>
@@ -620,18 +735,13 @@
   </section>
 
   <div style="text-align:center;margin-top:30px;">
-    <a
-      href="https://wa.me/22607190217?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis%20sur%20votre%20site%20ou%20vos%20ebooks."
-      class="btn btn-primary"
-      style="padding:14px 22px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:10px;"
-    >
+    <a href="https://wa.me/22607190217?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis%20sur%20votre%20site%20ou%20vos%20ebooks." class="btn btn-primary" style="padding:14px 22px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:10px;">
       💬 <span data-i18n="reviews.cta">Laisser un avis WhatsApp</span>
     </a>
-    <p style="color:var(--muted);margin-top:10px;margin-bottom:60px;font-size:.9rem;" data-i18n="reviews.note">
-      Les retours des lecteurs et clients sont les bienvenus.
-    </p>
+    <p style="color:var(--muted);margin-top:10px;margin-bottom:60px;font-size:.9rem;" data-i18n="reviews.note">Les retours des lecteurs et clients sont les bienvenus.</p>
   </div>
 
+  <!-- FAQ -->
   <section class="section" id="faq">
     <div class="wrap">
       <div class="label" data-i18n="faq.label">FAQ</div>
@@ -642,32 +752,27 @@
             <span data-i18n="faq.q1">Comment recevoir mon ebook ?</span>
             <span>+</span>
           </button>
-          <div class="faq-answer" data-i18n="faq.a1">
-            Après paiement, tu cliques sur "J'ai payé" sur WhatsApp et tu reçois ton ebook directement.
-          </div>
+          <div class="faq-answer" data-i18n="faq.a1">Après paiement, tu cliques sur "J'ai payé" sur WhatsApp et tu reçois ton ebook directement.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
             <span data-i18n="faq.q2">Est-ce que les sites web sont personnalisés ?</span>
             <span>+</span>
           </button>
-          <div class="faq-answer" data-i18n="faq.a2">
-            Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.
-          </div>
+          <div class="faq-answer" data-i18n="faq.a2">Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
             <span data-i18n="faq.q3">Combien de temps pour livrer un site ?</span>
             <span>+</span>
           </button>
-          <div class="faq-answer" data-i18n="faq.a3">
-            En général entre 24h et 5 jours selon la complexité du projet.
-          </div>
+          <div class="faq-answer" data-i18n="faq.a3">En général entre 24h et 5 jours selon la complexité du projet.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PAIEMENT -->
   <section class="section payment" id="paiement">
     <div class="wrap">
       <div class="label" data-i18n="payment.label">Paiement</div>
@@ -688,6 +793,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="cta-section-wrap" id="contact">
     <div class="wrap">
       <div class="label" data-i18n="contact.label">Contact</div>
@@ -772,8 +878,10 @@
     }
 
     function buildAllProductCards(){
-      document.getElementById('academyCards').innerHTML = '';
-      document.getElementById('cards').innerHTML = '';
+      const academyContainer = document.getElementById('academyCards');
+      const libraryContainer = document.getElementById('cards');
+      if(academyContainer) academyContainer.innerHTML = '';
+      if(libraryContainer) libraryContainer.innerHTML = '';
       products.academy.forEach(p => buildProductCard(p, 'academyCards'));
       products.library.forEach(p => buildProductCard(p, 'cards'));
     }
@@ -1304,4 +1412,4 @@
     setCurrency('xof');
   </script>
 </body>
-  </html>
+    </html>
