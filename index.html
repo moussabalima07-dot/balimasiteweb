@@ -36,13 +36,9 @@
     body.light-mode .payment-box{background:var(--card);}
     body.light-mode .cta-box{background:var(--card);}
     body.light-mode .card{background:rgba(0,0,0,.02);}
-    body.light-mode .hero-bg{filter:blur(3px) brightness(.8);opacity:.7;}
-    body.light-mode .about-full-bg::before{opacity:.15;}
-    body.light-mode .create-site-bg::before{opacity:.2;}
-    body.light-mode .capture-blur::before{opacity:.2;}
-    body.light-mode .sales-blur::before{opacity:.2;}
-    body.light-mode .pro-blur::before{opacity:.2;}
-    body.light-mode .boost-blur::before{opacity:.2;}
+    body.light-mode .hero-bg{filter:blur(2px) brightness(.7);opacity:.8;}
+    body.light-mode .about-full-bg::before{opacity:.2;}
+    body.light-mode .create-site-bg::before{opacity:.25;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -110,8 +106,8 @@
     .hero-bg{
       position:absolute;inset:0;z-index:1;
       background:url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
-      filter:blur(3px) brightness(.45);
-      opacity:.9;
+      filter:blur(2px) brightness(.5);
+      opacity:.85;
       pointer-events:none;
     }
 
@@ -168,11 +164,10 @@
     .ebook-btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(216,178,106,.24);}
     .buy-note{margin-top:10px;font-size:.88rem;color:var(--muted);}
 
-    /* Section Qui suis-je - fond avec la nouvelle image */
+    /* Section Qui suis-je - fond sans cadre, comme le hero */
     .about-full-bg {
       position: relative;
       background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.8));
-      border-radius: 32px;
       margin: 0 0 20px 0;
       overflow: hidden;
     }
@@ -184,8 +179,8 @@
       right: 0;
       bottom: 0;
       background: url('page-web-code-html.jpg') center/cover no-repeat;
-      filter: blur(4px) brightness(0.55);
-      opacity: 0.4;
+      filter: blur(2px) brightness(0.6);
+      opacity: 0.5;
       z-index: 0;
     }
     .about-full-bg > * {
@@ -195,16 +190,16 @@
     .about-content-box {
       padding: 48px 40px;
     }
-    /* Photo de profil agrandie */
+    /* Photo de profil agrandie (taille réelle augmentée) */
     .about-photo{
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      border-radius: 0;
       object-fit: cover;
       object-position: center;
-      border: 3px solid var(--gold2);
-      box-shadow: 0 0 30px rgba(216,178,106,.5);
-      background: var(--card);
+      border: none;
+      box-shadow: none;
+      background: transparent;
       margin: 0 auto 20px;
       display: block;
     }
@@ -229,13 +224,17 @@
         padding: 16px;
       }
       .about-photo {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
       }
     }
 
-    /* Cartes avec fonds floutés */
-    .services-card.capture-blur{
+    /* Cartes avec fonds floutés - moins flou */
+    .services-card.capture-blur,
+    .services-card.sales-blur,
+    .services-card.pro-blur,
+    .services-card.boost-blur,
+    .services-card.create-site-bg{
       background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
       position:relative;
     }
@@ -244,84 +243,50 @@
       position:absolute;
       top:0;left:0;right:0;bottom:0;
       background:url('file_00000000a89c71f4ad646fadc4123ef0.png') center/cover no-repeat;
-      filter:blur(6px) brightness(0.6);
-      opacity:0.35;
+      filter:blur(2px) brightness(0.7);
+      opacity:0.45;
       z-index:0;
-    }
-    .services-card.capture-blur > *{
-      position:relative;
-      z-index:1;
-    }
-
-    .services-card.sales-blur{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
     }
     .services-card.sales-blur::before{
       content:'';
       position:absolute;
       top:0;left:0;right:0;bottom:0;
       background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;
-      filter:blur(6px) brightness(0.6);
-      opacity:0.35;
+      filter:blur(2px) brightness(0.7);
+      opacity:0.45;
       z-index:0;
-    }
-    .services-card.sales-blur > *{
-      position:relative;
-      z-index:1;
-    }
-
-    .services-card.pro-blur{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
     }
     .services-card.pro-blur::before{
       content:'';
       position:absolute;
       top:0;left:0;right:0;bottom:0;
       background:url('technologies_web.jpg') center/cover no-repeat;
-      filter:blur(6px) brightness(0.6);
-      opacity:0.35;
+      filter:blur(2px) brightness(0.7);
+      opacity:0.45;
       z-index:0;
-    }
-    .services-card.pro-blur > *{
-      position:relative;
-      z-index:1;
-    }
-
-    .services-card.boost-blur{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
     }
     .services-card.boost-blur::before{
       content:'';
       position:absolute;
       top:0;left:0;right:0;bottom:0;
       background:url('file_00000000a2087243b791b9b7e17d9251.png') center/cover no-repeat;
-      filter:blur(6px) brightness(0.6);
-      opacity:0.35;
+      filter:blur(2px) brightness(0.7);
+      opacity:0.45;
       z-index:0;
-    }
-    .services-card.boost-blur > *{
-      position:relative;
-      z-index:1;
-    }
-
-    .services-card.create-site-bg{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
-      overflow:hidden;
-      text-align:center;
     }
     .services-card.create-site-bg::before{
       content:'';
       position:absolute;
       top:0;left:0;right:0;bottom:0;
       background:url('creation-site.jpg') center/cover no-repeat;
-      filter:blur(6px) brightness(0.55);
-      opacity:0.35;
+      filter:blur(2px) brightness(0.7);
+      opacity:0.45;
       z-index:0;
     }
+    .services-card.capture-blur > *,
+    .services-card.sales-blur > *,
+    .services-card.pro-blur > *,
+    .services-card.boost-blur > *,
     .services-card.create-site-bg > *{
       position:relative;
       z-index:1;
@@ -534,7 +499,7 @@
     </div>
   </section>
 
-  <!-- QUI SUIS-JE - fond avec page-web-code-html.jpg -->
+  <!-- QUI SUIS-JE - fond sans cadre, photo agrandie -->
   <section class="section tight" id="qui-suis-je">
     <div class="wrap">
       <div class="about-full-bg">
@@ -543,7 +508,7 @@
           <div class="label" data-i18n="about.label" style="text-align:center;">Qui suis-je</div>
           <div class="title" data-i18n="about.title" style="text-align:center;">Je ne construis pas des sites.<br>Je construis des preuves.</div>
 
-          <!-- Photo de profil agrandie -->
+          <!-- Photo de profil agrandie (180x180) sans cadre -->
           <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
 
           <div class="about-text-box">
@@ -605,7 +570,7 @@
         </div>
       </div>
       <div class="services-grid">
-        <!-- Page de capture avec fond image code HTML -->
+        <!-- Page de capture -->
         <div class="services-card capture-blur">
           <div class="top"><div class="badge" data-i18n="services.card1.badge">Démarrage</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card1.title">Page de capture</h3>
@@ -615,7 +580,7 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-i18n="services.order">Commander</a>
         </div>
         
-        <!-- Page de vente avec fond tunnel de vente -->
+        <!-- Page de vente -->
         <div class="services-card services-featured sales-blur">
           <div class="top"><div class="badge" data-i18n="services.card2.badge">Offre principale</div><div class="icon">◈</div></div>
           <h3 data-i18n="services.card2.title">Page de vente</h3>
@@ -625,7 +590,7 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-i18n="services.order">Commander</a>
         </div>
         
-        <!-- Site vitrine avec fond technologies_web -->
+        <!-- Site vitrine -->
         <div class="services-card pro-blur">
           <div class="top"><div class="badge" data-i18n="services.card3.badge">Pro</div><div class="icon">◦</div></div>
           <h3 data-i18n="services.card3.title">Site vitrine</h3>
@@ -635,7 +600,7 @@
           <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-i18n="services.order">Commander</a>
         </div>
         
-        <!-- BOOST ULTIME avec fond des 3 services -->
+        <!-- BOOST ULTIME -->
         <div class="services-card services-featured boost-blur">
           <div class="top"><div class="badge" data-i18n="services.card4.badge">Pack complet</div><div class="icon">◆</div></div>
           <h3 data-i18n="services.card4.title">BOOST ULTIME</h3>
@@ -776,6 +741,7 @@
   </footer>
 
   <script>
+    // (JavaScript identique à la version précédente - conservé pour la fonctionnalité)
     const products = {
       academy: [
         { img:"copilot_image_1780308421868.jpeg", titleKey:"academy.1.title", descKey:"academy.1.desc", old:"15 000 XOF", newPrice:"5 000 XOF", code:"*144*2*1*07190217*5000#", badge:"bestseller", cat:"dev" },
@@ -878,6 +844,7 @@
         "footer.text": "© 2026 Balima Web Developer · Développeur Web Freelance · Burkina Faso 🇧🇫 · Tous droits réservés"
       },
       en: {
+        // Version anglaise (identique à la précédente, gardée pour la fonctionnalité)
         "meta.title": "Balima Web Developer","brand": "BALIMA WEB<br>DEVELOPER","search.placeholder": "Search...","search.button": "Search",
         "nav.services": "My Services","nav.academy": "Web Academy","nav.library": "Library","nav.contact": "Contact me",
         "hero.badge": "Available for new projects","hero.title1": "YOUR WEBSITE.","hero.title2": "YOUR CLIENTS.","hero.title3": "YOUR SALES.","hero.subtitle": "I create clean, fast websites built to sell.","hero.cta": "See my services",
@@ -1069,4 +1036,4 @@
     setCurrency('xof');
   </script>
 </body>
-      </html>
+  </html>
