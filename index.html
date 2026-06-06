@@ -78,7 +78,6 @@
     .anim-right{opacity:0;transform:translateX(36px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1);}
     .anim-right.visible{opacity:1;transform:translateX(0);}
 
-    /* ==================== NAV ==================== */
     .nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(18px);background:var(--glass);border-bottom:1px solid var(--line);transition:background .4s ease;}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:78px;flex-wrap:nowrap;}
     .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
@@ -123,7 +122,6 @@
     .menu-open .hamburger span:nth-child(2){opacity:0;}
     .menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-    /* ==================== HERO ==================== */
     .hero{padding:110px 0 70px;text-align:center;position:relative;overflow:hidden;}
     .hero::before{
       content:'';position:absolute;inset:0;z-index:0;
@@ -131,7 +129,7 @@
         radial-gradient(ellipse at 30% 20%,rgba(0,85,255,.06) 0%,transparent 50%),
         radial-gradient(ellipse at 70% 80%,rgba(200,150,62,.05) 0%,transparent 50%),
         url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
-      filter:blur(0px) brightness(1.05);
+      filter:brightness(1.05);
       opacity:0.7;
     }
     .hero::after{content:'';position:absolute;inset:0;background:var(--hero-overlay);z-index:1;pointer-events:none;}
@@ -150,15 +148,10 @@
     .btn-outline{background:transparent;border-color:rgba(255,255,255,.4);color:#fff;}
     .btn-outline:hover{background:rgba(255,255,255,.08);border-color:#fff;}
 
-    /* ==================== SECTIONS ==================== */
     .section{padding:52px 0;position:relative;}
     .section.tight{padding:32px 0 48px;}
     .section.alt{background:var(--bg-section);position:relative;}
-    .section.alt::before{
-      content:'';position:absolute;inset:0;
-      background:radial-gradient(ellipse at 50% 0%,rgba(0,85,255,.025) 0%,transparent 50%);
-      pointer-events:none;z-index:0;
-    }
+    .section.alt::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,85,255,.025) 0%,transparent 50%);pointer-events:none;z-index:0;}
     .section.alt .wrap{z-index:1;position:relative;}
     .section-label{font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;font-weight:800;display:inline-flex;align-items:center;gap:8px;}
     .section-label::before{content:'';width:20px;height:2px;background:var(--blue);border-radius:2px;}
@@ -174,7 +167,7 @@
     .service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));opacity:0;transition:opacity .3s ease;}
     .service-card:hover::after{opacity:1;}
     .service-card:hover{transform:translateY(-6px);box-shadow:var(--card-shadow-hover);border-color:rgba(0,85,255,.15);}
-    .service-card.featured{border-color:var(--gold);background:linear-gradient(180deg,rgba(200,150,62,.04),var(--bg-card));box-shadow:0 8px 32px rgba(200,150,62,.08);}
+    .service-card.featured{border-color:var(--gold);box-shadow:0 8px 32px rgba(200,150,62,.08);}
     .service-card.featured::after{background:linear-gradient(90deg,var(--gold),var(--gold2));}
     .service-card .card-badge{display:inline-block;background:rgba(0,85,255,.08);color:var(--blue);padding:5px 12px;border-radius:6px;font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
     .service-card.featured .card-badge{background:rgba(200,150,62,.12);color:var(--gold);}
@@ -192,6 +185,9 @@
     .premium-btn:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,85,255,.2);}
     .service-card.featured .premium-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;}
     .service-card.featured .premium-btn:hover{filter:brightness(1.05);}
+
+    /* Contenu au-dessus du fond flouté */
+    .card-content{position:relative;z-index:1;}
 
     .glass-card{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:36px 28px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;}
     .glass-card::before{content:'';position:absolute;top:-50%;right:-50%;width:300px;height:300px;background:radial-gradient(circle,rgba(0,85,255,.03) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
@@ -398,37 +394,57 @@
         </div>
       </div>
       <div class="services-grid" id="servicesGrid">
-        <div class="service-card anim-scale" style="transition-delay:0s;" id="service-capture">
-          <span class="card-badge" data-translate="services.card1.badge">Démarrage</span>
-          <h3 data-translate="services.card1.title">Page de capture</h3>
-          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
-          <div class="price"><span class="xof">24 000 XOF</span><span class="eur">37 EUR</span><span class="usd">40 USD</span></div>
-          <ul><li data-translate="services.card1.li1">Design moderne et impactant</li><li data-translate="services.card1.li2">Formulaire de capture optimisé</li><li data-translate="services.card1.li3">Interface claire et confiante</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-translate="services.order">Commander</a>
+
+        <!-- Carte 1 : Page de capture -->
+        <div class="service-card anim-scale" style="transition-delay:0s;position:relative;overflow:hidden;" id="service-capture">
+          <div style="position:absolute;inset:0;background:url('creation-site.jpg') center/cover no-repeat;filter:blur(4px) brightness(0.5);opacity:0.3;z-index:0;"></div>
+          <div class="card-content">
+            <span class="card-badge" data-translate="services.card1.badge">Démarrage</span>
+            <h3 data-translate="services.card1.title">Page de capture</h3>
+            <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
+            <div class="price"><span class="xof">24 000 XOF</span><span class="eur">37 EUR</span><span class="usd">40 USD</span></div>
+            <ul><li data-translate="services.card1.li1">Design moderne et impactant</li><li data-translate="services.card1.li2">Formulaire de capture optimisé</li><li data-translate="services.card1.li3">Interface claire et confiante</li></ul>
+            <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-translate="services.order">Commander</a>
+          </div>
         </div>
-        <div class="service-card featured anim-scale" style="transition-delay:.1s;" id="service-vente">
-          <span class="card-badge" data-translate="services.card2.badge">Offre principale</span>
-          <h3 data-translate="services.card2.title">Page de vente</h3>
-          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
-          <div class="price"><span class="xof">42 000 XOF</span><span class="eur">65 EUR</span><span class="usd">70 USD</span></div>
-          <ul><li data-translate="services.card2.li1">Structure de conversion éprouvée</li><li data-translate="services.card2.li2">Design premium qui crédibilise</li><li data-translate="services.card2.li3">Bouton d'action irrésistible</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-translate="services.order">Commander</a>
+
+        <!-- Carte 2 : Page de vente -->
+        <div class="service-card featured anim-scale" style="transition-delay:.1s;position:relative;overflow:hidden;" id="service-vente">
+          <div style="position:absolute;inset:0;background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;filter:blur(4px) brightness(0.5);opacity:0.3;z-index:0;"></div>
+          <div class="card-content">
+            <span class="card-badge" data-translate="services.card2.badge">Offre principale</span>
+            <h3 data-translate="services.card2.title">Page de vente</h3>
+            <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
+            <div class="price"><span class="xof">42 000 XOF</span><span class="eur">65 EUR</span><span class="usd">70 USD</span></div>
+            <ul><li data-translate="services.card2.li1">Structure de conversion éprouvée</li><li data-translate="services.card2.li2">Design premium qui crédibilise</li><li data-translate="services.card2.li3">Bouton d'action irrésistible</li></ul>
+            <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-translate="services.order">Commander</a>
+          </div>
         </div>
-        <div class="service-card anim-scale" style="transition-delay:.2s;" id="service-vitrine">
-          <span class="card-badge" data-translate="services.card3.badge">Pro</span>
-          <h3 data-translate="services.card3.title">Site vitrine</h3>
-          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
-          <div class="price"><span class="xof">72 000 XOF</span><span class="eur">110 EUR</span><span class="usd">120 USD</span></div>
-          <ul><li data-translate="services.card3.li1">3 à 5 pages personnalisées</li><li data-translate="services.card3.li2">Image professionnelle garantie</li><li data-translate="services.card3.li3">Structure propre et moderne</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-translate="services.order">Commander</a>
+
+        <!-- Carte 3 : Site vitrine -->
+        <div class="service-card anim-scale" style="transition-delay:.2s;position:relative;overflow:hidden;" id="service-vitrine">
+          <div style="position:absolute;inset:0;background:url('technologies_web.jpg') center/cover no-repeat;filter:blur(4px) brightness(0.5);opacity:0.3;z-index:0;"></div>
+          <div class="card-content">
+            <span class="card-badge" data-translate="services.card3.badge">Pro</span>
+            <h3 data-translate="services.card3.title">Site vitrine</h3>
+            <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
+            <div class="price"><span class="xof">72 000 XOF</span><span class="eur">110 EUR</span><span class="usd">120 USD</span></div>
+            <ul><li data-translate="services.card3.li1">3 à 5 pages personnalisées</li><li data-translate="services.card3.li2">Image professionnelle garantie</li><li data-translate="services.card3.li3">Structure propre et moderne</li></ul>
+            <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-translate="services.order">Commander</a>
+          </div>
         </div>
-        <div class="service-card featured anim-scale" style="transition-delay:.3s;">
-          <span class="card-badge" data-translate="services.card4.badge">Pack complet</span>
-          <h3 data-translate="services.card4.title">BOOST ULTIME</h3>
-          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
-          <div class="price"><span class="xof">120 000 XOF</span><span class="eur">185 EUR</span><span class="usd">200 USD</span></div>
-          <ul><li data-translate="services.card4.li1">Page de capture incluse</li><li data-translate="services.card4.li2">Page de vente incluse</li><li data-translate="services.card4.li3">Site vitrine complet</li><li data-translate="services.card4.li4">Optimisation de base offerte</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20le%20pack%20BOOST%20ULTIME." data-translate="services.order">Commander</a>
+
+        <!-- Carte 4 : BOOST ULTIME -->
+        <div class="service-card featured anim-scale" style="transition-delay:.3s;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:url('file_00000000a2087243b791b9b7e17d9251.png') center/cover no-repeat;filter:blur(4px) brightness(0.5);opacity:0.3;z-index:0;"></div>
+          <div class="card-content">
+            <span class="card-badge" data-translate="services.card4.badge">Pack complet</span>
+            <h3 data-translate="services.card4.title">BOOST ULTIME</h3>
+            <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
+            <div class="price"><span class="xof">120 000 XOF</span><span class="eur">185 EUR</span><span class="usd">200 USD</span></div>
+            <ul><li data-translate="services.card4.li1">Page de capture incluse</li><li data-translate="services.card4.li2">Page de vente incluse</li><li data-translate="services.card4.li3">Site vitrine complet</li><li data-translate="services.card4.li4">Optimisation de base offerte</li></ul>
+            <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20le%20pack%20BOOST%20ULTIME." data-translate="services.order">Commander</a>
+          </div>
         </div>
       </div>
     </div>
@@ -550,13 +566,15 @@
       <div class="section-label" data-translate="payment.label">Paiement</div>
       <div class="section-title" data-translate="payment.title">Paiement Orange Money</div>
       <div class="payment-box">
-        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
-          <img src="Screenshot_20260528-001853_Google~2.jpg" alt="Orange Money" style="width:46px;height:46px;border-radius:12px;background:#fff;padding:4px;" loading="lazy">
-          <strong data-translate="payment.secure" style="color:var(--text-strong);">Paiement sécurisé Orange Money</strong>
-          <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(22,163,74,.08);color:var(--green);padding:5px 10px;border-radius:999px;font-size:.72rem;font-weight:700;">🔒 100% sécurisé</span>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px;flex-wrap:wrap;">
+          <img src="Screenshot_20260528-001853_Google~2.jpg" alt="Orange Money" style="width:80px;height:80px;border-radius:16px;background:#fff;padding:6px;box-shadow:0 4px 12px rgba(0,0,0,.08);" loading="lazy">
+          <div style="text-align:left;">
+            <strong data-translate="payment.secure" style="color:var(--text-strong);font-size:1.05rem;display:block;margin-bottom:4px;">Paiement sécurisé Orange Money</strong>
+            <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(22,163,74,.08);color:var(--green);padding:5px 10px;border-radius:999px;font-size:.72rem;font-weight:700;">🔒 100% sécurisé</span>
+          </div>
         </div>
-        <p style="color:var(--muted);margin:10px 0;" data-translate="payment.number">Numéro : <strong style="color:var(--text-strong);">+226 07190217</strong></p>
-        <p style="color:var(--muted);margin-bottom:20px;font-size:.85rem;" data-translate="payment.after">Après paiement, clique sur <strong>J'ai payé</strong>.</p>
+        <p style="color:var(--muted);margin:10px 0;font-size:.95rem;" data-translate="payment.number">Numéro : <strong style="color:var(--text-strong);font-size:1.1rem;">+226 07190217</strong></p>
+        <p style="color:var(--muted);margin-bottom:20px;font-size:.85rem;" data-translate="payment.after">Après paiement, clique sur <strong>J'ai payé</strong> pour confirmer.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
           <a href="https://wa.me/22607190217?text=J%27ai%20pay%C3%A9.%20Voici%20ma%20preuve." class="btn btn-primary" style="background:#25D366;" data-translate="payment.paidBtn">✅ J'ai payé</a>
           <a href="https://wa.me/22607190217" class="btn btn-outline" style="border-color:var(--line);color:var(--text);" data-translate="payment.questionBtn">Poser une question</a>
@@ -599,7 +617,7 @@
         "why.label":"Pourquoi moi ?","why.title":"Un site web n'est pas une dépense, c'est un investissement.","why.text1":"Je ne livre pas juste un site joli. Je crée des outils qui inspirent confiance, crédibilisent ton activité et transforment tes visiteurs en clients.","why.card1.title":"Rapidité","why.card1.text":"Sites fluides, chargés en moins de 2 secondes.","why.card2.title":"Compatible partout","why.card2.text":"Parfait sur mobile, tablette et ordinateur.","why.card3.title":"Orienté résultats","why.card3.text":"Chaque page est conçue pour convertir.","why.card4.title":"Accompagnement","why.card4.text":"Disponible même après la livraison.",
         "reviews.label":"Avis","reviews.title":"Ce que disent mes clients","reviews.leaveBtn":"💬 Laisser un avis WhatsApp","reviews.leaveSub":"Les retours sont les bienvenus.",
         "faq.title":"Questions fréquentes","faq.q1":"Est-ce que les sites sont personnalisés ?","faq.a1":"Oui, chaque site est adapté à ton activité, ton style et tes objectifs.","faq.q2":"Combien de temps pour être livré ?","faq.a2":"Entre 24h et 5 jours selon la complexité du projet.","faq.q3":"Comment se fait le paiement ?","faq.a3":"Par Orange Money au +226 07190217. On en discute avant de démarrer.","faq.q4":"Puis-je demander des modifications ?","faq.a4":"Oui, les retouches sont incluses jusqu'à 100% de satisfaction.","faq.q5":"Et si le site ne me plaît pas ?","faq.a5":"Je retravaille gratuitement. Tu ne prends aucun risque.",
-        "payment.label":"Paiement","payment.title":"Paiement Orange Money","payment.secure":"Paiement sécurisé Orange Money","payment.number":"Numéro : <strong style=\"color:var(--text-strong);\">+226 07190217</strong>","payment.after":"Après paiement, clique sur <strong>J'ai payé</strong>.","payment.paidBtn":"✅ J'ai payé","payment.questionBtn":"Poser une question",
+        "payment.label":"Paiement","payment.title":"Paiement Orange Money","payment.secure":"Paiement sécurisé Orange Money","payment.number":"Numéro : <strong style=\"color:var(--text-strong);font-size:1.1rem;\">+226 07190217</strong>","payment.after":"Après paiement, clique sur <strong>J'ai payé</strong> pour confirmer.","payment.paidBtn":"✅ J'ai payé","payment.questionBtn":"Poser une question",
         "contact.label":"Contact","contact.title":"Prêt à lancer ton projet ?","contact.subtitle":"Ce que tu vends a de la valeur. Ton site doit le montrer.",
         "footer":"© 2026 Balima Web Developer · Développeur Web Freelance · Burkina Faso 🇧🇫"
       },
@@ -618,7 +636,7 @@
         "why.label":"Why me?","why.title":"A website is not an expense, it's an investment.","why.text1":"I don't just deliver a pretty site. I create tools that inspire trust, build credibility, and turn visitors into clients.","why.card1.title":"Speed","why.card1.text":"Fast-loading sites in under 2 seconds.","why.card2.title":"Compatible everywhere","why.card2.text":"Perfect on mobile, tablet and desktop.","why.card3.title":"Results-oriented","why.card3.text":"Every page designed to convert.","why.card4.title":"Support","why.card4.text":"Available even after delivery.",
         "reviews.label":"Reviews","reviews.title":"What my clients say","reviews.leaveBtn":"💬 Leave a WhatsApp review","reviews.leaveSub":"Feedback is welcome.",
         "faq.title":"Frequently asked questions","faq.q1":"Are the sites customized?","faq.a1":"Yes, each site is tailored to your business, style and goals.","faq.q2":"How long for delivery?","faq.a2":"Between 24h and 5 days depending on project complexity.","faq.q3":"How is payment made?","faq.a3":"Via Orange Money at +226 07190217. We discuss before starting.","faq.q4":"Can I request modifications?","faq.a4":"Yes, revisions are included until 100% satisfaction.","faq.q5":"What if I don't like the site?","faq.a5":"I'll rework it for free. You take zero risk.",
-        "payment.label":"Payment","payment.title":"Orange Money Payment","payment.secure":"Secure Orange Money payment","payment.number":"Number: <strong style=\"color:var(--text-strong);\">+226 07190217</strong>","payment.after":"After payment, click <strong>I paid</strong>.","payment.paidBtn":"✅ I paid","payment.questionBtn":"Ask a question",
+        "payment.label":"Payment","payment.title":"Orange Money Payment","payment.secure":"Secure Orange Money payment","payment.number":"Number: <strong style=\"color:var(--text-strong);font-size:1.1rem;\">+226 07190217</strong>","payment.after":"After payment, click <strong>I paid</strong> to confirm.","payment.paidBtn":"✅ I paid","payment.questionBtn":"Ask a question",
         "contact.label":"Contact","contact.title":"Ready to launch your project?","contact.subtitle":"What you sell has value. Your website must show it.",
         "footer":"© 2026 Balima Web Developer · Freelance Web Developer · Burkina Faso 🇧🇫"
       }
@@ -648,7 +666,7 @@
     ];
 
     function renderStars(r){let h='<span style=\"display:inline-flex;gap:2px;color:var(--gold);font-size:.9rem;\">';for(let i=1;i<=5;i++)h+=i<=r?'<span>★</span>':'<span style=\"color:var(--line);\">★</span>';return h+'</span>';}
-    function buildReviews(){const grid=document.getElementById('reviewsGrid');if(!grid)return;grid.innerHTML='';reviewsData.forEach(r=>{const card=document.createElement('div');card.className='service-card';card.innerHTML=`<h3>${renderStars(r.rating)} ${r.name}</h3><p style=\"color:var(--muted);font-size:.82rem;margin-top:8px;\">${currentLang==='en'?r.textEn:r.textFr}</p>`;grid.appendChild(card);});}
+    function buildReviews(){const grid=document.getElementById('reviewsGrid');if(!grid)return;grid.innerHTML='';reviewsData.forEach(r=>{const card=document.createElement('div');card.className='service-card';card.innerHTML=`<div class="card-content"><h3>${renderStars(r.rating)} ${r.name}</h3><p style=\"color:var(--muted);font-size:.82rem;margin-top:8px;\">${currentLang==='en'?r.textEn:r.textFr}</p></div>`;grid.appendChild(card);});}
     function setCurrency(c){document.querySelectorAll('.currency-btn').forEach(b=>b.classList.toggle('active',b.dataset.currency===c));document.querySelectorAll('.price span').forEach(s=>s.style.display='none');document.querySelectorAll('.price .'+c).forEach(s=>s.style.display='inline-flex');}
     document.querySelectorAll('.currency-btn').forEach(b=>b.addEventListener('click',()=>setCurrency(b.dataset.currency)));
 
