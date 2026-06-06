@@ -3,97 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Balima Web Developer</title>
+  <meta name="description" content="Développeur web freelance haut de gamme au Burkina Faso. Création de sites vitrines, pages de capture et tunnels de vente premium. Paiement Orange Money.">
+  <meta name="keywords" content="développeur web Burkina Faso, création site internet professionnel, site vitrine premium, page de vente, Balima">
+  <title>Balima Web Developer — Créateur de sites premium</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
+      --bg:#FAFBFC;
+      --bg-card:#FFFFFF;
+      --bg-section:#F5F6F8;
+      --text:#1A1D24;
+      --text-strong:#0B0E13;
+      --muted:#5F697D;
+      --blue:#0055FF;
+      --blue2:#2563EB;
+      --gold:#C8963E;
+      --gold2:#A67C2E;
+      --line:rgba(0,0,0,.08);
+      --card-shadow:0 4px 20px rgba(0,0,0,.04), 0 1px 3px rgba(0,0,0,.05);
+      --card-shadow-hover:0 16px 40px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.04);
+      --red:#DC2626;
+      --green:#16A34A;
+      --hero-overlay:rgba(0,0,0,.35);
+      --glass:rgba(255,255,255,.7);
+      --dot-pattern:radial-gradient(circle,rgba(0,85,255,.04) 1px,transparent 1px);
+      --grid-pattern:linear-gradient(rgba(0,0,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.02) 1px,transparent 1px);
+    }
+
+    body.dark-mode{
       --bg:#080C14;
-      --text:#F4F7FF;
+      --bg-card:#111B2A;
+      --bg-section:#0C1320;
+      --text:#E8ECF4;
+      --text-strong:#F4F7FF;
       --muted:#8A94A8;
-      --blue:#0057FF;
-      --blue2:#4D8FFF;
+      --blue:#2979FF;
+      --blue2:#5C9CFF;
       --gold:#D8B26A;
       --gold2:#F7DEAB;
       --line:rgba(255,255,255,.08);
-      --card:#111e33;
+      --card-shadow:0 4px 20px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.4);
+      --card-shadow-hover:0 16px 40px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.4);
+      --hero-overlay:rgba(0,0,0,.55);
+      --glass:rgba(13,20,34,.75);
+      --dot-pattern:radial-gradient(circle,rgba(41,121,255,.06) 1px,transparent 1px);
+      --grid-pattern:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
     }
-
-    body.light-mode{
-      --bg:#F4F7FF;
-      --text:#080C14;
-      --muted:#4B5563;
-      --blue:#0057FF;
-      --blue2:#2563EB;
-      --gold:#B8860B;
-      --gold2:#8B6914;
-      --line:rgba(0,0,0,.1);
-      --card:#FFFFFF;
-    }
-    body.light-mode .nav{background:rgba(244,247,255,.92);}
-    body.light-mode .mobile-menu{background:rgba(244,247,255,.96);}
-    body.light-mode .services-card{background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.01));}
-    body.light-mode .payment-box{background:var(--card);}
-    body.light-mode .cta-box{background:var(--card);}
-    body.light-mode .card{background:rgba(0,0,0,.02);}
-    body.light-mode .hero-bg{filter:blur(2px) brightness(.7);opacity:.8;}
-    body.light-mode .about-full-bg::before{opacity:.12;}
-    body.light-mode .create-site-bg::before{opacity:.25;}
 
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{
       font-family:'DM Sans',sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(0,87,255,.14), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255,121,0,.08), transparent 28%),
+        var(--dot-pattern),
+        var(--grid-pattern),
+        linear-gradient(180deg,rgba(0,85,255,.02) 0%,transparent 30%,transparent 70%,rgba(200,150,62,.02) 100%),
         var(--bg);
+      background-size:24px 24px,48px 48px,100% 100%;
       color:var(--text);
       overflow-x:hidden;
-      transition:background .3s ease, color .3s ease;
+      transition:background .4s ease, color .4s ease;
+      -webkit-font-smoothing:antialiased;
     }
     a{text-decoration:none;color:inherit;}
     img{max-width:100%;display:block;}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 28px;position:relative;z-index:2;}
 
-    .nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(8,12,20,.78);border-bottom:1px solid var(--line);transition:background .3s ease;}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:84px;padding-top:4px;padding-bottom:4px;}
+    .anim-up{opacity:0;transform:translateY(32px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1);}
+    .anim-up.visible{opacity:1;transform:translateY(0);}
+    .anim-scale{opacity:0;transform:scale(.93);transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);}
+    .anim-scale.visible{opacity:1;transform:scale(1);}
+    .anim-left{opacity:0;transform:translateX(-36px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1);}
+    .anim-left.visible{opacity:1;transform:translateX(0);}
+    .anim-right{opacity:0;transform:translateX(36px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1);}
+    .anim-right.visible{opacity:1;transform:translateX(0);}
 
-    .brand{display:flex;align-items:center;gap:16px;font-weight:700;letter-spacing:.5px;flex-shrink:0;padding:4px 10px 4px 8px;border-radius:16px;}
-    .brand img{width:52px;height:52px;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#111e33;flex-shrink:0;}
-    .brand span{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;white-space:normal;line-height:1;}
+    /* ==================== NAV ==================== */
+    .nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(18px);background:var(--glass);border-bottom:1px solid var(--line);transition:background .4s ease;}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:78px;flex-wrap:nowrap;}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+    .brand img{width:48px;height:48px;border-radius:14px;object-fit:cover;border:2px solid var(--blue);flex-shrink:0;box-shadow:0 4px 12px rgba(0,85,255,.15);}
+    .brand span{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;font-weight:900;letter-spacing:2.5px;white-space:nowrap;line-height:1.1;color:var(--text-strong);}
 
-    .nav-right{display:flex;align-items:center;gap:12px;flex:1;justify-content:flex-end;min-width:0;}
-
-    .nav-search{display:flex;align-items:center;gap:10px;max-width:420px;width:100%;}
-    .nav-search input{flex:1;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);outline:none;font-size:.95rem;}
+    .nav-right{display:flex;align-items:center;gap:10px;flex:1;justify-content:flex-end;min-width:0;flex-wrap:nowrap;}
+    .nav-search{display:flex;align-items:center;gap:8px;max-width:300px;width:100%;}
+    .nav-search input{flex:1;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg-card);color:var(--text);outline:none;font-size:.88rem;min-width:0;transition:border-color .2s ease;}
+    .nav-search input:focus{border-color:var(--blue);}
     .nav-search input::placeholder{color:var(--muted);}
-    .nav-search button{padding:10px 16px;border:none;border-radius:12px;background:linear-gradient(135deg,rgba(0,87,255,.98),rgba(77,143,255,.95));color:#fff;font-weight:700;cursor:pointer;white-space:nowrap;}
+    .nav-search button{padding:9px 16px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-weight:700;cursor:pointer;white-space:nowrap;font-size:.84rem;transition:background .2s ease;}
+    .nav-search button:hover{background:var(--blue2);}
 
-    .lang-switcher{display:flex;gap:6px;align-items:center;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);flex-shrink:0;}
-    .lang-btn{border:none;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer;transition:.2s ease;min-width:48px;}
-    .lang-btn.active{background:rgba(77,143,255,.18);color:var(--gold2);}
+    .lang-switcher{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--bg-card);flex-shrink:0;}
+    .lang-btn{border:none;background:transparent;color:var(--muted);padding:7px 11px;border-radius:999px;font-weight:700;cursor:pointer;transition:.2s ease;font-size:.8rem;min-width:36px;}
+    .lang-btn.active{background:var(--blue);color:#fff;}
 
-    .theme-toggle{
-      width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
-      background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;
-      display:flex;align-items:center;justify-content:center;font-size:1.2rem;
-      transition:.25s ease;flex-shrink:0;
-    }
-    .theme-toggle:hover{background:rgba(77,143,255,.15);}
+    .theme-toggle{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:.25s ease;flex-shrink:0;}
+    .theme-toggle:hover{background:rgba(0,0,0,.04);}
 
-    .menu{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:flex-end;}
-    .menu a{color:var(--muted);font-size:.92rem;}
-    .menu a:hover{color:var(--text);}
-    .menu .cta{background:linear-gradient(135deg,rgba(0,87,255,.95),rgba(77,143,255,.92));color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;box-shadow:0 10px 30px rgba(0,87,255,.25);}
+    .menu{display:flex;align-items:center;gap:16px;flex-wrap:nowrap;justify-content:flex-end;}
+    .menu a{color:var(--muted);font-size:.84rem;white-space:nowrap;font-weight:600;transition:color .2s ease;position:relative;}
+    .menu a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--blue);border-radius:2px;transition:width .25s ease;}
+    .menu a:hover{color:var(--text-strong);}
+    .menu a:hover::after{width:100%;}
+    .menu .cta{background:var(--blue);color:#fff;padding:9px 16px;border-radius:10px;font-weight:700;box-shadow:0 6px 20px rgba(0,85,255,.2);font-size:.84rem;}
+    .menu .cta:hover{background:var(--blue2);}
+    .menu .cta::after{display:none;}
 
-    .hamburger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;z-index:1101;flex-shrink:0;}
-    .hamburger span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:.25s ease;}
+    .hamburger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--bg-card);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;z-index:1101;flex-shrink:0;}
+    .hamburger span{width:18px;height:2px;background:var(--text);border-radius:2px;transition:.25s ease;}
 
-    .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.25s ease;z-index:1098;}
-
-    .mobile-menu{position:fixed;top:96px;right:24px;width:min(320px,calc(100% - 48px));padding:18px;border-radius:20px;background:rgba(13,20,34,.96);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.42);backdrop-filter:blur(18px);transform:translateY(-12px) scale(.98);opacity:0;pointer-events:none;transition:.25s ease;z-index:1100;display:flex;flex-direction:column;gap:10px;}
-    .mobile-menu a{padding:14px 16px;border-radius:14px;color:var(--text);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);font-weight:700;}
-    .mobile-menu a:hover{background:rgba(216,178,106,.12);color:var(--gold2);}
+    .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.25s ease;z-index:1098;}
+    .mobile-menu{position:fixed;top:90px;right:24px;width:min(300px,calc(100% - 48px));padding:20px;border-radius:18px;background:var(--bg-card);border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.15);backdrop-filter:blur(18px);transform:translateY(-10px) scale(.97);opacity:0;pointer-events:none;transition:.25s ease;z-index:1100;display:flex;flex-direction:column;gap:8px;}
+    .mobile-menu a{padding:14px 16px;border-radius:12px;color:var(--text);background:rgba(0,0,0,.02);border:1px solid var(--line);font-weight:600;}
+    .mobile-menu a:hover{background:rgba(0,85,255,.06);color:var(--blue);}
 
     .menu-open .mobile-menu{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
     .menu-open .menu-overlay{opacity:1;pointer-events:auto;}
@@ -101,414 +123,364 @@
     .menu-open .hamburger span:nth-child(2){opacity:0;}
     .menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-    .hero{padding:78px 0 42px;text-align:center;position:relative;overflow:hidden;}
-    .hero-bg{
-      position:absolute;inset:0;z-index:1;
-      background:url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
-      filter:blur(2px) brightness(0.8);
-      opacity:0.55;
-      pointer-events:none;
+    /* ==================== HERO ==================== */
+    .hero{padding:110px 0 70px;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{
+      content:'';position:absolute;inset:0;z-index:0;
+      background:
+        radial-gradient(ellipse at 30% 20%,rgba(0,85,255,.06) 0%,transparent 50%),
+        radial-gradient(ellipse at 70% 80%,rgba(200,150,62,.05) 0%,transparent 50%),
+        url('le-portage-salarial-developpeur-web-1.jpg') center/cover no-repeat;
+      filter:blur(0px) brightness(1.05);
+      opacity:0.7;
     }
-    .hero::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.4);
-      z-index:1;
-      pointer-events:none;
-    }
-    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,87,255,.12);border:1px solid rgba(77,143,255,.25);color:var(--blue2);padding:8px 14px;border-radius:999px;font-size:.84rem;margin-bottom:22px;backdrop-filter:blur(4px);}
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--blue2);animation:pulse 2s infinite;}
-    @keyframes pulse{50%{transform:scale(.75);opacity:.55;}}
-    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6.8rem);line-height:.92;letter-spacing:1px;margin-bottom:18px;text-shadow:0 2px 15px rgba(0,0,0,0.6);}
-    .accent{-webkit-text-stroke:2px var(--blue2);color:transparent;text-shadow:none;}
-    .hero p{max-width:680px;color:var(--text);line-height:1.8;font-size:1.02rem;margin:0 auto;text-shadow:0 1px 8px rgba(0,0,0,0.5);font-weight:500;}
-    .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:28px;}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:700;border:1px solid transparent;transition:.25s ease;cursor:pointer;}
+    .hero::after{content:'';position:absolute;inset:0;background:var(--hero-overlay);z-index:1;pointer-events:none;}
+    .hero .wrap{z-index:2;position:relative;}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,85,255,.08);border:1px solid rgba(0,85,255,.15);color:var(--blue);padding:8px 16px;border-radius:999px;font-size:.82rem;font-weight:700;margin-bottom:24px;backdrop-filter:blur(6px);}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite;}
+    @keyframes pulse{50%{transform:scale(.7);opacity:.5;}}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,8vw,7rem);line-height:.9;letter-spacing:1.5px;margin-bottom:20px;color:#fff;font-weight:900;}
+    .accent{background:linear-gradient(135deg,#fff,var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}
+    .hero p{max-width:640px;color:#fff;line-height:1.8;font-size:1.05rem;margin:0 auto;font-weight:500;opacity:.92;}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:32px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:14px;font-weight:700;border:1px solid transparent;transition:all .25s ease;cursor:pointer;font-size:.92rem;}
     .btn:hover{transform:translateY(-2px);}
-    .btn-primary{background:linear-gradient(135deg,rgba(0,87,255,.98),rgba(77,143,255,.95));color:#fff;box-shadow:0 14px 32px rgba(0,87,255,.22);text-shadow:none;}
-    .btn-secondary{background:rgba(255,255,255,.03);border-color:var(--line);color:var(--text);}
+    .btn-primary{background:var(--blue);color:#fff;box-shadow:0 12px 28px rgba(0,85,255,.25);}
+    .btn-primary:hover{box-shadow:0 16px 36px rgba(0,85,255,.35);}
+    .btn-outline{background:transparent;border-color:rgba(255,255,255,.4);color:#fff;}
+    .btn-outline:hover{background:rgba(255,255,255,.08);border-color:#fff;}
 
-    .section{padding:28px 0;}
-    .section.tight{padding-top:16px;}
-    .label{font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:14px;font-weight:700;}
-    .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;margin-bottom:26px;letter-spacing:1px;}
+    /* ==================== SECTIONS ==================== */
+    .section{padding:52px 0;position:relative;}
+    .section.tight{padding:32px 0 48px;}
+    .section.alt{background:var(--bg-section);position:relative;}
+    .section.alt::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 50% 0%,rgba(0,85,255,.025) 0%,transparent 50%);
+      pointer-events:none;z-index:0;
+    }
+    .section.alt .wrap{z-index:1;position:relative;}
+    .section-label{font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;font-weight:800;display:inline-flex;align-items:center;gap:8px;}
+    .section-label::before{content:'';width:20px;height:2px;background:var(--blue);border-radius:2px;}
+    .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1;margin-bottom:28px;letter-spacing:1px;color:var(--text-strong);font-weight:900;}
 
-    .stats-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;text-align:center;}
-    .stat-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
-    .stat-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);color:var(--blue2);line-height:1;}
-    .stat-label{color:var(--muted);font-size:.88rem;font-weight:600;}
+    .stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:32px;text-align:center;}
+    .stat-item{display:flex;flex-direction:column;align-items:center;gap:4px;}
+    .stat-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,3.2rem);color:var(--blue);line-height:1;font-weight:900;}
+    .stat-label{color:var(--muted);font-size:.85rem;font-weight:600;}
 
-    /* Style avancé pour les boutons de devise */
-    .services-price-switch {
-      margin-bottom: 28px;
-      text-align: center;
-    }
-    .currency-label {
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      display: block;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .currency-switch {
-      display: inline-flex;
-      gap: 8px;
-      background: rgba(255,255,255,.03);
-      padding: 6px;
-      border-radius: 60px;
-      border: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-    .currency-btn {
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      padding: 10px 24px;
-      border-radius: 40px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-    }
-    .currency-btn.active {
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      color: #111827;
-      box-shadow: 0 4px 15px rgba(216,178,106,.3);
-      transform: scale(1.02);
-    }
-    .currency-btn:hover:not(.active) {
-      color: var(--gold2);
-      background: rgba(216,178,106,.1);
-    }
+    .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
+    .service-card{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:30px 24px;box-shadow:var(--card-shadow);transition:all .3s ease;position:relative;overflow:hidden;}
+    .service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));opacity:0;transition:opacity .3s ease;}
+    .service-card:hover::after{opacity:1;}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--card-shadow-hover);border-color:rgba(0,85,255,.15);}
+    .service-card.featured{border-color:var(--gold);background:linear-gradient(180deg,rgba(200,150,62,.04),var(--bg-card));box-shadow:0 8px 32px rgba(200,150,62,.08);}
+    .service-card.featured::after{background:linear-gradient(90deg,var(--gold),var(--gold2));}
+    .service-card .card-badge{display:inline-block;background:rgba(0,85,255,.08);color:var(--blue);padding:5px 12px;border-radius:6px;font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+    .service-card.featured .card-badge{background:rgba(200,150,62,.12);color:var(--gold);}
+    .service-card h3{font-size:1.15rem;margin-bottom:8px;color:var(--text-strong);font-weight:700;}
+    .service-card .compat{color:var(--muted);font-size:.82rem;margin-bottom:16px;}
+    .price{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+    .price span{display:none;width:fit-content;padding:7px 14px;border-radius:10px;font-weight:800;font-size:.9rem;}
+    .price .xof{background:rgba(0,85,255,.06);color:var(--blue);display:inline-flex;}
+    .price .eur{background:rgba(0,0,0,.03);color:var(--text);}
+    .price .usd{background:rgba(200,150,62,.08);color:var(--gold);}
+    .service-card ul{list-style:none;display:grid;gap:8px;margin-bottom:20px;}
+    .service-card li{position:relative;padding-left:20px;color:var(--muted);font-size:.82rem;line-height:1.6;}
+    .service-card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800;}
+    .premium-btn{display:flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;background:var(--blue);border:none;color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;transition:all .2s ease;cursor:pointer;}
+    .premium-btn:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,85,255,.2);}
+    .service-card.featured .premium-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;}
+    .service-card.featured .premium-btn:hover{filter:brightness(1.05);}
 
-    /* Section Qui suis-je */
-    .about-full-bg {
-      position: relative;
-      background: linear-gradient(180deg, rgba(0,0,0,.7), rgba(0,0,0,.8));
-      margin: 0 0 20px 0;
-      overflow: hidden;
-    }
-    .about-full-bg::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('page-web-code-html.jpg') center/cover no-repeat;
-      filter: blur(2px) brightness(0.7);
-      opacity: 0.25;
-      z-index: 0;
-    }
-    .about-full-bg > * { position: relative; z-index: 1; }
-    .about-content-box { padding: 48px 40px; }
-    .about-photo{
-      width: 180px; height: 180px; border-radius: 50%;
-      object-fit: cover; object-position: center;
-      border: none;
-      box-shadow: 0 0 25px rgba(0,87,255,.3);
-      background: transparent;
-      margin: 0 auto 20px; display: block;
-    }
-    .about-text-box {
-      background: rgba(0,0,0,.5);
-      backdrop-filter: blur(3px);
-      border-radius: 24px; padding: 24px;
-      max-width: 700px; margin: 0 auto;
-    }
-    .about-text-box p { color: var(--text) !important; background: transparent !important; padding: 0 !important; }
+    .glass-card{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:36px 28px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;}
+    .glass-card::before{content:'';position:absolute;top:-50%;right:-50%;width:300px;height:300px;background:radial-gradient(circle,rgba(0,85,255,.03) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 
-    /* Cartes avec fonds floutés */
-    .services-card.capture-blur,
-    .services-card.sales-blur,
-    .services-card.pro-blur,
-    .services-card.boost-blur,
-    .services-card.create-site-bg{
-      background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.85));
-      position:relative;
-    }
-    .services-card.capture-blur::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('file_00000000a89c71f4ad646fadc4123ef0.png') center/cover no-repeat;filter:blur(2px) brightness(0.7);opacity:0.4;z-index:0;}
-    .services-card.sales-blur::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png') center/cover no-repeat;filter:blur(2px) brightness(0.7);opacity:0.4;z-index:0;}
-    .services-card.pro-blur::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('technologies_web.jpg') center/cover no-repeat;filter:blur(2px) brightness(0.7);opacity:0.4;z-index:0;}
-    .services-card.boost-blur::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('file_00000000a2087243b791b9b7e17d9251.png') center/cover no-repeat;filter:blur(2px) brightness(0.7);opacity:0.4;z-index:0;}
-    .services-card.create-site-bg::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('creation-site.jpg') center/cover no-repeat;filter:blur(2px) brightness(0.7);opacity:0.4;z-index:0;}
-    .services-card.capture-blur > *,
-    .services-card.sales-blur > *,
-    .services-card.pro-blur > *,
-    .services-card.boost-blur > *,
-    .services-card.create-site-bg > *{ position:relative; z-index:1; }
+    .danger-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:860px;margin:28px auto 0;}
+    .danger-card{text-align:center;padding:28px 20px;border-radius:18px;background:rgba(220,38,38,.03);border:1px solid rgba(220,38,38,.12);transition:transform .25s ease;}
+    .danger-card:hover{transform:translateY(-4px);}
+    .danger-card .icon-big{font-size:2rem;margin-bottom:8px;}
+    .danger-card h4{color:var(--red);margin-bottom:6px;font-size:.95rem;font-weight:700;}
+    .danger-card p{color:var(--muted);font-size:.8rem;line-height:1.6;}
 
-    .services-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
-    .services-card{
-      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
-      border:1px solid var(--line);
-      border-radius:24px;padding:28px;
-      box-shadow:0 24px 70px rgba(0,0,0,.28);
-      transition:.25s ease;position:relative;overflow:hidden;
-    }
-    .services-card:hover{transform:translateY(-6px);border-color:rgba(77,143,255,.28);}
-    .services-featured{border-color:rgba(216,178,106,.42);background:linear-gradient(180deg,rgba(216,178,106,.08),rgba(255,255,255,.03));transform:translateY(-8px);}
-    .services-featured:hover{transform:translateY(-12px);}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
-    .icon{width:44px;height:44px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);font-size:1.1rem;overflow:hidden;}
-    .services-card h3{font-size:1.2rem;margin-bottom:10px;}
-    .compat{color:var(--muted);font-size:.88rem;margin-bottom:16px;}
-    .price{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
-    .price span{display:none;width:fit-content;padding:8px 12px;border-radius:12px;font-weight:800;letter-spacing:.3px;}
-    .price .xof{background:rgba(0,87,255,.12);color:var(--blue2);display:inline-flex;}
-    .price .eur{background:rgba(255,255,255,.05);color:var(--text);}
-    .price .usd{background:rgba(216,178,106,.14);color:var(--gold2);}
-    .services-card ul{list-style:none;display:grid;gap:10px;margin-bottom:22px;}
-    .services-card li{position:relative;padding-left:20px;color:#D9E1F2;font-size:.88rem;}
-    .services-card li::before{content:"✓";position:absolute;left:0;color:var(--blue2);font-weight:800;}
-    .premium-btn{display:flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#111827;text-decoration:none;font-weight:900;transition:.2s ease;}
-    .premium-btn:hover{transform:translateY(-1px);filter:brightness(1.03);}
+    .process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:960px;margin:0 auto;}
+    .process-step{text-align:center;padding:24px 18px;border-radius:16px;background:var(--bg-card);border:1px solid var(--line);box-shadow:var(--card-shadow);position:relative;overflow:hidden;transition:transform .25s ease;}
+    .process-step:hover{transform:translateY(-4px);}
+    .process-step::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;background:var(--blue);border-radius:0 0 4px 4px;opacity:0;transition:opacity .25s ease;}
+    .process-step:hover::before{opacity:1;}
+    .process-step .step-num{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 14px;font-size:1rem;}
+    .process-step h4{font-size:.9rem;margin-bottom:6px;color:var(--text-strong);font-weight:700;}
+    .process-step p{color:var(--muted);font-size:.78rem;line-height:1.6;}
 
-    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:800px;margin:0 auto 40px;}
-    .compare-card{border-radius:18px;padding:28px;border:1px solid var(--line);text-align:center;}
-    .compare-card.before{background:rgba(255,0,0,.04);border-color:rgba(255,0,0,.15);}
-    .compare-card.after{background:rgba(0,255,0,.04);border-color:rgba(0,255,0,.15);}
-    .compare-card h4{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;margin-bottom:14px;letter-spacing:1px;}
-    .compare-card.before h4{color:#EF4444;}
-    .compare-card.after h4{color:#22C55E;}
-    .compare-card ul{list-style:none;display:grid;gap:10px;text-align:left;}
-    .compare-card li{position:relative;padding-left:22px;color:var(--muted);font-size:.9rem;line-height:1.6;}
-    .compare-card.before li::before{content:"✕";position:absolute;left:0;color:#EF4444;font-weight:800;}
-    .compare-card.after li::before{content:"✓";position:absolute;left:0;color:#22C55E;font-weight:800;}
+    .guarantee-box{max-width:600px;margin:0 auto;text-align:center;padding:40px 28px;border-radius:20px;border:2px solid var(--gold);background:linear-gradient(180deg,rgba(200,150,62,.04),var(--bg-card));box-shadow:0 8px 32px rgba(200,150,62,.06);position:relative;overflow:hidden;}
+    .guarantee-box::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(200,150,62,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+    .guarantee-box .icon-shield{font-size:2.8rem;margin-bottom:10px;}
+    .guarantee-box h3{color:var(--gold);font-size:1.5rem;margin-bottom:10px;font-weight:800;}
 
-    .stars{display:inline-flex;gap:2px;color:var(--gold2);font-size:1rem;line-height:1;}
-    .stars .star-empty{color:rgba(255,255,255,.2);}
+    .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;max-width:800px;margin:0 auto;background:var(--bg-card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--card-shadow);}
+    .trust-item{display:flex;align-items:flex-start;gap:14px;padding:24px 22px;transition:background .2s ease;}
+    .trust-item:hover{background:rgba(0,85,255,.02);}
+    .trust-icon{width:46px;height:46px;border-radius:14px;background:rgba(0,85,255,.06);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+    .trust-content h4{font-size:.95rem;margin-bottom:4px;color:var(--text-strong);font-weight:700;}
+    .trust-content p{color:var(--muted);font-size:.8rem;line-height:1.6;}
+    .trust-div-v{width:1px;background:var(--line);}
+    .trust-div-h{height:1px;background:var(--line);grid-column:1/-1;}
 
-    .payment{background:linear-gradient(180deg,rgba(255,121,0,.05),rgba(0,87,255,.05));border-top:1px solid rgba(255,121,0,.10);border-bottom:1px solid rgba(0,87,255,.10);padding-top:16px;padding-bottom:28px;}
-    .payment-box{max-width:820px;margin:0 auto;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:28px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.4);}
-    .pay-top{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
-    .pay-logo{width:46px;height:46px;object-fit:contain;border-radius:12px;background:#fff;padding:4px;}
-    .pay-row{margin:12px 0;color:var(--muted);font-size:1rem;line-height:1.8;}
-    .pay-row strong{color:var(--text);}
-    .pay-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
-    .whats{background:linear-gradient(135deg,rgba(37,211,102,.95),rgba(28,168,79,.92));color:#fff;box-shadow:0 14px 32px rgba(37,211,102,.18);}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:960px;margin:0 auto;}
+    .portfolio-card{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--bg-card);box-shadow:var(--card-shadow);transition:transform .3s ease,box-shadow .3s ease;}
+    .portfolio-card:hover{transform:translateY(-6px);box-shadow:var(--card-shadow-hover);}
+    .portfolio-img{width:100%;height:180px;object-fit:cover;transition:transform .4s ease;}
+    .portfolio-card:hover .portfolio-img{transform:scale(1.03);}
+    .portfolio-body{padding:20px;}
+    .portfolio-body .port-tag{display:inline-block;background:rgba(0,85,255,.06);color:var(--blue);padding:4px 10px;border-radius:6px;font-size:.68rem;font-weight:800;margin-bottom:8px;letter-spacing:.5px;text-transform:uppercase;}
+    .portfolio-body h4{color:var(--text-strong);margin-bottom:6px;font-size:.95rem;font-weight:700;}
+    .portfolio-body p{color:var(--muted);font-size:.78rem;line-height:1.6;margin-bottom:10px;}
+    .portfolio-body .port-result{color:var(--green);font-weight:700;font-size:.78rem;}
 
-    .cta-section-wrap{padding:82px 0;}
-    .cta-box{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:52px 32px;max-width:540px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;box-shadow:0 18px 50px rgba(0,0,0,.4);}
-    .cta-box h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;letter-spacing:1px;color:var(--text);text-transform:uppercase;}
-    .cta-box p{font-size:.97rem;color:var(--muted);line-height:1.75;max-width:400px;}
-    .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:#2563eb;color:#fff;font-size:1rem;font-weight:700;padding:16px 32px;border-radius:12px;width:100%;max-width:340px;transition:background .2s ease,transform .15s ease;}
-    .btn-wa:hover{background:#1d4ed8;transform:translateY(-2px);}
-    .btn-mail{display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--text);font-size:1rem;font-weight:600;padding:14px 32px;border-radius:12px;width:100%;max-width:340px;border:1px solid var(--line);transition:border-color .2s ease,transform .15s ease;}
-    .btn-mail:hover{border-color:#2563eb;transform:translateY(-2px);}
+    .ba-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto;}
+    .ba-card{border-radius:20px;padding:36px 28px;text-align:center;border:1px solid var(--line);background:var(--bg-card);box-shadow:var(--card-shadow);transition:transform .3s ease;position:relative;overflow:hidden;}
+    .ba-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;pointer-events:none;}
+    .ba-card.before::before{background:radial-gradient(circle,rgba(220,38,38,.04) 0%,transparent 70%);}
+    .ba-card.after::before{background:radial-gradient(circle,rgba(22,163,74,.04) 0%,transparent 70%);}
+    .ba-card:hover{transform:translateY(-5px);}
+    .ba-card.before{border-left:4px solid var(--red);}
+    .ba-card.after{border-left:4px solid var(--green);}
+    .ba-status{display:inline-block;padding:6px 16px;border-radius:999px;font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;}
+    .ba-card.before .ba-status{background:rgba(220,38,38,.08);color:var(--red);}
+    .ba-card.after .ba-status{background:rgba(22,163,74,.08);color:var(--green);}
+    .ba-emoji{font-size:3.5rem;margin-bottom:12px;display:block;}
+    .ba-card h4{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:1px;margin-bottom:14px;color:var(--text-strong);font-weight:900;}
+    .ba-list{list-style:none;display:grid;gap:10px;text-align:left;max-width:300px;margin:0 auto;}
+    .ba-list li{position:relative;padding-left:24px;color:var(--text);font-size:.84rem;line-height:1.7;font-weight:500;}
+    .ba-card.before .ba-list li::before{content:"✕";position:absolute;left:0;top:0;color:var(--red);font-weight:900;}
+    .ba-card.after .ba-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--green);font-weight:900;}
 
-    .footer{padding:28px 0 42px;color:var(--muted);text-align:center;border-top:1px solid var(--line);}
+    .faq-container{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto;}
+    .faq-item{border:1px solid var(--line);border-radius:14px;background:var(--bg-card);overflow:hidden;box-shadow:var(--card-shadow);}
+    .faq-question{width:100%;padding:16px 20px;background:transparent;border:none;color:var(--text-strong);font-weight:700;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.92rem;gap:12px;}
+    .faq-question span:last-child{font-size:1.3rem;color:var(--blue);transition:.25s ease;flex-shrink:0;}
+    .faq-answer{max-height:0;overflow:hidden;padding:0 20px;color:var(--muted);line-height:1.8;font-size:.84rem;transition:max-height .4s ease,padding .3s ease;}
+    .faq-item.active .faq-answer{max-height:400px;padding:0 20px 16px;}
+    .faq-item.active .faq-question span:last-child{transform:rotate(45deg);}
 
-    .back-to-top{
-      position:fixed;bottom:28px;right:28px;z-index:998;
-      width:48px;height:48px;border-radius:50%;
-      background:var(--blue);color:#fff;border:none;
-      font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
-      box-shadow:0 8px 28px rgba(0,87,255,.35);
-      opacity:0;pointer-events:none;transform:translateY(12px);
-      transition:opacity .3s ease,transform .3s ease;
-    }
-    .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
-    .back-to-top:hover{background:#1d4ed8;transform:translateY(-3px);}
+    .payment-box{max-width:760px;margin:0 auto;background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:32px 24px;text-align:center;box-shadow:var(--card-shadow);}
+    .cta-box{background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:52px 32px;max-width:500px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;box-shadow:var(--card-shadow);position:relative;overflow:hidden;}
+    .cta-box::before{content:'';position:absolute;bottom:-80px;left:-80px;width:250px;height:250px;background:radial-gradient(circle,rgba(0,85,255,.04) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
 
-    .whatsapp-float{
-      position:fixed;bottom:92px;right:28px;z-index:999;
-      width:56px;height:56px;border-radius:50%;
-      background:#25D366;color:#fff;
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.6rem;box-shadow:0 8px 28px rgba(37,211,102,.35);
-      transition:transform .25s ease;
-    }
-    .whatsapp-float:hover{transform:scale(1.1);}
+    .footer{padding:32px 0 48px;color:var(--muted);text-align:center;border-top:1px solid var(--line);font-size:.82rem;}
 
-    .faq-container{display:flex;flex-direction:column;gap:12px;max-width:800px;margin:0 auto;}
-    .faq-item{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);overflow:hidden;}
-    .faq-question{width:100%;padding:16px 18px;background:transparent;border:none;color:var(--text);font-weight:700;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1rem;}
-    .faq-question span{font-size:1.4rem;color:var(--blue2);transition:.2s ease;}
-    .faq-answer{max-height:0;overflow:hidden;padding:0 18px;color:var(--muted);line-height:1.7;transition:max-height .4s ease, padding .3s ease;}
-    .faq-item.active .faq-answer{max-height:500px;padding:0 18px 16px 18px;}
-    .faq-item.active .faq-question span{transform:rotate(45deg);}
+    .float-btn{position:fixed;right:28px;z-index:998;width:48px;height:48px;border-radius:50%;color:#fff;border:none;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.12);opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease,background .2s ease;}
+    .float-btn.visible{opacity:1;pointer-events:auto;}
+    .float-up{bottom:28px;background:var(--blue);transform:translateY(12px);}
+    .float-up.visible{transform:translateY(0);}
+    .float-up:hover{background:var(--blue2);transform:translateY(-3px);}
+    .float-down{bottom:84px;background:var(--gold);transform:translateY(12px);}
+    .float-down.visible{transform:translateY(0);}
+    .float-down:hover{background:var(--gold2);transform:translateY(-3px);}
+    .float-wa{bottom:140px;background:#25D366;opacity:1!important;pointer-events:auto!important;transform:none!important;font-size:1.5rem;transition:transform .25s ease;}
+    .float-wa:hover{transform:scale(1.1)!important;}
 
     @media(max-width:900px){
-      .services-grid,.compare-grid{grid-template-columns:1fr;}
+      .services-grid,.danger-grid,.process-grid,.portfolio-grid,.trust-grid,.ba-cards{grid-template-columns:1fr;}
+      .trust-div-v,.trust-div-h{display:none;}
       .nav-search{display:none;}
       .hamburger{display:flex;}
-      .hero{padding-top:56px;}
-      .services-featured{transform:none;}
-      .nav-inner{min-height:86px;}
-      .brand{gap:14px;padding:4px 10px 4px 8px;}
-      .brand img{width:52px;height:52px;border-radius:12px;}
       .menu{display:none;}
-      .lang-btn{padding:7px 10px;min-width:42px;font-size:.82rem;}
-      .back-to-top{bottom:20px;right:16px;width:42px;height:42px;font-size:1.2rem;}
-      .whatsapp-float{bottom:78px;right:16px;width:50px;height:50px;font-size:1.4rem;}
-      .stats-row{gap:24px;}
-      .about-content-box{padding:24px 16px;}
-      .currency-switch{gap:4px;}
-      .currency-btn{padding:6px 16px;font-size:0.8rem;}
+      .hero{padding:70px 0 40px;}
+      .float-btn{right:16px;width:42px;height:42px;font-size:1.1rem;}
+      .float-up{bottom:20px;}.float-down{bottom:70px;}.float-wa{bottom:120px;width:50px;height:50px;font-size:1.3rem;}
+      .stats-row{gap:28px;}
     }
   </style>
 </head>
 <body>
 
-  <button class="back-to-top" id="backToTop" aria-label="Remonter en haut" title="Remonter en haut">↑</button>
-  <a href="https://wa.me/22607190217" class="whatsapp-float" target="_blank" aria-label="WhatsApp" title="Me contacter sur WhatsApp">💬</a>
+  <button class="float-btn float-down" id="btnScrollDown" aria-label="Aller en bas" title="Aller en bas">↓</button>
+  <button class="float-btn float-up" id="btnBackToTop" aria-label="Remonter en haut" title="Remonter en haut">↑</button>
+  <a href="https://wa.me/22607190217" class="float-btn float-wa" target="_blank" aria-label="WhatsApp" title="Me contacter sur WhatsApp">💬</a>
 
   <div class="nav">
     <div class="wrap nav-inner">
       <div class="brand">
         <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Balima Web Developer" loading="lazy">
-        <span>BALIMA WEB<br>DEVELOPER</span>
+        <span data-translate="brand.name"><strong>BALIMA WEB<br>DEVELOPER</strong></span>
       </div>
       <div class="nav-right">
         <div class="nav-search">
-          <input type="text" id="siteSearchTop" placeholder="Rechercher...">
-          <button type="button">Rechercher</button>
+          <input type="text" id="siteSearchTop" data-translate-placeholder="nav.search" placeholder="Rechercher...">
+          <button type="button" data-translate="nav.searchBtn">Rechercher</button>
         </div>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème" title="Mode sombre / clair">🌙</button>
-        <button class="hamburger" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+        <button class="hamburger" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="menu" id="desktopMenu">
-          <a href="#services">Mes Services</a>
-          <a href="#avant-apres">Avant / Après</a>
-          <a href="#avis">Avis</a>
-          <a href="#contact" class="cta">Me contacter</a>
+          <a href="#services" data-translate="nav.services">Services</a>
+          <a href="#realisations" data-translate="nav.realisations">Réalisations</a>
+          <a href="#avant-apres" data-translate="nav.beforeAfter">Avant / Après</a>
+          <a href="#avis" data-translate="nav.reviews">Avis</a>
+          <a href="#contact" class="cta" data-translate="nav.contact">Me contacter</a>
         </div>
       </div>
     </div>
   </div>
-
   <div class="menu-overlay" id="menuOverlay"></div>
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Menu principal"></nav>
+  <nav class="mobile-menu" id="mobileMenu"></nav>
 
   <!-- HERO -->
-  <header class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="wrap" style="position:relative;z-index:2;">
-      <div class="badge"><span class="dot"></span><span>Disponible pour de nouveaux projets</span></div>
-      <h1>
-        TON SITE WEB.<br>
-        TES CLIENTS.<br>
-        <span class="accent">TES VENTES.</span>
-      </h1>
-      <p>Je crée des sites propres, rapides et pensés pour vendre.</p>
+  <header class="hero anim-up" id="home">
+    <div class="wrap">
+      <div class="badge"><span class="dot"></span><span data-translate="hero.badge">Disponible pour de nouveaux projets</span></div>
+      <h1><span data-translate="hero.line1">TON SITE WEB.</span><br><span data-translate="hero.line2">TES CLIENTS.</span><br><span class="accent" data-translate="hero.line3">TES VENTES.</span></h1>
+      <p data-translate="hero.subtitle">Des sites ultra-premium, conçus pour vendre et inspirer confiance.</p>
       <div class="actions">
-        <a href="#services" class="btn btn-primary">Voir mes services</a>
+        <a href="#services" class="btn btn-primary" data-translate="hero.cta">Voir mes services</a>
+        <a href="https://wa.me/22607190217" class="btn btn-outline">WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <!-- CHIFFRES CLÉS -->
+  <!-- STATS -->
   <section class="section tight">
-    <div class="wrap">
+    <div class="wrap anim-up">
       <div class="stats-row" id="statsRow">
-        <div class="stat-item"><span class="stat-number" data-target="15">0</span><span class="stat-label">Sites livrés</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="7">0</span><span class="stat-label">Jours sur 7</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="100">0</span><span class="stat-label">% à l'écoute</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="15">0</span><span class="stat-label" data-translate="stats.sites">Sites livrés</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="7">0</span><span class="stat-label" data-translate="stats.days">Jours sur 7</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="100">0</span><span class="stat-label" data-translate="stats.satisfaction">% à l'écoute</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- DANGER -->
+  <section class="section tight alt" id="risques">
+    <div class="wrap">
+      <div class="section-label anim-up" style="justify-content:center;" data-translate="danger.label">⚠️ Ne fais pas cette erreur</div>
+      <div class="section-title anim-up" style="text-align:center;font-size:clamp(1.6rem,3vw,2.2rem);" data-translate="danger.title">Chaque jour sans site, tu perds des clients</div>
+      <div class="danger-grid">
+        <div class="danger-card anim-scale" style="transition-delay:0s;"><div class="icon-big">😰</div><h4 data-translate="danger.card1.title">Tu parais amateur</h4><p data-translate="danger.card1.text">Tes clients cherchent ton site, ne le trouvent pas, et vont chez un concurrent.</p></div>
+        <div class="danger-card anim-scale" style="transition-delay:.1s;"><div class="icon-big">💸</div><h4 data-translate="danger.card2.title">Tu perds de l'argent</h4><p data-translate="danger.card2.text">Sans page de vente, chaque visiteur qui repart = une vente perdue.</p></div>
+        <div class="danger-card anim-scale" style="transition-delay:.2s;"><div class="icon-big">⏳</div><h4 data-translate="danger.card3.title">Tu restes invisible</h4><p data-translate="danger.card3.text">Même les meilleurs produits ne se vendent pas s'ils sont introuvables.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;" class="anim-up"><a href="#services" class="btn btn-primary" data-translate="danger.cta">⚡ Je veux mon site maintenant</a></div>
     </div>
   </section>
 
   <!-- QUI SUIS-JE -->
-  <section class="section tight" id="qui-suis-je">
-    <div class="wrap">
-      <div class="about-full-bg">
-        <div class="about-content-box">
-          <div class="label" style="text-align:center;">Qui suis-je</div>
-          <div class="title" style="text-align:center;">Je ne construis pas des sites.<br>Je construis des preuves.</div>
-          <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" class="about-photo" loading="lazy">
-          <div class="about-text-box">
-            <p style="color:var(--text);line-height:1.9;font-size:1rem;">
-              <strong style="color:var(--gold2);">Moussa Balima</strong>, développeur web freelance au Burkina Faso.
-              Je crée des sites qui disent à tes clients : <em style="color:var(--gold2);">"Tu peux lui faire confiance."</em>
-            </p>
-            <p style="color:var(--text);line-height:1.9;font-size:1rem;margin-top:16px;">
-              Mon objectif est simple : que ton site reflète la vraie valeur de ton activité et transforme tes visiteurs en clients.
-            </p>
-          </div>
-        </div>
+  <section class="section" id="qui-suis-je">
+    <div class="wrap anim-scale">
+      <div class="glass-card" style="text-align:center;max-width:800px;margin:0 auto;">
+        <div class="section-label" style="justify-content:center;" data-translate="about.label">Qui suis-je</div>
+        <div class="section-title" data-translate="about.title">Je construis des preuves,<br>pas juste des sites.</div>
+        <img src="zIP-r_87U2S3EQZaKZheyg@2k.webp" alt="Moussa Balima" style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 20px;box-shadow:0 8px 30px rgba(0,85,255,.15);" loading="lazy">
+        <p style="max-width:600px;margin:0 auto;line-height:1.9;font-size:.95rem;color:var(--text);" data-translate="about.text1">
+          <strong style="color:var(--blue);">Moussa Balima</strong>, développeur web freelance au Burkina Faso. Je crée des sites qui disent à tes clients : <em style="color:var(--gold);">"Tu peux lui faire confiance."</em>
+        </p>
+        <p style="max-width:600px;margin:16px auto 0;line-height:1.9;font-size:.95rem;color:var(--muted);" data-translate="about.text2">
+          Mon objectif : que ton site reflète la vraie valeur de ton activité et transforme chaque visiteur en client.
+        </p>
       </div>
-
-      <!-- Les 3 piliers — uniquement création de sites -->
-      <div class="services-grid" style="margin-top:40px;grid-template-columns:repeat(3,minmax(0,1fr));">
-        <div class="services-card create-site-bg" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;background:rgba(0,0,0,.5);border:1px solid var(--gold);font-size:1.8rem;">🖥️</div>
-          <h3 style="color:var(--gold2);">Pages de capture</h3>
-          <p class="compat">Capte l'attention de tes visiteurs et collecte leurs contacts.</p>
-          <a href="#services" class="premium-btn" style="margin-top:12px;">Voir l'offre</a>
-        </div>
-        <div class="services-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;background:rgba(0,0,0,.6);">🎯</div>
-          <h3>Pages de vente</h3>
-          <p class="compat">Une page conçue pour convertir tes visiteurs en acheteurs.</p>
-          <a href="#services" class="premium-btn" style="margin-top:12px;">Voir l'offre</a>
-        </div>
-        <div class="services-card" style="text-align:center;">
-          <div class="icon" style="margin:0 auto 14px;font-size:1.6rem;background:rgba(0,0,0,.6);">🏢</div>
-          <h3>Sites vitrines</h3>
-          <p class="compat">Donne une image professionnelle à ton entreprise ou activité.</p>
-          <a href="#services" class="premium-btn" style="margin-top:12px;">Voir l'offre</a>
-        </div>
-      </div>
-
-      <p style="text-align:center;color:var(--gold2);font-weight:700;font-size:1.1rem;margin-top:32px;line-height:1.7;">
-        Peu importe où tu pars, tu mérites un site à la hauteur de tes ambitions.
-      </p>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="section" id="services">
+  <section class="section alt" id="services">
     <div class="wrap">
-      <div class="label">Ce que je fais</div>
-      <div class="title">Mes Services</div>
-      <div class="services-price-switch">
-        <span class="currency-label">Prix / devise</span>
-        <div class="currency-switch">
-          <button class="currency-btn active" data-currency="xof">XOF</button>
-          <button class="currency-btn" data-currency="eur">EUR</button>
-          <button class="currency-btn" data-currency="usd">USD</button>
+      <div class="section-label anim-up" data-translate="services.label">Ce que je fais</div>
+      <div class="section-title anim-up" data-translate="services.title">Des solutions pensées pour vendre</div>
+      <div style="text-align:center;margin-bottom:28px;" class="anim-up">
+        <span style="color:var(--muted);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-right:12px;" data-translate="services.currencyLabel">Prix / devise</span>
+        <div class="lang-switcher" style="display:inline-flex;">
+          <button class="lang-btn currency-btn active" data-currency="xof">XOF</button>
+          <button class="lang-btn currency-btn" data-currency="eur">EUR</button>
+          <button class="lang-btn currency-btn" data-currency="usd">USD</button>
         </div>
       </div>
-      <div class="services-grid">
-        <div class="services-card capture-blur">
-          <div class="top"><div class="badge">Démarrage</div><div class="icon">◦</div></div>
-          <h3>Page de capture</h3>
-          <div class="compat">Compatible mobile / PC</div>
+      <div class="services-grid" id="servicesGrid">
+        <div class="service-card anim-scale" style="transition-delay:0s;" id="service-capture">
+          <span class="card-badge" data-translate="services.card1.badge">Démarrage</span>
+          <h3 data-translate="services.card1.title">Page de capture</h3>
+          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
           <div class="price"><span class="xof">24 000 XOF</span><span class="eur">37 EUR</span><span class="usd">40 USD</span></div>
-          <ul><li>Design moderne</li><li>Formulaire de capture</li><li>Interface claire</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture.">Commander</a>
+          <ul><li data-translate="services.card1.li1">Design moderne et impactant</li><li data-translate="services.card1.li2">Formulaire de capture optimisé</li><li data-translate="services.card1.li3">Interface claire et confiante</li></ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20capture." data-translate="services.order">Commander</a>
         </div>
-        <div class="services-card services-featured sales-blur">
-          <div class="top"><div class="badge">Offre principale</div><div class="icon">◈</div></div>
-          <h3>Page de vente</h3>
-          <div class="compat">Compatible mobile / PC</div>
+        <div class="service-card featured anim-scale" style="transition-delay:.1s;" id="service-vente">
+          <span class="card-badge" data-translate="services.card2.badge">Offre principale</span>
+          <h3 data-translate="services.card2.title">Page de vente</h3>
+          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
           <div class="price"><span class="xof">42 000 XOF</span><span class="eur">65 EUR</span><span class="usd">70 USD</span></div>
-          <ul><li>Structure de conversion</li><li>Design premium</li><li>Bouton d'action visible</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente.">Commander</a>
+          <ul><li data-translate="services.card2.li1">Structure de conversion éprouvée</li><li data-translate="services.card2.li2">Design premium qui crédibilise</li><li data-translate="services.card2.li3">Bouton d'action irrésistible</li></ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20une%20page%20de%20vente." data-translate="services.order">Commander</a>
         </div>
-        <div class="services-card pro-blur">
-          <div class="top"><div class="badge">Pro</div><div class="icon">◦</div></div>
-          <h3>Site vitrine</h3>
-          <div class="compat">Compatible mobile / PC</div>
+        <div class="service-card anim-scale" style="transition-delay:.2s;" id="service-vitrine">
+          <span class="card-badge" data-translate="services.card3.badge">Pro</span>
+          <h3 data-translate="services.card3.title">Site vitrine</h3>
+          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
           <div class="price"><span class="xof">72 000 XOF</span><span class="eur">110 EUR</span><span class="usd">120 USD</span></div>
-          <ul><li>3 à 5 pages</li><li>Image professionnelle</li><li>Structure propre</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine.">Commander</a>
+          <ul><li data-translate="services.card3.li1">3 à 5 pages personnalisées</li><li data-translate="services.card3.li2">Image professionnelle garantie</li><li data-translate="services.card3.li3">Structure propre et moderne</li></ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20un%20site%20vitrine." data-translate="services.order">Commander</a>
         </div>
-        <div class="services-card services-featured boost-blur">
-          <div class="top"><div class="badge">Pack complet</div><div class="icon">◆</div></div>
-          <h3>BOOST ULTIME</h3>
-          <div class="compat">Compatible mobile / PC</div>
+        <div class="service-card featured anim-scale" style="transition-delay:.3s;">
+          <span class="card-badge" data-translate="services.card4.badge">Pack complet</span>
+          <h3 data-translate="services.card4.title">BOOST ULTIME</h3>
+          <p class="compat" data-translate="services.compat">Compatible mobile / PC</p>
           <div class="price"><span class="xof">120 000 XOF</span><span class="eur">185 EUR</span><span class="usd">200 USD</span></div>
-          <ul><li>Page de capture</li><li>Page de vente</li><li>Site vitrine</li><li>Optimisation de base</li></ul>
-          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20le%20pack%20BOOST%20ULTIME.">Commander</a>
+          <ul><li data-translate="services.card4.li1">Page de capture incluse</li><li data-translate="services.card4.li2">Page de vente incluse</li><li data-translate="services.card4.li3">Site vitrine complet</li><li data-translate="services.card4.li4">Optimisation de base offerte</li></ul>
+          <a class="premium-btn" target="_blank" href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20commander%20le%20pack%20BOOST%20ULTIME." data-translate="services.order">Commander</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIE -->
+  <section class="section">
+    <div class="wrap anim-scale">
+      <div class="guarantee-box">
+        <div class="icon-shield">🛡️</div>
+        <h3 data-translate="guarantee.title">Garantie satisfait ou retouché</h3>
+        <p style="color:var(--text);line-height:1.8;font-size:.95rem;" data-translate="guarantee.text">Si le rendu ne te plaît pas, <strong style="color:var(--gold);">je retravaille gratuitement</strong> jusqu'à ce que tu sois fier.</p>
+        <p style="color:var(--muted);font-size:.82rem;margin-top:8px;" data-translate="guarantee.subtext">Zéro risque. Zéro mauvaise surprise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="section alt" id="processus">
+    <div class="wrap">
+      <div class="section-label anim-up" style="justify-content:center;" data-translate="process.label">Comment ça marche</div>
+      <div class="section-title anim-up" style="text-align:center;" data-translate="process.title">Ton site en 4 étapes simples</div>
+      <div class="process-grid">
+        <div class="process-step anim-scale" style="transition-delay:0s;"><div class="step-num">1</div><h4 data-translate="process.step1.title">Tu me contactes</h4><p data-translate="process.step1.text">Tu m'expliques ton projet par WhatsApp. Je comprends tes besoins.</p></div>
+        <div class="process-step anim-scale" style="transition-delay:.1s;"><div class="step-num">2</div><h4 data-translate="process.step2.title">Je crée ton site</h4><p data-translate="process.step2.text">Je réalise ton site sur mesure. 2 à 5 jours selon la formule.</p></div>
+        <div class="process-step anim-scale" style="transition-delay:.2s;"><div class="step-num">3</div><h4 data-translate="process.step3.title">Tu valides</h4><p data-translate="process.step3.text">Tu vérifies le résultat. Retouches gratuites si besoin.</p></div>
+        <div class="process-step anim-scale" style="transition-delay:.3s;"><div class="step-num">4</div><h4 data-translate="process.step4.title">Je te livre</h4><p data-translate="process.step4.text">Site livré, prêt à être partagé. Je reste disponible.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET -->
+  <section class="section tight">
+    <div class="wrap anim-scale">
+      <div class="glass-card" style="text-align:center;max-width:560px;margin:0 auto;border-color:var(--gold);">
+        <div style="font-size:2.5rem;margin-bottom:8px;">🎁</div>
+        <h3 style="color:var(--gold);font-size:1.3rem;margin-bottom:6px;" data-translate="lead.title">5 erreurs qui bloquent tes ventes en ligne</h3>
+        <p style="color:var(--muted);margin-bottom:18px;font-size:.88rem;" data-translate="lead.subtitle">Reçois mes conseils gratuits sur WhatsApp</p>
+        <a href="https://wa.me/22607190217?text=Bonjour%2C%20je%20veux%20recevoir%20les%205%20conseils%20gratuits." class="btn btn-primary" data-translate="lead.cta">📩 Recevoir gratuitement</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉALISATIONS -->
+  <section class="section alt" id="realisations">
+    <div class="wrap">
+      <div class="section-label anim-up" data-translate="portfolio.label">Mes réalisations</div>
+      <div class="section-title anim-up" data-translate="portfolio.title">Des projets concrets, des vrais résultats</div>
+      <div class="portfolio-grid anim-up">
+        <div class="portfolio-card anim-scale" style="transition-delay:0s;"><img src="creation-site.jpg" alt="Projet 1" class="portfolio-img" loading="lazy"><div class="portfolio-body"><span class="port-tag" data-translate="portfolio.card1.tag">Page de capture</span><h4 data-translate="portfolio.card1.title">Landing page produit</h4><p data-translate="portfolio.card1.desc">Page rapide, formulaire clair, design confiant.</p><span class="port-result" data-translate="portfolio.card1.result">✅ Livré en 48h · 15 leads en 3 jours</span></div></div>
+        <div class="portfolio-card anim-scale" style="transition-delay:.1s;"><img src="b457b448-creation-landing-page-tunnel-de-vente-6a207dcde56de.png" alt="Projet 2" class="portfolio-img" loading="lazy"><div class="portfolio-body"><span class="port-tag" data-translate="portfolio.card2.tag">Page de vente</span><h4 data-translate="portfolio.card2.title">Tunnel de vente</h4><p data-translate="portfolio.card2.desc">Structure de conversion, boutons stratégiques.</p><span class="port-result" data-translate="portfolio.card2.result">✅ 12 commandes en 7 jours</span></div></div>
+        <div class="portfolio-card anim-scale" style="transition-delay:.2s;"><img src="technologies_web.jpg" alt="Projet 3" class="portfolio-img" loading="lazy"><div class="portfolio-body"><span class="port-tag" data-translate="portfolio.card3.tag">Site vitrine</span><h4 data-translate="portfolio.card3.title">Site entreprise</h4><p data-translate="portfolio.card3.desc">5 pages, image pro, compatible partout.</p><span class="port-result" data-translate="portfolio.card3.result">✅ Crédibilité décuplée</span></div></div>
       </div>
     </div>
   </section>
@@ -516,43 +488,29 @@
   <!-- AVANT / APRÈS -->
   <section class="section" id="avant-apres">
     <div class="wrap">
-      <div class="label">Avant / Après</div>
-      <div class="title">Ce que change un site professionnel</div>
-      <div class="compare-grid">
-        <div class="compare-card before">
-          <h4>Sans site pro</h4>
-          <ul>
-            <li>Les clients potentiels hésitent à faire confiance</li>
-            <li>Difficile de montrer son sérieux avec une simple page Facebook</li>
-            <li>Aucune vente automatique, tout se fait manuellement</li>
-          </ul>
-        </div>
-        <div class="compare-card after">
-          <h4>Avec un site pro</h4>
-          <ul>
-            <li>Une image de marque qui inspire immédiatement confiance</li>
-            <li>Tes clients te prennent au sérieux avant même de te parler</li>
-            <li>Des ventes qui rentrent même quand tu dors</li>
-          </ul>
-        </div>
+      <div class="section-label anim-up" data-translate="compare.label">Avant / Après</div>
+      <div class="section-title anim-up" data-translate="compare.title">Ce que change un site professionnel</div>
+      <div class="ba-cards">
+        <div class="ba-card before anim-left"><span class="ba-status">⛔ Sans site</span><span class="ba-emoji">😰</span><h4 data-translate="compare.before.title">Tu bloques tes ventes</h4><ul class="ba-list"><li data-translate="compare.before.li1">Les clients doutent et repartent</li><li data-translate="compare.before.li2">Une page Facebook ne prouve rien</li><li data-translate="compare.before.li3">Chaque jour = des ventes perdues</li></ul></div>
+        <div class="ba-card after anim-right"><span class="ba-status">✅ Avec un site pro</span><span class="ba-emoji">🚀</span><h4 data-translate="compare.after.title">Tu actives tes ventes</h4><ul class="ba-list"><li data-translate="compare.after.li1">Confiance immédiate : tes clients achètent</li><li data-translate="compare.after.li2">Ton sérieux parle avant toi</li><li data-translate="compare.after.li3">Des ventes automatiques, 24h/24</li></ul></div>
       </div>
     </div>
   </section>
 
   <!-- POURQUOI MOI -->
-  <section class="section">
+  <section class="section alt">
     <div class="wrap">
-      <div class="label">Pourquoi moi ?</div>
-      <div class="title">Un site web n'est pas une dépense. C'est un investissement.</div>
-      <div style="max-width:850px;margin:0 auto 40px;text-align:center;">
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;">Aujourd'hui, beaucoup de personnes peuvent créer un site internet. Mon objectif n'est pas simplement de te livrer un site joli à regarder. Je crée des sites pensés pour inspirer confiance, mettre en valeur ton activité et donner une image professionnelle à ton entreprise.</p>
-        <p style="color:var(--muted);line-height:1.9;font-size:1rem;margin-top:20px;">Chaque projet est réalisé avec sérieux, attention aux détails et une seule priorité : <strong style="color:var(--gold2);">faire en sorte que ton activité paraisse aussi professionnelle que la valeur que tu apportes réellement.</strong></p>
-      </div>
-      <div class="services-grid">
-        <div class="services-card"><div class="icon">⚡</div><h3>Rapidité</h3><p class="compat">Sites rapides et fluides pour une meilleure expérience utilisateur.</p></div>
-        <div class="services-card"><div class="icon">📱</div><h3>Compatible partout</h3><p class="compat">Parfait sur téléphone, tablette et ordinateur.</p></div>
-        <div class="services-card"><div class="icon">🎯</div><h3>Orienté résultats</h3><p class="compat">Chaque page est conçue pour convertir les visiteurs en clients.</p></div>
-        <div class="services-card"><div class="icon">🤝</div><h3>Accompagnement</h3><p class="compat">Je reste disponible même après la livraison du site.</p></div>
+      <div class="section-label anim-up" data-translate="why.label">Pourquoi moi ?</div>
+      <div class="section-title anim-up" data-translate="why.title">Un site web n'est pas une dépense, c'est un investissement.</div>
+      <p style="max-width:700px;margin:0 auto 36px;text-align:center;color:var(--muted);line-height:1.9;font-size:.9rem;" class="anim-up" data-translate="why.text1">Je ne livre pas juste un site joli. Je crée des outils qui inspirent confiance, crédibilisent ton activité et transforment tes visiteurs en clients.</p>
+      <div class="trust-grid anim-scale">
+        <div class="trust-item"><div class="trust-icon">⚡</div><div class="trust-content"><h4 data-translate="why.card1.title">Rapidité</h4><p data-translate="why.card1.text">Sites fluides, chargés en moins de 2 secondes.</p></div></div>
+        <div class="trust-div-v"></div>
+        <div class="trust-item"><div class="trust-icon">📱</div><div class="trust-content"><h4 data-translate="why.card2.title">Compatible partout</h4><p data-translate="why.card2.text">Parfait sur mobile, tablette et ordinateur.</p></div></div>
+        <div class="trust-div-h"></div>
+        <div class="trust-item"><div class="trust-icon">🎯</div><div class="trust-content"><h4 data-translate="why.card3.title">Orienté résultats</h4><p data-translate="why.card3.text">Chaque page est conçue pour convertir.</p></div></div>
+        <div class="trust-div-v"></div>
+        <div class="trust-item"><div class="trust-icon">🤝</div><div class="trust-content"><h4 data-translate="why.card4.title">Accompagnement</h4><p data-translate="why.card4.text">Disponible même après la livraison.</p></div></div>
       </div>
     </div>
   </section>
@@ -560,229 +518,162 @@
   <!-- AVIS -->
   <section class="section" id="avis">
     <div class="wrap">
-      <div class="label">Avis</div>
-      <div class="title">Ce que disent mes clients</div>
-      <div class="services-grid" id="reviewsGrid"></div>
+      <div class="section-label anim-up" data-translate="reviews.label">Avis</div>
+      <div class="section-title anim-up" data-translate="reviews.title">Ce que disent mes clients</div>
+      <div class="services-grid anim-up" id="reviewsGrid"></div>
     </div>
   </section>
 
-  <div style="text-align:center;margin-top:30px;">
-    <a href="https://wa.me/22607190217?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis%20sur%20votre%20site." class="btn btn-primary" style="padding:14px 22px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:10px;">💬 <span>Laisser un avis WhatsApp</span></a>
-    <p style="color:var(--muted);margin-top:10px;margin-bottom:60px;font-size:.9rem;">Les retours des clients sont les bienvenus.</p>
+  <div class="anim-up" style="text-align:center;margin-top:28px;">
+    <a href="https://wa.me/22607190217?text=Bonjour%2C%20je%20souhaite%20laisser%20un%20avis." class="btn btn-primary" data-translate="reviews.leaveBtn">💬 Laisser un avis WhatsApp</a>
+    <p style="color:var(--muted);margin-top:8px;margin-bottom:48px;font-size:.8rem;" data-translate="reviews.leaveSub">Les retours sont les bienvenus.</p>
   </div>
 
   <!-- FAQ -->
-  <section class="section" id="faq">
+  <section class="section alt" id="faq">
     <div class="wrap">
-      <div class="label">FAQ</div>
-      <div class="title">Questions fréquentes</div>
-      <div class="faq-container">
-        <div class="faq-item"><button class="faq-question"><span>Est-ce que les sites web sont personnalisés ?</span><span>+</span></button><div class="faq-answer">Oui, chaque site est adapté selon ton activité, ton style et tes objectifs.</div></div>
-        <div class="faq-item"><button class="faq-question"><span>Combien de temps pour livrer un site ?</span><span>+</span></button><div class="faq-answer">En général entre 24h et 5 jours selon la complexité du projet.</div></div>
-        <div class="faq-item"><button class="faq-question"><span>Comment se fait le paiement ?</span><span>+</span></button><div class="faq-answer">Le paiement se fait via Orange Money au numéro +226 07190217. On discute des modalités sur WhatsApp avant de commencer.</div></div>
-        <div class="faq-item"><button class="faq-question"><span>Est-ce que je peux demander des modifications ?</span><span>+</span></button><div class="faq-answer">Oui, des retouches sont incluses. Mon objectif est que tu sois 100% satisfait du résultat.</div></div>
+      <div class="section-label anim-up">FAQ</div>
+      <div class="section-title anim-up" data-translate="faq.title">Questions fréquentes</div>
+      <div class="faq-container anim-up">
+        <div class="faq-item"><button class="faq-question"><span data-translate="faq.q1">Est-ce que les sites sont personnalisés ?</span><span>+</span></button><div class="faq-answer" data-translate="faq.a1">Oui, chaque site est adapté à ton activité, ton style et tes objectifs.</div></div>
+        <div class="faq-item"><button class="faq-question"><span data-translate="faq.q2">Combien de temps pour être livré ?</span><span>+</span></button><div class="faq-answer" data-translate="faq.a2">Entre 24h et 5 jours selon la complexité du projet.</div></div>
+        <div class="faq-item"><button class="faq-question"><span data-translate="faq.q3">Comment se fait le paiement ?</span><span>+</span></button><div class="faq-answer" data-translate="faq.a3">Par Orange Money au +226 07190217. On en discute avant de démarrer.</div></div>
+        <div class="faq-item"><button class="faq-question"><span data-translate="faq.q4">Puis-je demander des modifications ?</span><span>+</span></button><div class="faq-answer" data-translate="faq.a4">Oui, les retouches sont incluses jusqu'à 100% de satisfaction.</div></div>
+        <div class="faq-item"><button class="faq-question"><span data-translate="faq.q5">Et si le site ne me plaît pas ?</span><span>+</span></button><div class="faq-answer" data-translate="faq.a5">Je retravaille gratuitement. Tu ne prends aucun risque.</div></div>
       </div>
     </div>
   </section>
 
   <!-- PAIEMENT -->
-  <section class="section payment" id="paiement">
-    <div class="wrap">
-      <div class="label">Paiement</div>
-      <div class="title">Paiement Orange Money</div>
+  <section class="section" id="paiement">
+    <div class="wrap anim-scale">
+      <div class="section-label" data-translate="payment.label">Paiement</div>
+      <div class="section-title" data-translate="payment.title">Paiement Orange Money</div>
       <div class="payment-box">
-        <div class="pay-top"><img src="Screenshot_20260528-001853_Google~2.jpg" alt="Orange Money" class="pay-logo" loading="lazy"><strong>Paiement sécurisé par Orange Money</strong></div>
-        <div class="pay-row">Numéro Orange Money : <strong>+226 07190217</strong></div>
-        <div class="pay-row">Après paiement, clique sur <strong>J'ai payé</strong> pour m'envoyer une confirmation WhatsApp.</div>
-        <div class="pay-actions">
-          <a href="https://wa.me/22607190217?text=J%27ai%20pay%C3%A9.%20Voici%20ma%20preuve." class="btn whats">J'ai payé</a>
-          <a href="https://wa.me/22607190217" class="btn btn-secondary">Poser une question</a>
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;">
+          <img src="Screenshot_20260528-001853_Google~2.jpg" alt="Orange Money" style="width:46px;height:46px;border-radius:12px;background:#fff;padding:4px;" loading="lazy">
+          <strong data-translate="payment.secure" style="color:var(--text-strong);">Paiement sécurisé Orange Money</strong>
+          <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(22,163,74,.08);color:var(--green);padding:5px 10px;border-radius:999px;font-size:.72rem;font-weight:700;">🔒 100% sécurisé</span>
+        </div>
+        <p style="color:var(--muted);margin:10px 0;" data-translate="payment.number">Numéro : <strong style="color:var(--text-strong);">+226 07190217</strong></p>
+        <p style="color:var(--muted);margin-bottom:20px;font-size:.85rem;" data-translate="payment.after">Après paiement, clique sur <strong>J'ai payé</strong>.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="https://wa.me/22607190217?text=J%27ai%20pay%C3%A9.%20Voici%20ma%20preuve." class="btn btn-primary" style="background:#25D366;" data-translate="payment.paidBtn">✅ J'ai payé</a>
+          <a href="https://wa.me/22607190217" class="btn btn-outline" style="border-color:var(--line);color:var(--text);" data-translate="payment.questionBtn">Poser une question</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="cta-section-wrap" id="contact">
-    <div class="wrap">
-      <div class="label">Contact</div>
+  <section class="section" id="contact">
+    <div class="wrap anim-scale">
       <div class="cta-box">
-        <h2>Prêt à lancer ton projet ?</h2>
-        <p>Ce que tu vends a de la valeur. Ton site doit le montrer.</p>
-        <a href="https://wa.me/22607190217" class="btn-wa">💬 WhatsApp</a>
-        <a href="mailto:moussabalima07@gmail.com" class="btn-mail">✉️ Email</a>
+        <div class="section-label" data-translate="contact.label">Contact</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.1;color:var(--text-strong);text-transform:uppercase;font-weight:900;" data-translate="contact.title">Prêt à lancer ton projet ?</h2>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.7;" data-translate="contact.subtitle">Ce que tu vends a de la valeur. Ton site doit le montrer.</p>
+        <a href="https://wa.me/22607190217" class="btn btn-primary" style="width:100%;max-width:300px;">💬 WhatsApp</a>
+        <a href="mailto:moussabalima07@gmail.com" style="display:flex;align-items:center;gap:8px;color:var(--text);font-weight:600;font-size:.88rem;">✉️ Email</a>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="wrap">© 2026 Balima Web Developer · Développeur Web Freelance · Burkina Faso 🇧🇫 · Tous droits réservés</div>
+    <div class="wrap anim-up" data-translate="footer">© 2026 Balima Web Developer · Développeur Web Freelance · Burkina Faso 🇧🇫</div>
   </footer>
 
   <script>
-    const reviews = [
-      {
-        name:"Moussa K.", rating:5,
-        role:"Vendeur de chaussures, Ouagadougou",
-        text:"Franchement j'avais peur de dépenser de l'argent pour rien. J'ai quand même tenté. Il m'a appelé le même jour, on a parlé de mon activité pendant 20 minutes. 2 jours après, ma page était prête. La première semaine, 3 clients m'ont contacté via le site. C'est 3 de plus que d'habitude."
-      },
-      {
-        name:"Aïcha O.", rating:5,
-        role:"Vendeuse de pagnes, Bobo-Dioulasso",
-        text:"J'avais une page Facebook depuis 2 ans. Les gens likaient mais n'achetaient pas. Depuis que j'ai mon site, les clients arrivent déjà convaincus. Une cliente m'a dit : 'J'ai vu ton site, ça m'a semblé sérieux, c'est pour ça que j'ai commandé.' C'est exactement ce que je voulais."
-      },
-      {
-        name:"Ibrahim S.", rating:5,
-        role:"Prestataire informatique",
-        text:"J'avais contacté 2 autres développeurs avant lui. L'un a disparu après l'acompte, l'autre m'a livré quelque chose de bâclé. Avec Moussa, il m'a envoyé une première version en 48h, j'ai demandé des modifications, il les a faites sans problème. Résultat propre, livré dans les délais. Je retourne vers lui pour mon prochain projet."
-      },
-      {
-        name:"Raïssa T.", rating:5,
-        role:"Coach nutrition",
-        text:"Ce qui m'a convaincue c'est qu'il a pris le temps de me demander à qui je vendais, quel était mon client idéal. Pas juste 'envoie-moi le texte et les couleurs'. Il a vraiment pensé ma page pour que ça parle à mes clients. J'ai eu mes 2 premières consultations payantes la semaine de la mise en ligne."
-      },
-      {
-        name:"Seydou B.", rating:4,
-        role:"Gérant d'une petite imprimerie",
-        text:"Je pensais qu'un site c'était réservé aux grandes entreprises. Il m'a montré que même pour une petite imprimerie locale, ça change tout. Maintenant des gens m'appellent en disant qu'ils ont trouvé mon site sur Google. Avant, c'était uniquement du bouche-à-oreille."
-      },
-      {
-        name:"Mariam D.", rating:5,
-        role:"Revendeuse cosmétiques",
-        text:"J'ai hésité 3 semaines à cause du prix. Je me disais que c'était trop cher. Aujourd'hui je regrette d'avoir attendu aussi longtemps. En un mois avec le site, j'ai récupéré la mise et bien plus. Ce qui coûte cher, c'est de ne pas avoir de site."
-      }
-    ];
-
-    function renderStars(r){
-      let h='<span class="stars">';
-      for(let i=1;i<=5;i++) h+=i<=r?'<span>★</span>':'<span class="star-empty">★</span>';
-      return h+'</span>';
-    }
-
-    function buildReviews(){
-      const grid=document.getElementById('reviewsGrid');
-      if(!grid)return;
-      grid.innerHTML='';
-      reviews.forEach(r=>{
-        const card=document.createElement('div');
-        card.className='services-card';
-        card.innerHTML=`<h3>${renderStars(r.rating)} ${r.name}</h3><p class="compat" style="margin-top:10px;">${r.text}</p>`;
-        grid.appendChild(card);
-      });
-    }
-    buildReviews();
-
-    // Currency
-    function setCurrency(c){
-      document.querySelectorAll('.currency-btn').forEach(b=>b.classList.toggle('active',b.dataset.currency===c));
-      document.querySelectorAll('.price span').forEach(s=>s.style.display='none');
-      document.querySelectorAll('.price .'+c).forEach(s=>s.style.display='inline-flex');
-    }
-    document.querySelectorAll('.currency-btn').forEach(b=>b.addEventListener('click',()=>setCurrency(b.dataset.currency)));
-    setCurrency('xof');
-
-    // Lang switcher (FR/EN conservé)
     const translations = {
-      fr:{
-        "hero.badge":"Disponible pour de nouveaux projets",
-        "hero.title1":"TON SITE WEB.","hero.title2":"TES CLIENTS.","hero.title3":"TES VENTES.",
-        "hero.subtitle":"Je crée des sites propres, rapides et pensés pour vendre.",
-        "hero.cta":"Voir mes services",
-        "nav.services":"Mes Services","nav.contact":"Me contacter",
-        "stats.sites":"Sites livrés","stats.days":"Jours sur 7","stats.satisfaction":"% à l'écoute"
+      fr: {
+        "brand.name":"<strong>BALIMA WEB<br>DEVELOPER</strong>","nav.search":"Rechercher...","nav.searchBtn":"Rechercher","nav.services":"Services","nav.realisations":"Réalisations","nav.beforeAfter":"Avant / Après","nav.reviews":"Avis","nav.contact":"Me contacter",
+        "hero.badge":"Disponible pour de nouveaux projets","hero.line1":"TON SITE WEB.","hero.line2":"TES CLIENTS.","hero.line3":"TES VENTES.","hero.subtitle":"Des sites ultra-premium, conçus pour vendre et inspirer confiance.","hero.cta":"Voir mes services",
+        "stats.sites":"Sites livrés","stats.days":"Jours sur 7","stats.satisfaction":"% à l'écoute",
+        "danger.label":"⚠️ Ne fais pas cette erreur","danger.title":"Chaque jour sans site, tu perds des clients","danger.card1.title":"Tu parais amateur","danger.card1.text":"Tes clients cherchent ton site, ne le trouvent pas, et vont chez un concurrent.","danger.card2.title":"Tu perds de l'argent","danger.card2.text":"Sans page de vente, chaque visiteur qui repart = une vente perdue.","danger.card3.title":"Tu restes invisible","danger.card3.text":"Même les meilleurs produits ne se vendent pas s'ils sont introuvables.","danger.cta":"⚡ Je veux mon site maintenant",
+        "about.label":"Qui suis-je","about.title":"Je construis des preuves,<br>pas juste des sites.","about.text1":"<strong style=\"color:var(--blue);\">Moussa Balima</strong>, développeur web freelance au Burkina Faso. Je crée des sites qui disent à tes clients : <em style=\"color:var(--gold);\">\"Tu peux lui faire confiance.\"</em>","about.text2":"Mon objectif : que ton site reflète la vraie valeur de ton activité et transforme chaque visiteur en client.",
+        "services.label":"Ce que je fais","services.title":"Des solutions pensées pour vendre","services.currencyLabel":"Prix / devise","services.compat":"Compatible mobile / PC","services.order":"Commander","services.card1.badge":"Démarrage","services.card1.title":"Page de capture","services.card1.li1":"Design moderne et impactant","services.card1.li2":"Formulaire de capture optimisé","services.card1.li3":"Interface claire et confiante","services.card2.badge":"Offre principale","services.card2.title":"Page de vente","services.card2.li1":"Structure de conversion éprouvée","services.card2.li2":"Design premium qui crédibilise","services.card2.li3":"Bouton d'action irrésistible","services.card3.badge":"Pro","services.card3.title":"Site vitrine","services.card3.li1":"3 à 5 pages personnalisées","services.card3.li2":"Image professionnelle garantie","services.card3.li3":"Structure propre et moderne","services.card4.badge":"Pack complet","services.card4.title":"BOOST ULTIME","services.card4.li1":"Page de capture incluse","services.card4.li2":"Page de vente incluse","services.card4.li3":"Site vitrine complet","services.card4.li4":"Optimisation de base offerte",
+        "guarantee.title":"Garantie satisfait ou retouché","guarantee.text":"Si le rendu ne te plaît pas, <strong style=\"color:var(--gold);\">je retravaille gratuitement</strong> jusqu'à ce que tu sois fier.","guarantee.subtext":"Zéro risque. Zéro mauvaise surprise.",
+        "process.label":"Comment ça marche","process.title":"Ton site en 4 étapes simples","process.step1.title":"Tu me contactes","process.step1.text":"Tu m'expliques ton projet par WhatsApp. Je comprends tes besoins.","process.step2.title":"Je crée ton site","process.step2.text":"Je réalise ton site sur mesure. 2 à 5 jours selon la formule.","process.step3.title":"Tu valides","process.step3.text":"Tu vérifies le résultat. Retouches gratuites si besoin.","process.step4.title":"Je te livre","process.step4.text":"Site livré, prêt à être partagé. Je reste disponible.",
+        "lead.title":"5 erreurs qui bloquent tes ventes en ligne","lead.subtitle":"Reçois mes conseils gratuits sur WhatsApp","lead.cta":"📩 Recevoir gratuitement",
+        "portfolio.label":"Mes réalisations","portfolio.title":"Des projets concrets, des vrais résultats","portfolio.card1.tag":"Page de capture","portfolio.card1.title":"Landing page produit","portfolio.card1.desc":"Page rapide, formulaire clair, design confiant.","portfolio.card1.result":"✅ Livré en 48h · 15 leads en 3 jours","portfolio.card2.tag":"Page de vente","portfolio.card2.title":"Tunnel de vente","portfolio.card2.desc":"Structure de conversion, boutons stratégiques.","portfolio.card2.result":"✅ 12 commandes en 7 jours","portfolio.card3.tag":"Site vitrine","portfolio.card3.title":"Site entreprise","portfolio.card3.desc":"5 pages, image pro, compatible partout.","portfolio.card3.result":"✅ Crédibilité décuplée",
+        "compare.label":"Avant / Après","compare.title":"Ce que change un site professionnel","compare.before.title":"Tu bloques tes ventes","compare.before.li1":"Les clients doutent et repartent","compare.before.li2":"Une page Facebook ne prouve rien","compare.before.li3":"Chaque jour = des ventes perdues","compare.after.title":"Tu actives tes ventes","compare.after.li1":"Confiance immédiate : tes clients achètent","compare.after.li2":"Ton sérieux parle avant toi","compare.after.li3":"Des ventes automatiques, 24h/24",
+        "why.label":"Pourquoi moi ?","why.title":"Un site web n'est pas une dépense, c'est un investissement.","why.text1":"Je ne livre pas juste un site joli. Je crée des outils qui inspirent confiance, crédibilisent ton activité et transforment tes visiteurs en clients.","why.card1.title":"Rapidité","why.card1.text":"Sites fluides, chargés en moins de 2 secondes.","why.card2.title":"Compatible partout","why.card2.text":"Parfait sur mobile, tablette et ordinateur.","why.card3.title":"Orienté résultats","why.card3.text":"Chaque page est conçue pour convertir.","why.card4.title":"Accompagnement","why.card4.text":"Disponible même après la livraison.",
+        "reviews.label":"Avis","reviews.title":"Ce que disent mes clients","reviews.leaveBtn":"💬 Laisser un avis WhatsApp","reviews.leaveSub":"Les retours sont les bienvenus.",
+        "faq.title":"Questions fréquentes","faq.q1":"Est-ce que les sites sont personnalisés ?","faq.a1":"Oui, chaque site est adapté à ton activité, ton style et tes objectifs.","faq.q2":"Combien de temps pour être livré ?","faq.a2":"Entre 24h et 5 jours selon la complexité du projet.","faq.q3":"Comment se fait le paiement ?","faq.a3":"Par Orange Money au +226 07190217. On en discute avant de démarrer.","faq.q4":"Puis-je demander des modifications ?","faq.a4":"Oui, les retouches sont incluses jusqu'à 100% de satisfaction.","faq.q5":"Et si le site ne me plaît pas ?","faq.a5":"Je retravaille gratuitement. Tu ne prends aucun risque.",
+        "payment.label":"Paiement","payment.title":"Paiement Orange Money","payment.secure":"Paiement sécurisé Orange Money","payment.number":"Numéro : <strong style=\"color:var(--text-strong);\">+226 07190217</strong>","payment.after":"Après paiement, clique sur <strong>J'ai payé</strong>.","payment.paidBtn":"✅ J'ai payé","payment.questionBtn":"Poser une question",
+        "contact.label":"Contact","contact.title":"Prêt à lancer ton projet ?","contact.subtitle":"Ce que tu vends a de la valeur. Ton site doit le montrer.",
+        "footer":"© 2026 Balima Web Developer · Développeur Web Freelance · Burkina Faso 🇧🇫"
       },
-      en:{
-        "hero.badge":"Available for new projects",
-        "hero.title1":"YOUR WEBSITE.","hero.title2":"YOUR CLIENTS.","hero.title3":"YOUR SALES.",
-        "hero.subtitle":"I create clean, fast websites built to sell.",
-        "hero.cta":"See my services",
-        "nav.services":"My Services","nav.contact":"Contact me",
-        "stats.sites":"Sites delivered","stats.days":"Days a week","stats.satisfaction":"% listening"
+      en: {
+        "brand.name":"<strong>BALIMA WEB<br>DEVELOPER</strong>","nav.search":"Search...","nav.searchBtn":"Search","nav.services":"Services","nav.realisations":"Portfolio","nav.beforeAfter":"Before / After","nav.reviews":"Reviews","nav.contact":"Contact me",
+        "hero.badge":"Available for new projects","hero.line1":"YOUR WEBSITE.","hero.line2":"YOUR CLIENTS.","hero.line3":"YOUR SALES.","hero.subtitle":"Ultra-premium websites, built to sell and inspire trust.","hero.cta":"See my services",
+        "stats.sites":"Sites delivered","stats.days":"Days a week","stats.satisfaction":"% listening",
+        "danger.label":"⚠️ Don't make this mistake","danger.title":"Every day without a website, you lose clients","danger.card1.title":"You look amateur","danger.card1.text":"Clients search for your site, don't find it, and go to a competitor.","danger.card2.title":"You lose money","danger.card2.text":"Without a sales page, every visitor who leaves = a lost sale.","danger.card3.title":"You stay invisible","danger.card3.text":"Even the best products don't sell if they can't be found.","danger.cta":"⚡ I want my website now",
+        "about.label":"Who I am","about.title":"I build proof,<br>not just websites.","about.text1":"<strong style=\"color:var(--blue);\">Moussa Balima</strong>, freelance web developer in Burkina Faso. I create websites that tell your clients: <em style=\"color:var(--gold);\">\"You can trust him.\"</em>","about.text2":"My goal: let your website reflect the true value of your business and turn every visitor into a client.",
+        "services.label":"What I do","services.title":"Solutions built to sell","services.currencyLabel":"Price / currency","services.compat":"Mobile / PC compatible","services.order":"Order now","services.card1.badge":"Starter","services.card1.title":"Capture page","services.card1.li1":"Modern, impactful design","services.card1.li2":"Optimized capture form","services.card1.li3":"Clean, trust-inspiring interface","services.card2.badge":"Main offer","services.card2.title":"Sales page","services.card2.li1":"Proven conversion structure","services.card2.li2":"Premium credibility-building design","services.card2.li3":"Irresistible call-to-action","services.card3.badge":"Pro","services.card3.title":"Showcase site","services.card3.li1":"3 to 5 custom pages","services.card3.li2":"Guaranteed professional image","services.card3.li3":"Clean and modern structure","services.card4.badge":"Full pack","services.card4.title":"ULTIMATE BOOST","services.card4.li1":"Capture page included","services.card4.li2":"Sales page included","services.card4.li3":"Full showcase site","services.card4.li4":"Basic optimization included",
+        "guarantee.title":"Satisfaction or revision guarantee","guarantee.text":"If you don't like the result, <strong style=\"color:var(--gold);\">I'll rework it for free</strong> until you're proud.","guarantee.subtext":"Zero risk. Zero bad surprises.",
+        "process.label":"How it works","process.title":"Your website in 4 simple steps","process.step1.title":"You contact me","process.step1.text":"You tell me about your project via WhatsApp. I understand your needs.","process.step2.title":"I create your site","process.step2.text":"I build your custom site. 2 to 5 days depending on the package.","process.step3.title":"You validate","process.step3.text":"You review the result. Free revisions if needed.","process.step4.title":"I deliver","process.step4.text":"Site delivered, ready to share. I remain available.",
+        "lead.title":"5 mistakes that block your online sales","lead.subtitle":"Get my free tips on WhatsApp","lead.cta":"📩 Get it for free",
+        "portfolio.label":"My work","portfolio.title":"Concrete projects, real results","portfolio.card1.tag":"Capture page","portfolio.card1.title":"Product landing page","portfolio.card1.desc":"Fast page, clear form, confident design.","portfolio.card1.result":"✅ Delivered in 48h · 15 leads in 3 days","portfolio.card2.tag":"Sales page","portfolio.card2.title":"Sales funnel","portfolio.card2.desc":"Conversion structure, strategic buttons.","portfolio.card2.result":"✅ 12 orders in 7 days","portfolio.card3.tag":"Showcase site","portfolio.card3.title":"Business site","portfolio.card3.desc":"5 pages, pro image, works everywhere.","portfolio.card3.result":"✅ Credibility multiplied",
+        "compare.label":"Before / After","compare.title":"What a professional website changes","compare.before.title":"You block your sales","compare.before.li1":"Clients doubt and leave","compare.before.li2":"A Facebook page proves nothing","compare.before.li3":"Every day = lost sales","compare.after.title":"You activate your sales","compare.after.li1":"Immediate trust: your clients buy","compare.after.li2":"Your professionalism speaks first","compare.after.li3":"Automatic sales, 24/7",
+        "why.label":"Why me?","why.title":"A website is not an expense, it's an investment.","why.text1":"I don't just deliver a pretty site. I create tools that inspire trust, build credibility, and turn visitors into clients.","why.card1.title":"Speed","why.card1.text":"Fast-loading sites in under 2 seconds.","why.card2.title":"Compatible everywhere","why.card2.text":"Perfect on mobile, tablet and desktop.","why.card3.title":"Results-oriented","why.card3.text":"Every page designed to convert.","why.card4.title":"Support","why.card4.text":"Available even after delivery.",
+        "reviews.label":"Reviews","reviews.title":"What my clients say","reviews.leaveBtn":"💬 Leave a WhatsApp review","reviews.leaveSub":"Feedback is welcome.",
+        "faq.title":"Frequently asked questions","faq.q1":"Are the sites customized?","faq.a1":"Yes, each site is tailored to your business, style and goals.","faq.q2":"How long for delivery?","faq.a2":"Between 24h and 5 days depending on project complexity.","faq.q3":"How is payment made?","faq.a3":"Via Orange Money at +226 07190217. We discuss before starting.","faq.q4":"Can I request modifications?","faq.a4":"Yes, revisions are included until 100% satisfaction.","faq.q5":"What if I don't like the site?","faq.a5":"I'll rework it for free. You take zero risk.",
+        "payment.label":"Payment","payment.title":"Orange Money Payment","payment.secure":"Secure Orange Money payment","payment.number":"Number: <strong style=\"color:var(--text-strong);\">+226 07190217</strong>","payment.after":"After payment, click <strong>I paid</strong>.","payment.paidBtn":"✅ I paid","payment.questionBtn":"Ask a question",
+        "contact.label":"Contact","contact.title":"Ready to launch your project?","contact.subtitle":"What you sell has value. Your website must show it.",
+        "footer":"© 2026 Balima Web Developer · Freelance Web Developer · Burkina Faso 🇧🇫"
       }
     };
+
     let currentLang='fr';
-    function setLang(lang){
+    function translatePage(lang){
       currentLang=lang;
-      document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
-      buildMobileMenu();
-    }
-    document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-
-    // Mobile menu
-    function buildMobileMenu(){
-      const desktop=document.getElementById('desktopMenu');
-      const mobile=document.getElementById('mobileMenu');
-      if(!desktop||!mobile)return;
-      mobile.innerHTML='';
-      desktop.querySelectorAll('a').forEach(link=>{
-        const clone=link.cloneNode(true);
-        clone.classList.remove('cta');
-        mobile.appendChild(clone);
+      document.querySelectorAll('[data-translate]').forEach(el=>{
+        const key=el.getAttribute('data-translate');
+        if(translations[lang]&&translations[lang][key])el.innerHTML=translations[lang][key];
       });
+      document.querySelectorAll('[data-translate-placeholder]').forEach(el=>{
+        const key=el.getAttribute('data-translate-placeholder');
+        if(translations[lang]&&translations[lang][key])el.setAttribute('placeholder',translations[lang][key]);
+      });
+      document.querySelectorAll('.lang-btn[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+      buildMobileMenu();buildReviews();setCurrency(document.querySelector('.currency-btn.active')?.dataset?.currency||'xof');
     }
-    buildMobileMenu();
+    document.querySelectorAll('.lang-btn[data-lang]').forEach(b=>b.addEventListener('click',()=>translatePage(b.dataset.lang)));
 
-    const menuBtn=document.getElementById('menuBtn');
-    const menuOverlay=document.getElementById('menuOverlay');
-    const mobileMenuEl=document.getElementById('mobileMenu');
-    function toggleMenu(open){
-      document.body.classList.toggle('menu-open',open);
-      menuBtn.setAttribute('aria-expanded',open?'true':'false');
-    }
+    const reviewsData=[
+      {name:"Aïcha O.",rating:4,textFr:"J'ai hésité... et je n'aurais pas dû ! Site livré en 3 jours. Propre, rapide. Je l'ai recommandé à 2 amis.<br><br><strong style=\"color:var(--gold);\">Résultat : 8 nouveaux clients en 2 semaines.</strong>",textEn:"I hesitated... I shouldn't have! Site delivered in 3 days. Clean, fast. Recommended to 2 friends.<br><br><strong style=\"color:var(--gold);\">Result: 8 new clients in 2 weeks.</strong>"},
+      {name:"Moussa K.",rating:5,textFr:"Il a pris le temps de comprendre mon activité. Mes ventes ont augmenté dès la première semaine.<br><br><strong style=\"color:var(--gold);\">Résultat : 12 commandes en 7 jours.</strong>",textEn:"He took time to understand my business. Sales increased the first week.<br><br><strong style=\"color:var(--gold);\">Result: 12 orders in 7 days.</strong>"},
+      {name:"Ibrahim S.",rating:4,textFr:"Patient, rapide, il tient ses promesses. Plus qu'un développeur, un partenaire.<br><br><strong style=\"color:var(--gold);\">Résultat : un site qui me rend fier.</strong>",textEn:"Patient, fast, keeps his promises. More than a developer, a partner.<br><br><strong style=\"color:var(--gold);\">Result: a site I'm proud of.</strong>"},
+      {name:"Kadija B.",rating:4,textFr:"Livré rapidement. Mes clients me prennent beaucoup plus au sérieux maintenant.<br><br><strong style=\"color:var(--gold);\">Résultat : crédibilité multipliée.</strong>",textEn:"Delivered quickly. My clients take me much more seriously now.<br><br><strong style=\"color:var(--gold);\">Result: multiplied credibility.</strong>"}
+    ];
+
+    function renderStars(r){let h='<span style=\"display:inline-flex;gap:2px;color:var(--gold);font-size:.9rem;\">';for(let i=1;i<=5;i++)h+=i<=r?'<span>★</span>':'<span style=\"color:var(--line);\">★</span>';return h+'</span>';}
+    function buildReviews(){const grid=document.getElementById('reviewsGrid');if(!grid)return;grid.innerHTML='';reviewsData.forEach(r=>{const card=document.createElement('div');card.className='service-card';card.innerHTML=`<h3>${renderStars(r.rating)} ${r.name}</h3><p style=\"color:var(--muted);font-size:.82rem;margin-top:8px;\">${currentLang==='en'?r.textEn:r.textFr}</p>`;grid.appendChild(card);});}
+    function setCurrency(c){document.querySelectorAll('.currency-btn').forEach(b=>b.classList.toggle('active',b.dataset.currency===c));document.querySelectorAll('.price span').forEach(s=>s.style.display='none');document.querySelectorAll('.price .'+c).forEach(s=>s.style.display='inline-flex');}
+    document.querySelectorAll('.currency-btn').forEach(b=>b.addEventListener('click',()=>setCurrency(b.dataset.currency)));
+
+    function buildMobileMenu(){const desktop=document.getElementById('desktopMenu'),mobile=document.getElementById('mobileMenu');if(!desktop||!mobile)return;mobile.innerHTML='';desktop.querySelectorAll('a').forEach(link=>{const clone=link.cloneNode(true);clone.classList.remove('cta');mobile.appendChild(clone);});}
+    const menuBtn=document.getElementById('menuBtn'),menuOverlay=document.getElementById('menuOverlay'),mobileMenuEl=document.getElementById('mobileMenu');
+    function toggleMenu(open){document.body.classList.toggle('menu-open',open);menuBtn.setAttribute('aria-expanded',open?'true':'false');}
     menuBtn.addEventListener('click',()=>toggleMenu(!document.body.classList.contains('menu-open')));
     menuOverlay.addEventListener('click',()=>toggleMenu(false));
     mobileMenuEl.addEventListener('click',(e)=>{if(e.target.tagName==='A')toggleMenu(false);});
     document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleMenu(false);});
 
-    // FAQ
-    document.querySelectorAll(".faq-question").forEach(btn=>{
-      btn.addEventListener("click",()=>{
-        const item=btn.parentElement;
-        document.querySelectorAll(".faq-item").forEach(el=>{if(el!==item)el.classList.remove("active");});
-        item.classList.toggle("active");
-      });
-    });
+    document.querySelectorAll(".faq-question").forEach(btn=>{btn.addEventListener("click",()=>{const item=btn.parentElement;document.querySelectorAll(".faq-item").forEach(el=>{if(el!==item)el.classList.remove("active");});item.classList.toggle("active");});});
 
-    // Back to top
-    const backToTop=document.getElementById('backToTop');
-    window.addEventListener('scroll',()=>backToTop.classList.toggle('visible',window.scrollY>500));
-    backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    const btnBackToTop=document.getElementById('btnBackToTop'),btnScrollDown=document.getElementById('btnScrollDown');
+    window.addEventListener('scroll',()=>{const s=window.scrollY>500;btnBackToTop.classList.toggle('visible',s);btnScrollDown.classList.toggle('visible',s);});
+    btnBackToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    btnScrollDown.addEventListener('click',()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}));
 
-    // Theme toggle
     const themeToggle=document.getElementById('themeToggle');
-    themeToggle.addEventListener('click',()=>{
-      document.body.classList.toggle('light-mode');
-      themeToggle.textContent=document.body.classList.contains('light-mode')?'☀️':'🌙';
-    });
+    themeToggle.addEventListener('click',()=>{document.body.classList.toggle('dark-mode');themeToggle.textContent=document.body.classList.contains('dark-mode')?'☀️':'🌙';});
 
-    // Counter animation
-    function animateCounters(){
-      const statsRow=document.getElementById('statsRow');
-      if(!statsRow)return;
-      let animated=false;
-      function run(){
-        if(animated)return;
-        const rect=statsRow.getBoundingClientRect();
-        if(rect.top<window.innerHeight-100){
-          animated=true;
-          statsRow.querySelectorAll('.stat-number').forEach(el=>{
-            const target=parseInt(el.dataset.target);
-            const duration=1500;
-            const start=performance.now();
-            function update(now){
-              const progress=Math.min((now-start)/duration,1);
-              el.textContent=Math.floor(progress*target)+(el.dataset.target==='100'?'%':el.dataset.target==='7'?'/7':'');
-              if(progress<1)requestAnimationFrame(update);
-              else el.textContent=target+(el.dataset.target==='100'?'%':el.dataset.target==='7'?'/7':'');
-            }
-            requestAnimationFrame(update);
-          });
-        }
-      }
-      window.addEventListener('scroll',run);
-      run();
-    }
-    animateCounters();
+    function animateCounters(){const statsRow=document.getElementById('statsRow');if(!statsRow)return;let animated=false;function run(){if(animated)return;const rect=statsRow.getBoundingClientRect();if(rect.top<window.innerHeight-100){animated=true;statsRow.querySelectorAll('.stat-number').forEach(el=>{const target=parseInt(el.dataset.target),duration=1500,start=performance.now();function update(now){const progress=Math.min((now-start)/duration,1),suffix=el.dataset.target==='100'?'%':(el.dataset.target==='7'?'/7':'');el.textContent=Math.floor(progress*target)+suffix;if(progress<1)requestAnimationFrame(update);else el.textContent=target+suffix;}requestAnimationFrame(update);});}}window.addEventListener('scroll',run);run();}
+    function setupScrollAnimations(){const els=document.querySelectorAll('.anim-up,.anim-scale,.anim-left,.anim-right');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -20px 0px'});els.forEach(el=>obs.observe(el));}
+
+    buildReviews();buildMobileMenu();setCurrency('xof');animateCounters();setupScrollAnimations();translatePage('fr');
   </script>
 </body>
 </html>
